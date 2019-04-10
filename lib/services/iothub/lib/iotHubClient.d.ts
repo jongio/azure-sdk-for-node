@@ -60,6 +60,7 @@ export default class IotHubClient extends AzureServiceClient {
   iotHubResource: operations.IotHubResource;
   resourceProviderCommon: operations.ResourceProviderCommon;
   certificates: operations.Certificates;
+  iotHub: operations.IotHub;
 }
 
 export { IotHubClient, models as IotHubModels };

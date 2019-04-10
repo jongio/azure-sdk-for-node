@@ -231,9 +231,9 @@ export interface IotHubResource {
      * rules.
      *
      * @param {object} [iotHubDescription.properties.eventHubEndpoints] The Event
-     * Hub-compatible endpoint properties. The possible keys to this dictionary are
-     * events and operationsMonitoringEvents. Both of these keys have to be present
-     * in the dictionary while making create or update calls for the IoT hub.
+     * Hub-compatible endpoint properties. The only possible keys to this
+     * dictionary is events. This key has to be present in the dictionary while
+     * making create or update calls for the IoT hub.
      *
      * @param {object} [iotHubDescription.properties.routing]
      *
@@ -291,6 +291,11 @@ export interface IotHubResource {
      * iotHubDescription.properties.routing.fallbackRoute.isEnabled Used to specify
      * whether the fallback route is enabled.
      *
+     * @param {array} [iotHubDescription.properties.routing.enrichments] The list
+     * of user-provided enrichments that the IoT hub applies to messages to be
+     * delivered to built-in and custom endpoints. See:
+     * https://aka.ms/telemetryoneventgrid
+     *
      * @param {object} [iotHubDescription.properties.storageEndpoints] The list of
      * Azure Storage endpoints where you can upload files. Currently you can
      * configure only one Azure Storage account and that MUST have its key as
@@ -339,11 +344,12 @@ export interface IotHubResource {
      *
      * @param {string} [iotHubDescription.properties.comments] IoT hub comments.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties]
+     * @param {object} [iotHubDescription.properties.deviceStreams] The device
+     * streams properties of iothub.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties.events]
+     * @param {array}
+     * [iotHubDescription.properties.deviceStreams.streamingEndpoints] List of
+     * Device Streams Endpoints.
      *
      * @param {string} [iotHubDescription.properties.features] The capabilities and
      * features enabled for the IoT hub. Possible values include: 'None',
@@ -406,9 +412,9 @@ export interface IotHubResource {
      * rules.
      *
      * @param {object} [iotHubDescription.properties.eventHubEndpoints] The Event
-     * Hub-compatible endpoint properties. The possible keys to this dictionary are
-     * events and operationsMonitoringEvents. Both of these keys have to be present
-     * in the dictionary while making create or update calls for the IoT hub.
+     * Hub-compatible endpoint properties. The only possible keys to this
+     * dictionary is events. This key has to be present in the dictionary while
+     * making create or update calls for the IoT hub.
      *
      * @param {object} [iotHubDescription.properties.routing]
      *
@@ -466,6 +472,11 @@ export interface IotHubResource {
      * iotHubDescription.properties.routing.fallbackRoute.isEnabled Used to specify
      * whether the fallback route is enabled.
      *
+     * @param {array} [iotHubDescription.properties.routing.enrichments] The list
+     * of user-provided enrichments that the IoT hub applies to messages to be
+     * delivered to built-in and custom endpoints. See:
+     * https://aka.ms/telemetryoneventgrid
+     *
      * @param {object} [iotHubDescription.properties.storageEndpoints] The list of
      * Azure Storage endpoints where you can upload files. Currently you can
      * configure only one Azure Storage account and that MUST have its key as
@@ -514,11 +525,12 @@ export interface IotHubResource {
      *
      * @param {string} [iotHubDescription.properties.comments] IoT hub comments.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties]
+     * @param {object} [iotHubDescription.properties.deviceStreams] The device
+     * streams properties of iothub.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties.events]
+     * @param {array}
+     * [iotHubDescription.properties.deviceStreams.streamingEndpoints] List of
+     * Device Streams Endpoints.
      *
      * @param {string} [iotHubDescription.properties.features] The capabilities and
      * features enabled for the IoT hub. Possible values include: 'None',
@@ -1619,6 +1631,16 @@ export interface IotHubResource {
      *
      * @param {object} [input.message.systemProperties] System properties
      *
+     * @param {object} [input.twin] Routing Twin Reference
+     *
+     * @param {object} [input.twin.tags] Twin Tags
+     *
+     * @param {object} [input.twin.properties]
+     *
+     * @param {object} [input.twin.properties.desired] Twin desired properties
+     *
+     * @param {object} [input.twin.properties.reported] Twin desired properties
+     *
      * @param {string} iotHubName IotHub to be tested
      *
      * @param {string} resourceGroupName resource group which Iot Hub belongs to
@@ -1654,6 +1676,16 @@ export interface IotHubResource {
      * @param {object} [input.message.appProperties] App properties
      *
      * @param {object} [input.message.systemProperties] System properties
+     *
+     * @param {object} [input.twin] Routing Twin Reference
+     *
+     * @param {object} [input.twin.tags] Twin Tags
+     *
+     * @param {object} [input.twin.properties]
+     *
+     * @param {object} [input.twin.properties.desired] Twin desired properties
+     *
+     * @param {object} [input.twin.properties.reported] Twin desired properties
      *
      * @param {string} iotHubName IotHub to be tested
      *
@@ -1729,6 +1761,16 @@ export interface IotHubResource {
      * @param {boolean} input.route.isEnabled Used to specify whether a route is
      * enabled.
      *
+     * @param {object} [input.twin] Routing Twin Reference
+     *
+     * @param {object} [input.twin.tags] Twin Tags
+     *
+     * @param {object} [input.twin.properties]
+     *
+     * @param {object} [input.twin.properties.desired] Twin desired properties
+     *
+     * @param {object} [input.twin.properties.reported] Twin desired properties
+     *
      * @param {string} iotHubName IotHub to be tested
      *
      * @param {string} resourceGroupName resource group which Iot Hub belongs to
@@ -1783,6 +1825,16 @@ export interface IotHubResource {
      *
      * @param {boolean} input.route.isEnabled Used to specify whether a route is
      * enabled.
+     *
+     * @param {object} [input.twin] Routing Twin Reference
+     *
+     * @param {object} [input.twin.tags] Twin Tags
+     *
+     * @param {object} [input.twin.properties]
+     *
+     * @param {object} [input.twin.properties.desired] Twin desired properties
+     *
+     * @param {object} [input.twin.properties.reported] Twin desired properties
      *
      * @param {string} iotHubName IotHub to be tested
      *
@@ -2177,9 +2229,9 @@ export interface IotHubResource {
      * rules.
      *
      * @param {object} [iotHubDescription.properties.eventHubEndpoints] The Event
-     * Hub-compatible endpoint properties. The possible keys to this dictionary are
-     * events and operationsMonitoringEvents. Both of these keys have to be present
-     * in the dictionary while making create or update calls for the IoT hub.
+     * Hub-compatible endpoint properties. The only possible keys to this
+     * dictionary is events. This key has to be present in the dictionary while
+     * making create or update calls for the IoT hub.
      *
      * @param {object} [iotHubDescription.properties.routing]
      *
@@ -2237,6 +2289,11 @@ export interface IotHubResource {
      * iotHubDescription.properties.routing.fallbackRoute.isEnabled Used to specify
      * whether the fallback route is enabled.
      *
+     * @param {array} [iotHubDescription.properties.routing.enrichments] The list
+     * of user-provided enrichments that the IoT hub applies to messages to be
+     * delivered to built-in and custom endpoints. See:
+     * https://aka.ms/telemetryoneventgrid
+     *
      * @param {object} [iotHubDescription.properties.storageEndpoints] The list of
      * Azure Storage endpoints where you can upload files. Currently you can
      * configure only one Azure Storage account and that MUST have its key as
@@ -2285,11 +2342,12 @@ export interface IotHubResource {
      *
      * @param {string} [iotHubDescription.properties.comments] IoT hub comments.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties]
+     * @param {object} [iotHubDescription.properties.deviceStreams] The device
+     * streams properties of iothub.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties.events]
+     * @param {array}
+     * [iotHubDescription.properties.deviceStreams.streamingEndpoints] List of
+     * Device Streams Endpoints.
      *
      * @param {string} [iotHubDescription.properties.features] The capabilities and
      * features enabled for the IoT hub. Possible values include: 'None',
@@ -2352,9 +2410,9 @@ export interface IotHubResource {
      * rules.
      *
      * @param {object} [iotHubDescription.properties.eventHubEndpoints] The Event
-     * Hub-compatible endpoint properties. The possible keys to this dictionary are
-     * events and operationsMonitoringEvents. Both of these keys have to be present
-     * in the dictionary while making create or update calls for the IoT hub.
+     * Hub-compatible endpoint properties. The only possible keys to this
+     * dictionary is events. This key has to be present in the dictionary while
+     * making create or update calls for the IoT hub.
      *
      * @param {object} [iotHubDescription.properties.routing]
      *
@@ -2412,6 +2470,11 @@ export interface IotHubResource {
      * iotHubDescription.properties.routing.fallbackRoute.isEnabled Used to specify
      * whether the fallback route is enabled.
      *
+     * @param {array} [iotHubDescription.properties.routing.enrichments] The list
+     * of user-provided enrichments that the IoT hub applies to messages to be
+     * delivered to built-in and custom endpoints. See:
+     * https://aka.ms/telemetryoneventgrid
+     *
      * @param {object} [iotHubDescription.properties.storageEndpoints] The list of
      * Azure Storage endpoints where you can upload files. Currently you can
      * configure only one Azure Storage account and that MUST have its key as
@@ -2460,11 +2523,12 @@ export interface IotHubResource {
      *
      * @param {string} [iotHubDescription.properties.comments] IoT hub comments.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties]
+     * @param {object} [iotHubDescription.properties.deviceStreams] The device
+     * streams properties of iothub.
      *
-     * @param {object}
-     * [iotHubDescription.properties.operationsMonitoringProperties.events]
+     * @param {array}
+     * [iotHubDescription.properties.deviceStreams.streamingEndpoints] List of
+     * Device Streams Endpoints.
      *
      * @param {string} [iotHubDescription.properties.features] The capabilities and
      * features enabled for the IoT hub. Possible values include: 'None',
@@ -3683,4 +3747,80 @@ export interface Certificates {
     verify(resourceGroupName: string, resourceName: string, certificateName: string, ifMatch: string, options?: { certificate? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.CertificateDescription>;
     verify(resourceGroupName: string, resourceName: string, certificateName: string, ifMatch: string, callback: ServiceCallback<models.CertificateDescription>): void;
     verify(resourceGroupName: string, resourceName: string, certificateName: string, ifMatch: string, options: { certificate? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CertificateDescription>): void;
+}
+
+/**
+ * @class
+ * IotHub
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the IotHubClient.
+ */
+export interface IotHub {
+
+
+    /**
+     * @summary Manual Failover Fail over
+     *
+     * Perform manual fail over of given hub
+     *
+     * @param {string} iotHubName IotHub to fail over
+     *
+     * @param {string} resourceGroupName resource group which Iot Hub belongs to
+     *
+     * @param {string} failoverRegion Region the hub will be failed over to
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<IotHubDescription>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    manualFailoverWithHttpOperationResponse(iotHubName: string, resourceGroupName: string, failoverRegion: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.IotHubDescription>>;
+
+    /**
+     * @summary Manual Failover Fail over
+     *
+     * Perform manual fail over of given hub
+     *
+     * @param {string} iotHubName IotHub to fail over
+     *
+     * @param {string} resourceGroupName resource group which Iot Hub belongs to
+     *
+     * @param {string} failoverRegion Region the hub will be failed over to
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {IotHubDescription} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {IotHubDescription} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link IotHubDescription} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    manualFailover(iotHubName: string, resourceGroupName: string, failoverRegion: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.IotHubDescription>;
+    manualFailover(iotHubName: string, resourceGroupName: string, failoverRegion: string, callback: ServiceCallback<models.IotHubDescription>): void;
+    manualFailover(iotHubName: string, resourceGroupName: string, failoverRegion: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.IotHubDescription>): void;
 }
