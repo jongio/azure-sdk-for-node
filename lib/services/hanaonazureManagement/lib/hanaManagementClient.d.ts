@@ -58,6 +58,7 @@ export default class HanaManagementClient extends AzureServiceClient {
   // Operation groups
   operations: operations.Operations;
   hanaInstances: operations.HanaInstances;
+  monitoring: operations.Monitoring;
 }
 
 export { HanaManagementClient, models as HanaManagementModels };
