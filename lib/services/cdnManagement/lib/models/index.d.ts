@@ -21,7 +21,8 @@ export {
 export interface Sku {
   /**
    * Name of the pricing tier. Possible values include: 'Standard_Verizon', 'Premium_Verizon',
-   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Premium_ChinaCdn',
+   * 'Standard_Microsoft'
    */
   name?: string;
 }
