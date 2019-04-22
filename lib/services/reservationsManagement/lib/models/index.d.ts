@@ -103,6 +103,88 @@ export interface ReservationMergeProperties {
   mergeSources?: string[];
 }
 
+/**
+ * Properties specific to each reserved resource type. Not required if not applicable.
+*/
+export interface PurchaseRequestPropertiesReservedResourceProperties {
+  /**
+   * Possible values include: 'On', 'Off'
+  */
+  instanceFlexibility?: string;
+}
+
+export interface PurchaseRequest {
+  sku?: SkuName;
+  /**
+   * The Azure Region where the reserved resource lives.
+  */
+  location?: string;
+  /**
+   * Possible values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
+  */
+  reservedResourceType?: string;
+  billingScopeId?: string;
+  /**
+   * Possible values include: 'P1Y', 'P3Y'
+  */
+  term?: string;
+  quantity?: number;
+  /**
+   * Friendly name of the Reservation
+  */
+  displayName?: string;
+  /**
+   * Possible values include: 'Single', 'Shared'
+  */
+  appliedScopeType?: string;
+  appliedScopes?: string[];
+  renew?: boolean;
+  /**
+   * Properties specific to each reserved resource type. Not required if not applicable.
+  */
+  reservedResourceProperties?: PurchaseRequestPropertiesReservedResourceProperties;
+}
+
+/**
+ * Locked currency & amount for new reservation purchase at the time of renewal. Price is locked 30
+ * days before expiry date time if renew is true.
+*/
+export interface RenewPropertiesResponseLockedPriceTotal {
+  currencyCode?: string;
+  amount?: string;
+}
+
+/**
+ * Contains prev and next reservation Ids' because of renewal.
+*/
+export interface RenewPropertiesResponseLinks {
+  /**
+   * Reservation Id of the reservation from which this reservation is renewed. Format of the
+   * resource Id is
+   * /providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}.
+  */
+  renewSource?: string;
+  /**
+   * Reservation Id of the reservation which is purchased because of renew. Format of the resource
+   * Id is
+   * /providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}/reservations/{reservationId}.
+  */
+  renewDestination?: string;
+}
+
+export interface RenewPropertiesResponse {
+  purchaseProperties?: PurchaseRequest;
+  /**
+   * Locked currency & amount for new reservation purchase at the time of renewal. Price is locked
+   * 30 days before expiry date time if renew is true.
+  */
+  lockedPriceTotal?: RenewPropertiesResponseLockedPriceTotal;
+  /**
+   * Contains prev and next reservation Ids' because of renewal.
+  */
+  links?: RenewPropertiesResponseLinks;
+}
+
 export interface ReservationProperties {
   /**
    * Possible values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
@@ -145,6 +227,8 @@ export interface ReservationProperties {
   extendedStatusInfo?: ExtendedStatusInfo;
   splitProperties?: ReservationSplitProperties;
   mergeProperties?: ReservationMergeProperties;
+  renew?: boolean;
+  renewProperties?: RenewPropertiesResponse;
 }
 
 export interface ReservationResponse extends BaseResource {
@@ -262,16 +346,6 @@ export interface CalculatePriceResponse {
   properties?: CalculatePriceResponseProperties;
 }
 
-/**
- * Properties specific to each reserved resource type. Not required if not applicable.
-*/
-export interface PurchaseRequestPropertiesReservedResourceProperties {
-  /**
-   * Possible values include: 'On', 'Off'
-  */
-  instanceFlexibility?: string;
-}
-
 export interface MergeRequest {
   /**
    * Format of the resource id should be
@@ -280,43 +354,14 @@ export interface MergeRequest {
   sources?: string[];
 }
 
-export interface PurchaseRequest {
-  sku?: SkuName;
-  /**
-   * The Azure Region where the reserved resource lives.
-  */
-  location?: string;
-  /**
-   * Possible values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
-  */
-  reservedResourceType?: string;
-  billingScopeId?: string;
-  /**
-   * Possible values include: 'P1Y', 'P3Y'
-  */
-  term?: string;
-  quantity?: number;
-  /**
-   * Friendly name of the Reservation
-  */
-  displayName?: string;
-  /**
-   * Possible values include: 'Single', 'Shared'
-  */
-  appliedScopeType?: string;
-  appliedScopes?: string[];
-  /**
-   * Properties specific to each reserved resource type. Not required if not applicable.
-  */
-  reservedResourceProperties?: PurchaseRequestPropertiesReservedResourceProperties;
-}
-
 export interface Patch {
   /**
    * Possible values include: 'Single', 'Shared'
   */
   appliedScopeType?: string;
   appliedScopes?: string[];
+  renew?: boolean;
+  renewProperties?: PurchaseRequest;
   /**
    * Possible values include: 'On', 'Off'
   */

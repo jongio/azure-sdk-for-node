@@ -52,6 +52,8 @@ export interface ReservationOrder {
      *
      * @param {array} [body.appliedScopes]
      *
+     * @param {boolean} [body.renew]
+     *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
      *
@@ -101,6 +103,8 @@ export interface ReservationOrder {
      * 'Shared'
      *
      * @param {array} [body.appliedScopes]
+     *
+     * @param {boolean} [body.renew]
      *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
@@ -231,6 +235,8 @@ export interface ReservationOrder {
      *
      * @param {array} [body.appliedScopes]
      *
+     * @param {boolean} [body.renew]
+     *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
      *
@@ -282,6 +288,8 @@ export interface ReservationOrder {
      * 'Shared'
      *
      * @param {array} [body.appliedScopes]
+     *
+     * @param {boolean} [body.renew]
      *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
@@ -415,6 +423,8 @@ export interface ReservationOrder {
      *
      * @param {array} [body.appliedScopes]
      *
+     * @param {boolean} [body.renew]
+     *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
      *
@@ -466,6 +476,8 @@ export interface ReservationOrder {
      * 'Shared'
      *
      * @param {array} [body.appliedScopes]
+     *
+     * @param {boolean} [body.renew]
      *
      * @param {object} [body.reservedResourceProperties] Properties specific to
      * each reserved resource type. Not required if not applicable.
@@ -798,6 +810,9 @@ export interface Reservation {
      *
      * @param {object} [options] Optional Parameters.
      *
+     * @param {string} [options.append] Supported value of this query is
+     * renewProperties
+     *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
      *
@@ -807,7 +822,7 @@ export interface Reservation {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    getWithHttpOperationResponse(reservationId: string, reservationOrderId: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ReservationResponse>>;
+    getWithHttpOperationResponse(reservationId: string, reservationOrderId: string, options?: { append? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ReservationResponse>>;
 
     /**
      * @summary Get `Reservation` details.
@@ -819,6 +834,9 @@ export interface Reservation {
      * @param {string} reservationOrderId Order Id of the reservation
      *
      * @param {object} [options] Optional Parameters.
+     *
+     * @param {string} [options.append] Supported value of this query is
+     * renewProperties
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -845,9 +863,9 @@ export interface Reservation {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    get(reservationId: string, reservationOrderId: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ReservationResponse>;
+    get(reservationId: string, reservationOrderId: string, options?: { append? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.ReservationResponse>;
     get(reservationId: string, reservationOrderId: string, callback: ServiceCallback<models.ReservationResponse>): void;
-    get(reservationId: string, reservationOrderId: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ReservationResponse>): void;
+    get(reservationId: string, reservationOrderId: string, options: { append? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ReservationResponse>): void;
 
 
     /**
@@ -865,6 +883,45 @@ export interface Reservation {
      * 'Single', 'Shared'
      *
      * @param {array} [parameters.appliedScopes]
+     *
+     * @param {boolean} [parameters.renew]
+     *
+     * @param {object} [parameters.renewProperties]
+     *
+     * @param {object} [parameters.renewProperties.sku]
+     *
+     * @param {string} [parameters.renewProperties.sku.name]
+     *
+     * @param {string} [parameters.renewProperties.location] The Azure Region where
+     * the reserved resource lives.
+     *
+     * @param {string} [parameters.renewProperties.reservedResourceType] Possible
+     * values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
+     *
+     * @param {string} [parameters.renewProperties.billingScopeId]
+     *
+     * @param {string} [parameters.renewProperties.term] Possible values include:
+     * 'P1Y', 'P3Y'
+     *
+     * @param {number} [parameters.renewProperties.quantity]
+     *
+     * @param {string} [parameters.renewProperties.displayName] Friendly name of
+     * the Reservation
+     *
+     * @param {string} [parameters.renewProperties.appliedScopeType] Possible
+     * values include: 'Single', 'Shared'
+     *
+     * @param {array} [parameters.renewProperties.appliedScopes]
+     *
+     * @param {boolean} [parameters.renewProperties.renew]
+     *
+     * @param {object} [parameters.renewProperties.reservedResourceProperties]
+     * Properties specific to each reserved resource type. Not required if not
+     * applicable.
+     *
+     * @param {string}
+     * [parameters.renewProperties.reservedResourceProperties.instanceFlexibility]
+     * Possible values include: 'On', 'Off'
      *
      * @param {string} [parameters.instanceFlexibility] Possible values include:
      * 'On', 'Off'
@@ -899,6 +956,45 @@ export interface Reservation {
      * 'Single', 'Shared'
      *
      * @param {array} [parameters.appliedScopes]
+     *
+     * @param {boolean} [parameters.renew]
+     *
+     * @param {object} [parameters.renewProperties]
+     *
+     * @param {object} [parameters.renewProperties.sku]
+     *
+     * @param {string} [parameters.renewProperties.sku.name]
+     *
+     * @param {string} [parameters.renewProperties.location] The Azure Region where
+     * the reserved resource lives.
+     *
+     * @param {string} [parameters.renewProperties.reservedResourceType] Possible
+     * values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
+     *
+     * @param {string} [parameters.renewProperties.billingScopeId]
+     *
+     * @param {string} [parameters.renewProperties.term] Possible values include:
+     * 'P1Y', 'P3Y'
+     *
+     * @param {number} [parameters.renewProperties.quantity]
+     *
+     * @param {string} [parameters.renewProperties.displayName] Friendly name of
+     * the Reservation
+     *
+     * @param {string} [parameters.renewProperties.appliedScopeType] Possible
+     * values include: 'Single', 'Shared'
+     *
+     * @param {array} [parameters.renewProperties.appliedScopes]
+     *
+     * @param {boolean} [parameters.renewProperties.renew]
+     *
+     * @param {object} [parameters.renewProperties.reservedResourceProperties]
+     * Properties specific to each reserved resource type. Not required if not
+     * applicable.
+     *
+     * @param {string}
+     * [parameters.renewProperties.reservedResourceProperties.instanceFlexibility]
+     * Possible values include: 'On', 'Off'
      *
      * @param {string} [parameters.instanceFlexibility] Possible values include:
      * 'On', 'Off'
@@ -1166,6 +1262,45 @@ export interface Reservation {
      *
      * @param {array} [parameters.appliedScopes]
      *
+     * @param {boolean} [parameters.renew]
+     *
+     * @param {object} [parameters.renewProperties]
+     *
+     * @param {object} [parameters.renewProperties.sku]
+     *
+     * @param {string} [parameters.renewProperties.sku.name]
+     *
+     * @param {string} [parameters.renewProperties.location] The Azure Region where
+     * the reserved resource lives.
+     *
+     * @param {string} [parameters.renewProperties.reservedResourceType] Possible
+     * values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
+     *
+     * @param {string} [parameters.renewProperties.billingScopeId]
+     *
+     * @param {string} [parameters.renewProperties.term] Possible values include:
+     * 'P1Y', 'P3Y'
+     *
+     * @param {number} [parameters.renewProperties.quantity]
+     *
+     * @param {string} [parameters.renewProperties.displayName] Friendly name of
+     * the Reservation
+     *
+     * @param {string} [parameters.renewProperties.appliedScopeType] Possible
+     * values include: 'Single', 'Shared'
+     *
+     * @param {array} [parameters.renewProperties.appliedScopes]
+     *
+     * @param {boolean} [parameters.renewProperties.renew]
+     *
+     * @param {object} [parameters.renewProperties.reservedResourceProperties]
+     * Properties specific to each reserved resource type. Not required if not
+     * applicable.
+     *
+     * @param {string}
+     * [parameters.renewProperties.reservedResourceProperties.instanceFlexibility]
+     * Possible values include: 'On', 'Off'
+     *
      * @param {string} [parameters.instanceFlexibility] Possible values include:
      * 'On', 'Off'
      *
@@ -1199,6 +1334,45 @@ export interface Reservation {
      * 'Single', 'Shared'
      *
      * @param {array} [parameters.appliedScopes]
+     *
+     * @param {boolean} [parameters.renew]
+     *
+     * @param {object} [parameters.renewProperties]
+     *
+     * @param {object} [parameters.renewProperties.sku]
+     *
+     * @param {string} [parameters.renewProperties.sku.name]
+     *
+     * @param {string} [parameters.renewProperties.location] The Azure Region where
+     * the reserved resource lives.
+     *
+     * @param {string} [parameters.renewProperties.reservedResourceType] Possible
+     * values include: 'VirtualMachines', 'SqlDatabases', 'SuseLinux', 'CosmosDb'
+     *
+     * @param {string} [parameters.renewProperties.billingScopeId]
+     *
+     * @param {string} [parameters.renewProperties.term] Possible values include:
+     * 'P1Y', 'P3Y'
+     *
+     * @param {number} [parameters.renewProperties.quantity]
+     *
+     * @param {string} [parameters.renewProperties.displayName] Friendly name of
+     * the Reservation
+     *
+     * @param {string} [parameters.renewProperties.appliedScopeType] Possible
+     * values include: 'Single', 'Shared'
+     *
+     * @param {array} [parameters.renewProperties.appliedScopes]
+     *
+     * @param {boolean} [parameters.renewProperties.renew]
+     *
+     * @param {object} [parameters.renewProperties.reservedResourceProperties]
+     * Properties specific to each reserved resource type. Not required if not
+     * applicable.
+     *
+     * @param {string}
+     * [parameters.renewProperties.reservedResourceProperties.instanceFlexibility]
+     * Possible values include: 'On', 'Off'
      *
      * @param {string} [parameters.instanceFlexibility] Possible values include:
      * 'On', 'Off'
