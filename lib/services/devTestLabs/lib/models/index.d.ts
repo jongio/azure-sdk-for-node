@@ -15,3057 +15,4981 @@ export {
   CloudError
 };
 
-/**
- * Properties of a weekly schedule.
- */
-export interface WeekDetails {
+export interface TaxArea {
   /**
-   * The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-   */
-  weekdays?: string[];
-  /**
-   * The time of the day the schedule will occur.
-   */
-  time?: string;
-}
-
-/**
- * Properties of a daily schedule.
- */
-export interface DayDetails {
-  /**
-   * The time of day the schedule will occur.
-   */
-  time?: string;
-}
-
-/**
- * Properties of an hourly schedule.
- */
-export interface HourDetails {
-  /**
-   * Minutes of the hour the schedule will run.
-   */
-  minute?: number;
-}
-
-/**
- * Notification settings for a schedule.
- */
-export interface NotificationSettings {
-  /**
-   * If notifications are enabled for this schedule (i.e. Enabled, Disabled). Possible values
-   * include: 'Disabled', 'Enabled'
-   */
-  status?: string;
-  /**
-   * Time in minutes before event at which notification will be sent.
-   */
-  timeInMinutes?: number;
-  /**
-   * The webhook URL to which the notification will be sent.
-   */
-  webhookUrl?: string;
-}
-
-/**
- * An Azure resource.
- */
-export interface Resource extends BaseResource {
-  /**
-   * The identifier of the resource.
-   */
-  readonly id?: string;
-  /**
-   * The name of the resource.
-   */
-  readonly name?: string;
-  /**
-   * The type of the resource.
-   */
-  readonly type?: string;
-  /**
-   * The location of the resource.
-   */
-  location?: string;
-  /**
-   * The tags of the resource.
-   */
-  tags?: { [propertyName: string]: string };
-}
-
-/**
- * A schedule.
- */
-export interface Schedule extends Resource {
-  /**
-   * The status of the schedule (i.e. Enabled, Disabled). Possible values include: 'Enabled',
-   * 'Disabled'
-   */
-  status?: string;
-  /**
-   * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-   */
-  taskType?: string;
-  /**
-   * If the schedule will occur only some days of the week, specify the weekly recurrence.
-   */
-  weeklyRecurrence?: WeekDetails;
-  /**
-   * If the schedule will occur once each day of the week, specify the daily recurrence.
-   */
-  dailyRecurrence?: DayDetails;
-  /**
-   * If the schedule will occur multiple times a day, specify the hourly recurrence.
-   */
-  hourlyRecurrence?: HourDetails;
-  /**
-   * The time zone ID (e.g. Pacific Standard time).
-   */
-  timeZoneId?: string;
-  /**
-   * Notification settings.
-   */
-  notificationSettings?: NotificationSettings;
-  /**
-   * The creation date of the schedule.
-   */
-  readonly createdDate?: Date;
-  /**
-   * The resource ID to which the schedule belongs
-   */
-  targetResourceId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab
- * level.
- */
-export interface ApplicableSchedule extends Resource {
-  /**
-   * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-   */
-  labVmsShutdown?: Schedule;
-  /**
-   * The auto-startup schedule, if one has been set at the lab or lab resource level.
-   */
-  labVmsStartup?: Schedule;
-}
-
-/**
- * Properties of a weekly schedule.
- */
-export interface WeekDetailsFragment {
-  /**
-   * The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-   */
-  weekdays?: string[];
-  /**
-   * The time of the day the schedule will occur.
-   */
-  time?: string;
-}
-
-/**
- * Properties of a daily schedule.
- */
-export interface DayDetailsFragment {
-  /**
-   * The time of day the schedule will occur.
-   */
-  time?: string;
-}
-
-/**
- * Properties of an hourly schedule.
- */
-export interface HourDetailsFragment {
-  /**
-   * Minutes of the hour the schedule will run.
-   */
-  minute?: number;
-}
-
-/**
- * Notification settings for a schedule.
- */
-export interface NotificationSettingsFragment {
-  /**
-   * If notifications are enabled for this schedule (i.e. Enabled, Disabled). Possible values
-   * include: 'Disabled', 'Enabled'
-   */
-  status?: string;
-  /**
-   * Time in minutes before event at which notification will be sent.
-   */
-  timeInMinutes?: number;
-  /**
-   * The webhook URL to which the notification will be sent.
-   */
-  webhookUrl?: string;
-}
-
-/**
- * A schedule.
- */
-export interface ScheduleFragment extends Resource {
-  /**
-   * The status of the schedule (i.e. Enabled, Disabled). Possible values include: 'Enabled',
-   * 'Disabled'
-   */
-  status?: string;
-  /**
-   * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-   */
-  taskType?: string;
-  /**
-   * If the schedule will occur only some days of the week, specify the weekly recurrence.
-   */
-  weeklyRecurrence?: WeekDetailsFragment;
-  /**
-   * If the schedule will occur once each day of the week, specify the daily recurrence.
-   */
-  dailyRecurrence?: DayDetailsFragment;
-  /**
-   * If the schedule will occur multiple times a day, specify the hourly recurrence.
-   */
-  hourlyRecurrence?: HourDetailsFragment;
-  /**
-   * The time zone ID (e.g. Pacific Standard time).
-   */
-  timeZoneId?: string;
-  /**
-   * Notification settings.
-   */
-  notificationSettings?: NotificationSettingsFragment;
-  /**
-   * The resource ID to which the schedule belongs
-   */
-  targetResourceId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Schedules applicable to a virtual machine. The schedules may have been defined on a VM or on lab
- * level.
- */
-export interface ApplicableScheduleFragment extends Resource {
-  /**
-   * The auto-shutdown schedule, if one has been set at the lab or lab resource level.
-   */
-  labVmsShutdown?: ScheduleFragment;
-  /**
-   * The auto-startup schedule, if one has been set at the lab or lab resource level.
-   */
-  labVmsStartup?: ScheduleFragment;
-}
-
-/**
- * Properties of an artifact parameter.
- */
-export interface ArtifactParameterProperties {
-  /**
-   * The name of the artifact parameter.
-   */
-  name?: string;
-  /**
-   * The value of the artifact parameter.
-   */
-  value?: string;
-}
-
-/**
- * Properties of an artifact.
- */
-export interface ArtifactInstallProperties {
-  /**
-   * The artifact's identifier.
-   */
-  artifactId?: string;
-  /**
-   * The parameters of the artifact.
-   */
-  parameters?: ArtifactParameterProperties[];
-  /**
-   * The status of the artifact.
-   */
-  status?: string;
-  /**
-   * The status message from the deployment.
-   */
-  deploymentStatusMessage?: string;
-  /**
-   * The status message from the virtual machine extension.
-   */
-  vmExtensionStatusMessage?: string;
-  /**
-   * The time that the artifact starts to install on the virtual machine.
-   */
-  installTime?: Date;
-}
-
-/**
- * Request body for applying artifacts to a virtual machine.
- */
-export interface ApplyArtifactsRequest {
-  /**
-   * The list of artifacts to apply.
-   */
-  artifacts?: ArtifactInstallProperties[];
-}
-
-/**
- * A file containing a set of parameter values for an ARM template.
- */
-export interface ParametersValueFileInfo {
-  /**
-   * File name.
-   */
-  fileName?: string;
-  /**
-   * Contents of the file.
-   */
-  parametersValueInfo?: any;
-}
-
-/**
- * An Azure Resource Manager template.
- */
-export interface ArmTemplate extends Resource {
-  /**
-   * The display name of the ARM template.
-   */
-  readonly displayName?: string;
-  /**
-   * The description of the ARM template.
-   */
-  readonly description?: string;
-  /**
-   * The publisher of the ARM template.
-   */
-  readonly publisher?: string;
-  /**
-   * The URI to the icon of the ARM template.
-   */
-  readonly icon?: string;
-  /**
-   * The contents of the ARM template.
-   */
-  readonly contents?: any;
-  /**
-   * The creation date of the armTemplate.
-   */
-  readonly createdDate?: Date;
-  /**
-   * File name and parameter values information from all azuredeploy.*.parameters.json for the ARM
-   * template.
-   */
-  readonly parametersValueFilesInfo?: ParametersValueFileInfo[];
-}
-
-/**
- * Information about a generated ARM template.
- */
-export interface ArmTemplateInfo {
-  /**
-   * The template's contents.
-   */
-  template?: any;
-  /**
-   * The parameters of the ARM template.
-   */
-  parameters?: any;
-}
-
-/**
- * Properties of an Azure Resource Manager template parameter.
- */
-export interface ArmTemplateParameterProperties {
-  /**
-   * The name of the template parameter.
-   */
-  name?: string;
-  /**
-   * The value of the template parameter.
-   */
-  value?: string;
-}
-
-/**
- * An artifact.
- */
-export interface Artifact extends Resource {
-  /**
-   * The artifact's title.
-   */
-  readonly title?: string;
-  /**
-   * The artifact's description.
-   */
-  readonly description?: string;
-  /**
-   * The artifact's publisher.
-   */
-  readonly publisher?: string;
-  /**
-   * The file path to the artifact.
-   */
-  readonly filePath?: string;
-  /**
-   * The URI to the artifact icon.
-   */
-  readonly icon?: string;
-  /**
-   * The artifact's target OS.
-   */
-  readonly targetOsType?: string;
-  /**
-   * The artifact's parameters.
-   */
-  readonly parameters?: any;
-  /**
-   * The artifact's creation date.
-   */
-  readonly createdDate?: Date;
-}
-
-/**
- * Properties of an artifact deployment.
- */
-export interface ArtifactDeploymentStatusProperties {
-  /**
-   * The deployment status of the artifact.
-   */
-  deploymentStatus?: string;
-  /**
-   * The total count of the artifacts that were successfully applied.
-   */
-  artifactsApplied?: number;
-  /**
-   * The total count of the artifacts that were tentatively applied.
-   */
-  totalArtifacts?: number;
-}
-
-/**
- * Properties of an artifact deployment.
- */
-export interface ArtifactDeploymentStatusPropertiesFragment {
-  /**
-   * The deployment status of the artifact.
-   */
-  deploymentStatus?: string;
-  /**
-   * The total count of the artifacts that were successfully applied.
-   */
-  artifactsApplied?: number;
-  /**
-   * The total count of the artifacts that were tentatively applied.
-   */
-  totalArtifacts?: number;
-}
-
-/**
- * Properties of an artifact parameter.
- */
-export interface ArtifactParameterPropertiesFragment {
-  /**
-   * The name of the artifact parameter.
-   */
-  name?: string;
-  /**
-   * The value of the artifact parameter.
-   */
-  value?: string;
-}
-
-/**
- * Properties of an artifact.
- */
-export interface ArtifactInstallPropertiesFragment {
-  /**
-   * The artifact's identifier.
-   */
-  artifactId?: string;
-  /**
-   * The parameters of the artifact.
-   */
-  parameters?: ArtifactParameterPropertiesFragment[];
-  /**
-   * The status of the artifact.
-   */
-  status?: string;
-  /**
-   * The status message from the deployment.
-   */
-  deploymentStatusMessage?: string;
-  /**
-   * The status message from the virtual machine extension.
-   */
-  vmExtensionStatusMessage?: string;
-  /**
-   * The time that the artifact starts to install on the virtual machine.
-   */
-  installTime?: Date;
-}
-
-/**
- * Properties of an artifact source.
- */
-export interface ArtifactSource extends Resource {
-  /**
-   * The artifact source's display name.
-   */
-  displayName?: string;
-  /**
-   * The artifact source's URI.
-   */
-  uri?: string;
-  /**
-   * The artifact source's type. Possible values include: 'VsoGit', 'GitHub'
-   */
-  sourceType?: string;
-  /**
-   * The folder containing artifacts.
-   */
-  folderPath?: string;
-  /**
-   * The folder containing Azure Resource Manager templates.
-   */
-  armTemplateFolderPath?: string;
-  /**
-   * The artifact source's branch reference.
-   */
-  branchRef?: string;
-  /**
-   * The security token to authenticate to the artifact source.
-   */
-  securityToken?: string;
-  /**
-   * Indicates if the artifact source is enabled (values: Enabled, Disabled). Possible values
-   * include: 'Enabled', 'Disabled'
-   */
-  status?: string;
-  /**
-   * The artifact source's creation date.
-   */
-  readonly createdDate?: Date;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Properties of an artifact source.
- */
-export interface ArtifactSourceFragment extends Resource {
-  /**
-   * The artifact source's display name.
-   */
-  displayName?: string;
-  /**
-   * The artifact source's URI.
-   */
-  uri?: string;
-  /**
-   * The artifact source's type. Possible values include: 'VsoGit', 'GitHub'
-   */
-  sourceType?: string;
-  /**
-   * The folder containing artifacts.
-   */
-  folderPath?: string;
-  /**
-   * The folder containing Azure Resource Manager templates.
-   */
-  armTemplateFolderPath?: string;
-  /**
-   * The artifact source's branch reference.
-   */
-  branchRef?: string;
-  /**
-   * The security token to authenticate to the artifact source.
-   */
-  securityToken?: string;
-  /**
-   * Indicates if the artifact source is enabled (values: Enabled, Disabled). Possible values
-   * include: 'Enabled', 'Disabled'
-   */
-  status?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Properties of the disk to attach.
- */
-export interface AttachDiskProperties {
-  /**
-   * The resource ID of the Lab virtual machine to which the disk is attached.
-   */
-  leasedByLabVmId?: string;
-}
-
-/**
- * Properties to attach new disk to the Virtual Machine.
- */
-export interface AttachNewDataDiskOptions {
-  /**
-   * Size of the disk to be attached in Gibibytes.
-   */
-  diskSizeGiB?: number;
-  /**
-   * The name of the disk to be attached.
-   */
-  diskName?: string;
-  /**
-   * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
-   */
-  diskType?: string;
-}
-
-/**
- * Parameters for creating multiple virtual machines as a single action.
- */
-export interface BulkCreationParameters {
-  /**
-   * The number of virtual machine instances to create.
-   */
-  instanceCount?: number;
-}
-
-/**
- * A data disks attached to a virtual machine.
- */
-export interface ComputeDataDisk {
-  /**
-   * Gets data disk name.
-   */
-  name?: string;
-  /**
-   * When backed by a blob, the URI of underlying blob.
-   */
-  diskUri?: string;
-  /**
-   * When backed by managed disk, this is the ID of the compute disk resource.
-   */
-  managedDiskId?: string;
-  /**
-   * Gets data disk size in GiB.
-   */
-  diskSizeGiB?: number;
-}
-
-/**
- * A data disks attached to a virtual machine.
- */
-export interface ComputeDataDiskFragment {
-  /**
-   * Gets data disk name.
-   */
-  name?: string;
-  /**
-   * When backed by a blob, the URI of underlying blob.
-   */
-  diskUri?: string;
-  /**
-   * When backed by managed disk, this is the ID of the compute disk resource.
-   */
-  managedDiskId?: string;
-  /**
-   * Gets data disk size in GiB.
-   */
-  diskSizeGiB?: number;
-}
-
-/**
- * Status information about a virtual machine.
- */
-export interface ComputeVmInstanceViewStatus {
-  /**
-   * Gets the status Code.
-   */
-  code?: string;
-  /**
-   * Gets the short localizable label for the status.
-   */
-  displayStatus?: string;
-  /**
-   * Gets the message associated with the status.
-   */
-  message?: string;
-}
-
-/**
- * Status information about a virtual machine.
- */
-export interface ComputeVmInstanceViewStatusFragment {
-  /**
-   * Gets the status Code.
-   */
-  code?: string;
-  /**
-   * Gets the short localizable label for the status.
-   */
-  displayStatus?: string;
-  /**
-   * Gets the message associated with the status.
-   */
-  message?: string;
-}
-
-/**
- * Properties of a virtual machine returned by the Microsoft.Compute API.
- */
-export interface ComputeVmProperties {
-  /**
-   * Gets the statuses of the virtual machine.
-   */
-  statuses?: ComputeVmInstanceViewStatus[];
-  /**
-   * Gets the OS type of the virtual machine.
-   */
-  osType?: string;
-  /**
-   * Gets the size of the virtual machine.
-   */
-  vmSize?: string;
-  /**
-   * Gets the network interface ID of the virtual machine.
-   */
-  networkInterfaceId?: string;
-  /**
-   * Gets OS disk blob uri for the virtual machine.
-   */
-  osDiskId?: string;
-  /**
-   * Gets data disks blob uri for the virtual machine.
-   */
-  dataDiskIds?: string[];
-  /**
-   * Gets all data disks attached to the virtual machine.
-   */
-  dataDisks?: ComputeDataDisk[];
-}
-
-/**
- * Properties of a virtual machine returned by the Microsoft.Compute API.
- */
-export interface ComputeVmPropertiesFragment {
-  /**
-   * Gets the statuses of the virtual machine.
-   */
-  statuses?: ComputeVmInstanceViewStatusFragment[];
-  /**
-   * Gets the OS type of the virtual machine.
-   */
-  osType?: string;
-  /**
-   * Gets the size of the virtual machine.
-   */
-  vmSize?: string;
-  /**
-   * Gets the network interface ID of the virtual machine.
-   */
-  networkInterfaceId?: string;
-  /**
-   * Gets OS disk blob uri for the virtual machine.
-   */
-  osDiskId?: string;
-  /**
-   * Gets data disks blob uri for the virtual machine.
-   */
-  dataDiskIds?: string[];
-  /**
-   * Gets all data disks attached to the virtual machine.
-   */
-  dataDisks?: ComputeDataDiskFragment[];
-}
-
-/**
- * Properties of a percentage cost threshold.
- */
-export interface PercentageCostThresholdProperties {
-  /**
-   * The cost threshold value.
-   */
-  thresholdValue?: number;
-}
-
-/**
- * Properties of a cost threshold item.
- */
-export interface CostThresholdProperties {
-  /**
-   * The ID of the cost threshold item.
-   */
-  thresholdId?: string;
-  /**
-   * The value of the percentage cost threshold.
-   */
-  percentageThreshold?: PercentageCostThresholdProperties;
-  /**
-   * Indicates whether this threshold will be displayed on cost charts. Possible values include:
-   * 'Enabled', 'Disabled'
-   */
-  displayOnChart?: string;
-  /**
-   * Indicates whether notifications will be sent when this threshold is exceeded. Possible values
-   * include: 'Enabled', 'Disabled'
-   */
-  sendNotificationWhenExceeded?: string;
-  /**
-   * Indicates the datetime when notifications were last sent for this threshold.
-   */
-  notificationSent?: string;
-}
-
-/**
- * Information about a Windows OS.
- */
-export interface WindowsOsInfo {
-  /**
-   * The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied). Possible
-   * values include: 'NonSysprepped', 'SysprepRequested', 'SysprepApplied'
-   */
-  windowsOsState?: string;
-}
-
-/**
- * Information about a Linux OS.
- */
-export interface LinuxOsInfo {
-  /**
-   * The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-   * Possible values include: 'NonDeprovisioned', 'DeprovisionRequested', 'DeprovisionApplied'
-   */
-  linuxOsState?: string;
-}
-
-/**
- * Properties for creating a custom image from a virtual machine.
- */
-export interface CustomImagePropertiesFromVm {
-  /**
-   * The source vm identifier.
-   */
-  sourceVmId?: string;
-  /**
-   * The Windows OS information of the VM.
-   */
-  windowsOsInfo?: WindowsOsInfo;
-  /**
-   * The Linux OS information of the VM.
-   */
-  linuxOsInfo?: LinuxOsInfo;
-}
-
-/**
- * Properties for creating a custom image from a VHD.
- */
-export interface CustomImagePropertiesCustom {
-  /**
-   * The image name.
-   */
-  imageName?: string;
-  /**
-   * Indicates whether sysprep has been run on the VHD.
-   */
-  sysPrep?: boolean;
-  /**
-   * The OS type of the custom image (i.e. Windows, Linux). Possible values include: 'Windows',
-   * 'Linux', 'None'
-   */
-  osType: string;
-}
-
-/**
- * A custom image.
- */
-export interface CustomImage extends Resource {
-  /**
-   * The virtual machine from which the image is to be created.
-   */
-  vm?: CustomImagePropertiesFromVm;
-  /**
-   * The VHD from which the image is to be created.
-   */
-  vhd?: CustomImagePropertiesCustom;
-  /**
-   * The description of the custom image.
-   */
-  description?: string;
-  /**
-   * The author of the custom image.
-   */
-  author?: string;
-  /**
-   * The creation date of the custom image.
-   */
-  readonly creationDate?: Date;
-  /**
-   * The Managed Image Id backing the custom image.
-   */
-  managedImageId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Request body for adding a new or existing data disk to a virtual machine.
- */
-export interface DataDiskProperties {
-  /**
-   * Specifies options to attach a new disk to the virtual machine.
-   */
-  attachNewDataDiskOptions?: AttachNewDataDiskOptions;
-  /**
-   * Specifies the existing lab disk id to attach to virtual machine.
-   */
-  existingLabDiskId?: string;
-  /**
-   * Caching option for a data disk (i.e. None, ReadOnly, ReadWrite). Possible values include:
-   * 'None', 'ReadOnly', 'ReadWrite'
-   */
-  hostCaching?: string;
-}
-
-/**
- * Request body for detaching data disk from a virtual machine.
- */
-export interface DetachDataDiskProperties {
-  /**
-   * Specifies the disk resource ID to detach from virtual machine.
-   */
-  existingLabDiskId?: string;
-}
-
-/**
- * Properties of the disk to detach.
- */
-export interface DetachDiskProperties {
-  /**
-   * The resource ID of the Lab VM to which the disk is attached.
-   */
-  leasedByLabVmId?: string;
-}
-
-/**
- * A Disk.
- */
-export interface Disk extends Resource {
-  /**
-   * The storage type for the disk (i.e. Standard, Premium). Possible values include: 'Standard',
-   * 'Premium'
-   */
-  diskType?: string;
-  /**
-   * The size of the disk in Gibibytes.
-   */
-  diskSizeGiB?: number;
-  /**
-   * The resource ID of the VM to which this disk is leased.
-   */
-  leasedByLabVmId?: string;
-  /**
-   * When backed by a blob, the name of the VHD blob without extension.
-   */
-  diskBlobName?: string;
-  /**
-   * When backed by a blob, the URI of underlying blob.
-   */
-  diskUri?: string;
-  /**
-   * The creation date of the disk.
-   */
-  readonly createdDate?: Date;
-  /**
-   * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
-   */
-  hostCaching?: string;
-  /**
-   * When backed by managed disk, this is the ID of the compute disk resource.
-   */
-  managedDiskId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Properties of an environment deployment.
- */
-export interface EnvironmentDeploymentProperties {
-  /**
-   * The Azure Resource Manager template's identifier.
-   */
-  armTemplateId?: string;
-  /**
-   * The parameters of the Azure Resource Manager template.
-   */
-  parameters?: ArmTemplateParameterProperties[];
-}
-
-/**
- * An environment, which is essentially an ARM template deployment.
- */
-export interface DtlEnvironment extends Resource {
-  /**
-   * The deployment properties of the environment.
-   */
-  deploymentProperties?: EnvironmentDeploymentProperties;
-  /**
-   * The display name of the Azure Resource Manager template that produced the environment.
-   */
-  armTemplateDisplayName?: string;
-  /**
-   * The identifier of the resource group containing the environment's resources.
-   */
-  readonly resourceGroupId?: string;
-  /**
-   * The creator of the environment.
-   */
-  readonly createdByUser?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Properties for evaluating a policy set.
- */
-export interface EvaluatePoliciesProperties {
-  /**
-   * The fact name.
-   */
-  factName?: string;
-  /**
-   * The fact data.
-   */
-  factData?: string;
-  /**
-   * The value offset.
-   */
-  valueOffset?: string;
-}
-
-/**
- * Request body for evaluating a policy set.
- */
-export interface EvaluatePoliciesRequest {
-  /**
-   * Policies to evaluate.
-   */
-  policies?: EvaluatePoliciesProperties[];
-}
-
-/**
- * Policy violation.
- */
-export interface PolicyViolation {
-  /**
-   * The code of the policy violation.
-   */
-  code?: string;
-  /**
-   * The message of the policy violation.
-   */
-  message?: string;
-}
-
-/**
- * Result of a policy set evaluation.
- */
-export interface PolicySetResult {
-  /**
-   * A value indicating whether this policy set evaluation has discovered violations.
-   */
-  hasError?: boolean;
-  /**
-   * The list of policy violations.
-   */
-  policyViolations?: PolicyViolation[];
-}
-
-/**
- * Response body for evaluating a policy set.
- */
-export interface EvaluatePoliciesResponse {
-  /**
-   * Results of evaluating a policy set.
-   */
-  results?: PolicySetResult[];
-}
-
-/**
- * An event to be notified for.
- */
-export interface Event {
-  /**
-   * The event type for which this notification is enabled (i.e. AutoShutdown, Cost). Possible
-   * values include: 'AutoShutdown', 'Cost'
-   */
-  eventName?: string;
-}
-
-/**
- * An event to be notified for.
- */
-export interface EventFragment {
-  /**
-   * The event type for which this notification is enabled (i.e. AutoShutdown, Cost). Possible
-   * values include: 'AutoShutdown', 'Cost'
-   */
-  eventName?: string;
-}
-
-/**
- * The parameters of the export operation.
- */
-export interface ExportResourceUsageParameters {
-  /**
-   * The blob storage absolute sas uri with write permission to the container which the usage data
-   * needs to be uploaded to.
-   */
-  blobStorageAbsoluteSasUri?: string;
-  /**
-   * The start time of the usage. If not provided, usage will be reported since the beginning of
-   * data collection.
-   */
-  usageStartDate?: Date;
-}
-
-/**
- * Subnet information as returned by the Microsoft.Network API.
- */
-export interface ExternalSubnet {
-  /**
-   * Gets or sets the identifier.
-   */
+   * The id property for the taxArea entity
+  */
   id?: string;
   /**
-   * Gets or sets the name.
-   */
-  name?: string;
+   * The code property for the taxArea entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the taxArea entity
+  */
+  displayName?: string;
+  /**
+   * The taxType property for the taxArea entity
+  */
+  taxType?: string;
+  /**
+   * The lastModifiedDateTime property for the taxArea entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Subnet information as returned by the Microsoft.Network API.
- */
-export interface ExternalSubnetFragment {
+export interface PaymentMethod {
   /**
-   * Gets or sets the identifier.
-   */
+   * The id property for the paymentMethod entity
+  */
   id?: string;
   /**
-   * Gets or sets the name.
-   */
-  name?: string;
+   * The code property for the paymentMethod entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the paymentMethod entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the paymentMethod entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The reference information for an Azure Marketplace image.
- */
-export interface GalleryImageReference {
+export interface CustomerFinancialDetail {
   /**
-   * The offer of the gallery image.
-   */
-  offer?: string;
+   * The id property for the customerFinancialDetail entity
+  */
+  id?: string;
   /**
-   * The publisher of the gallery image.
-   */
-  publisher?: string;
+   * The number property for the customerFinancialDetail entity
+  */
+  number?: string;
   /**
-   * The SKU of the gallery image.
-   */
-  sku?: string;
+   * The balance property for the customerFinancialDetail entity
+  */
+  balance?: number;
   /**
-   * The OS type of the gallery image.
-   */
-  osType?: string;
+   * The totalSalesExcludingTax property for the customerFinancialDetail entity
+  */
+  totalSalesExcludingTax?: number;
   /**
-   * The version of the gallery image.
-   */
-  version?: string;
+   * The overdueAmount property for the customerFinancialDetail entity
+  */
+  overdueAmount?: number;
 }
 
-/**
- * A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load
- * balancer.
- */
-export interface InboundNatRule {
+export interface Picture {
   /**
-   * The transport protocol for the endpoint. Possible values include: 'Tcp', 'Udp'
-   */
-  transportProtocol?: string;
+   * The id property for the picture entity
+  */
+  id?: string;
   /**
-   * The external endpoint port of the inbound connection. Possible values range between 1 and
-   * 65535, inclusive. If unspecified, a value will be allocated automatically.
-   */
-  frontendPort?: number;
+   * The width property for the picture entity
+  */
+  width?: number;
   /**
-   * The port to which the external traffic will be redirected.
-   */
-  backendPort?: number;
+   * The height property for the picture entity
+  */
+  height?: number;
+  /**
+   * The contentType property for the picture entity
+  */
+  contentType?: string;
+  /**
+   * The content property for the picture entity
+  */
+  content?: string;
 }
 
-/**
- * Properties of a virtual machine that determine how it is connected to a load balancer.
- */
-export interface SharedPublicIpAddressConfiguration {
+export interface Account {
   /**
-   * The incoming NAT rules
-   */
-  inboundNatRules?: InboundNatRule[];
+   * The id property for the account entity
+  */
+  id?: string;
+  /**
+   * The number property for the account entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the account entity
+  */
+  displayName?: string;
+  /**
+   * The category property for the account entity
+  */
+  category?: string;
+  /**
+   * The subCategory property for the account entity
+  */
+  subCategory?: string;
+  /**
+   * The blocked property for the account entity
+  */
+  blocked?: boolean;
+  /**
+   * The lastModifiedDateTime property for the account entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Properties of a network interface.
- */
-export interface NetworkInterfaceProperties {
+export interface DimensionValue {
   /**
-   * The resource ID of the virtual network.
-   */
-  virtualNetworkId?: string;
+   * The id property for the dimensionValue entity
+  */
+  id?: string;
   /**
-   * The resource ID of the sub net.
-   */
-  subnetId?: string;
+   * The code property for the dimensionValue entity
+  */
+  code?: string;
   /**
-   * The resource ID of the public IP address.
-   */
-  publicIpAddressId?: string;
+   * The displayName property for the dimensionValue entity
+  */
+  displayName?: string;
   /**
-   * The public IP address.
-   */
-  publicIpAddress?: string;
-  /**
-   * The private IP address.
-   */
-  privateIpAddress?: string;
-  /**
-   * The DNS name.
-   */
-  dnsName?: string;
-  /**
-   * The RdpAuthority property is a server DNS host name or IP address followed by the service port
-   * number for RDP (Remote Desktop Protocol).
-   */
-  rdpAuthority?: string;
-  /**
-   * The SshAuthority property is a server DNS host name or IP address followed by the service port
-   * number for SSH.
-   */
-  sshAuthority?: string;
-  /**
-   * The configuration for sharing a public IP address across multiple virtual machines.
-   */
-  sharedPublicIpAddressConfiguration?: SharedPublicIpAddressConfiguration;
+   * The lastModifiedDateTime property for the dimensionValue entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Properties for creating a virtual machine.
- */
-export interface LabVirtualMachineCreationParameter {
+export interface Dimension {
   /**
-   * The number of virtual machine instances to create.
-   */
-  bulkCreationParameters?: BulkCreationParameters;
+   * The id property for the dimension entity
+  */
+  id?: string;
   /**
-   * The notes of the virtual machine.
-   */
-  notes?: string;
+   * The code property for the dimension entity
+  */
+  code?: string;
   /**
-   * The object identifier of the owner of the virtual machine.
-   */
-  ownerObjectId?: string;
+   * The displayName property for the dimension entity
+  */
+  displayName?: string;
   /**
-   * The user principal name of the virtual machine owner.
-   */
-  ownerUserPrincipalName?: string;
-  /**
-   * The object identifier of the creator of the virtual machine.
-   */
-  createdByUserId?: string;
-  /**
-   * The email address of creator of the virtual machine.
-   */
-  createdByUser?: string;
-  /**
-   * The creation date of the virtual machine.
-   */
-  createdDate?: Date;
-  /**
-   * The custom image identifier of the virtual machine.
-   */
-  customImageId?: string;
-  /**
-   * The OS type of the virtual machine.
-   */
-  osType?: string;
-  /**
-   * The size of the virtual machine.
-   */
-  size?: string;
-  /**
-   * The user name of the virtual machine.
-   */
-  userName?: string;
-  /**
-   * The password of the virtual machine administrator.
-   */
-  password?: string;
-  /**
-   * The SSH key of the virtual machine administrator.
-   */
-  sshKey?: string;
-  /**
-   * Indicates whether this virtual machine uses an SSH key for authentication.
-   */
-  isAuthenticationWithSshKey?: boolean;
-  /**
-   * The fully-qualified domain name of the virtual machine.
-   */
-  fqdn?: string;
-  /**
-   * The lab subnet name of the virtual machine.
-   */
-  labSubnetName?: string;
-  /**
-   * The lab virtual network identifier of the virtual machine.
-   */
-  labVirtualNetworkId?: string;
-  /**
-   * Indicates whether the virtual machine is to be created without a public IP address.
-   */
-  disallowPublicIpAddress?: boolean;
-  /**
-   * The artifacts to be installed on the virtual machine.
-   */
-  artifacts?: ArtifactInstallProperties[];
-  /**
-   * The artifact deployment status for the virtual machine.
-   */
-  artifactDeploymentStatus?: ArtifactDeploymentStatusProperties;
-  /**
-   * The Microsoft Azure Marketplace image reference of the virtual machine.
-   */
-  galleryImageReference?: GalleryImageReference;
-  /**
-   * The compute virtual machine properties.
-   */
-  computeVm?: ComputeVmProperties;
-  /**
-   * The network interface properties.
-   */
-  networkInterface?: NetworkInterfaceProperties;
-  /**
-   * The applicable schedule for the virtual machine.
-   */
-  applicableSchedule?: ApplicableSchedule;
-  /**
-   * The expiration date for VM.
-   */
-  expirationDate?: Date;
-  /**
-   * Indicates whether another user can take ownership of the virtual machine
-   */
-  allowClaim?: boolean;
-  /**
-   * Storage type to use for virtual machine (i.e. Standard, Premium).
-   */
-  storageType?: string;
-  /**
-   * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
-   */
-  virtualMachineCreationSource?: string;
-  /**
-   * The resource ID of the environment that contains this virtual machine, if any.
-   */
-  environmentId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-  /**
-   * The name of the virtual machine or environment
-   */
-  name?: string;
-  /**
-   * The location of the new virtual machine or environment
-   */
-  location?: string;
-  /**
-   * The tags of the resource.
-   */
-  tags?: { [propertyName: string]: string };
+   * The lastModifiedDateTime property for the dimension entity
+  */
+  lastModifiedDateTime?: Date;
+  dimensionValues?: DimensionValue[];
 }
 
-/**
- * Information about a VM from which a formula is to be created.
- */
-export interface FormulaPropertiesFromVm {
+export interface DefaultDimensions {
   /**
-   * The identifier of the VM from which a formula is to be created.
-   */
-  labVmId?: string;
+   * The parentId property for the defaultDimensions entity
+  */
+  parentId?: string;
+  /**
+   * The dimensionId property for the defaultDimensions entity
+  */
+  dimensionId?: string;
+  /**
+   * The dimensionCode property for the defaultDimensions entity
+  */
+  dimensionCode?: string;
+  /**
+   * The dimensionValueId property for the defaultDimensions entity
+  */
+  dimensionValueId?: string;
+  /**
+   * The dimensionValueCode property for the defaultDimensions entity
+  */
+  dimensionValueCode?: string;
+  /**
+   * The postingValidation property for the defaultDimensions entity
+  */
+  postingValidation?: string;
+  account?: Account;
+  dimension?: Dimension;
+  dimensionValue?: DimensionValue;
 }
 
-/**
- * A formula for creating a VM, specifying an image base and other parameters
- */
-export interface Formula extends Resource {
+export interface Currency {
   /**
-   * The description of the formula.
-   */
-  description?: string;
+   * The id property for the currency entity
+  */
+  id?: string;
   /**
-   * The author of the formula.
-   */
-  author?: string;
+   * The code property for the currency entity
+  */
+  code?: string;
   /**
-   * The OS type of the formula.
-   */
-  osType?: string;
+   * The displayName property for the currency entity
+  */
+  displayName?: string;
   /**
-   * The creation date of the formula.
-   */
-  readonly creationDate?: Date;
+   * The symbol property for the currency entity
+  */
+  symbol?: string;
   /**
-   * The content of the formula.
-   */
-  formulaContent?: LabVirtualMachineCreationParameter;
+   * The amountDecimalPlaces property for the currency entity
+  */
+  amountDecimalPlaces?: string;
   /**
-   * Information about a VM from which a formula is to be created.
-   */
-  vm?: FormulaPropertiesFromVm;
+   * The amountRoundingPrecision property for the currency entity
+  */
+  amountRoundingPrecision?: number;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The lastModifiedDateTime property for the currency entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * A gallery image.
- */
-export interface GalleryImage extends Resource {
+export interface PaymentTerm {
   /**
-   * The author of the gallery image.
-   */
-  author?: string;
+   * The id property for the paymentTerm entity
+  */
+  id?: string;
   /**
-   * The creation date of the gallery image.
-   */
-  readonly createdDate?: Date;
+   * The code property for the paymentTerm entity
+  */
+  code?: string;
   /**
-   * The description of the gallery image.
-   */
-  description?: string;
+   * The displayName property for the paymentTerm entity
+  */
+  displayName?: string;
   /**
-   * The image reference of the gallery image.
-   */
-  imageReference?: GalleryImageReference;
+   * The dueDateCalculation property for the paymentTerm entity
+  */
+  dueDateCalculation?: string;
   /**
-   * The icon of the gallery image.
-   */
-  icon?: string;
+   * The discountDateCalculation property for the paymentTerm entity
+  */
+  discountDateCalculation?: string;
   /**
-   * Indicates whether this gallery image is enabled.
-   */
-  enabled?: boolean;
+   * The discountPercent property for the paymentTerm entity
+  */
+  discountPercent?: number;
+  /**
+   * The calculateDiscountOnCreditMemos property for the paymentTerm entity
+  */
+  calculateDiscountOnCreditMemos?: boolean;
+  /**
+   * The lastModifiedDateTime property for the paymentTerm entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The reference information for an Azure Marketplace image.
- */
-export interface GalleryImageReferenceFragment {
+export interface ShipmentMethod {
   /**
-   * The offer of the gallery image.
-   */
-  offer?: string;
+   * The id property for the shipmentMethod entity
+  */
+  id?: string;
   /**
-   * The publisher of the gallery image.
-   */
-  publisher?: string;
+   * The code property for the shipmentMethod entity
+  */
+  code?: string;
   /**
-   * The SKU of the gallery image.
-   */
-  sku?: string;
+   * The displayName property for the shipmentMethod entity
+  */
+  displayName?: string;
   /**
-   * The OS type of the gallery image.
-   */
-  osType?: string;
-  /**
-   * The version of the gallery image.
-   */
-  version?: string;
+   * The lastModifiedDateTime property for the shipmentMethod entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Information about an artifact's parameter.
- */
-export interface ParameterInfo {
+export interface Postaladdresstype {
   /**
-   * The name of the artifact parameter.
-   */
-  name?: string;
+   * The street property for the postaladdresstype entity
+  */
+  street?: string;
   /**
-   * The value of the artifact parameter.
-   */
-  value?: string;
+   * The city property for the postaladdresstype entity
+  */
+  city?: string;
+  /**
+   * The state property for the postaladdresstype entity
+  */
+  state?: string;
+  /**
+   * The countryLetterCode property for the postaladdresstype entity
+  */
+  countryLetterCode?: string;
+  /**
+   * The postalCode property for the postaladdresstype entity
+  */
+  postalCode?: string;
+  customerFinancialDetails?: CustomerFinancialDetail[];
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+  shipmentMethod?: ShipmentMethod;
+  paymentMethod?: PaymentMethod;
 }
 
-/**
- * Parameters for generating an ARM template for deploying artifacts.
- */
-export interface GenerateArmTemplateRequest {
+export interface ItemCategory {
   /**
-   * The resource name of the virtual machine.
-   */
-  virtualMachineName?: string;
+   * The id property for the itemCategory entity
+  */
+  id?: string;
   /**
-   * The parameters of the ARM template.
-   */
-  parameters?: ParameterInfo[];
+   * The code property for the itemCategory entity
+  */
+  code?: string;
   /**
-   * The location of the virtual machine.
-   */
-  location?: string;
+   * The displayName property for the itemCategory entity
+  */
+  displayName?: string;
   /**
-   * Options for uploading the files for the artifact. UploadFilesAndGenerateSasTokens is the
-   * default value. Possible values include: 'UploadFilesAndGenerateSasTokens', 'None'
-   */
-  fileUploadOptions?: string;
+   * The lastModifiedDateTime property for the itemCategory entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Properties for generating an upload URI.
- */
-export interface GenerateUploadUriParameter {
+export interface Itemunitofmeasureconversiontype {
   /**
-   * The blob name of the upload URI.
-   */
-  blobName?: string;
+   * The toUnitOfMeasure property for the itemunitofmeasureconversiontype entity
+  */
+  toUnitOfMeasure?: string;
+  /**
+   * The fromToConversionRate property for the itemunitofmeasureconversiontype entity
+  */
+  fromToConversionRate?: number;
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  itemCategory?: ItemCategory;
 }
 
-/**
- * Response body for generating an upload URI.
- */
-export interface GenerateUploadUriResponse {
+export interface Unitofmeasuretype {
   /**
-   * The upload URI for the VHD.
-   */
-  uploadUri?: string;
+   * The code property for the unitofmeasuretype entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the unitofmeasuretype entity
+  */
+  displayName?: string;
+  /**
+   * The symbol property for the unitofmeasuretype entity
+  */
+  symbol?: string;
+  unitConversion?: Itemunitofmeasureconversiontype;
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  itemCategory?: ItemCategory;
 }
 
-/**
- * Properties of a managed identity
- */
-export interface IdentityProperties {
+export interface Item {
   /**
-   * Managed identity.
-   */
+   * The id property for the item entity
+  */
+  id?: string;
+  /**
+   * The number property for the item entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the item entity
+  */
+  displayName?: string;
+  /**
+   * The type property for the item entity
+  */
   type?: string;
   /**
-   * The principal id of resource identity.
-   */
-  principalId?: string;
+   * The itemCategoryId property for the item entity
+  */
+  itemCategoryId?: string;
   /**
-   * The tenant identifier of resource.
-   */
-  tenantId?: string;
+   * The itemCategoryCode property for the item entity
+  */
+  itemCategoryCode?: string;
   /**
-   * The client secret URL of the identity.
-   */
-  clientSecretUrl?: string;
+   * The blocked property for the item entity
+  */
+  blocked?: boolean;
+  /**
+   * The baseUnitOfMeasureId property for the item entity
+  */
+  baseUnitOfMeasureId?: string;
+  baseUnitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The gtin property for the item entity
+  */
+  gtin?: string;
+  /**
+   * The inventory property for the item entity
+  */
+  inventory?: number;
+  /**
+   * The unitPrice property for the item entity
+  */
+  unitPrice?: number;
+  /**
+   * The priceIncludesTax property for the item entity
+  */
+  priceIncludesTax?: boolean;
+  /**
+   * The unitCost property for the item entity
+  */
+  unitCost?: number;
+  /**
+   * The taxGroupId property for the item entity
+  */
+  taxGroupId?: string;
+  /**
+   * The taxGroupCode property for the item entity
+  */
+  taxGroupCode?: string;
+  /**
+   * The lastModifiedDateTime property for the item entity
+  */
+  lastModifiedDateTime?: Date;
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  itemCategory?: ItemCategory;
 }
 
-/**
- * A rule for NAT - exposing a VM's port (backendPort) on the public IP address using a load
- * balancer.
- */
-export interface InboundNatRuleFragment {
+export interface Documentlineobjectdetailstype {
   /**
-   * The transport protocol for the endpoint. Possible values include: 'Tcp', 'Udp'
-   */
-  transportProtocol?: string;
+   * The number property for the documentlineobjectdetailstype entity
+  */
+  number?: string;
   /**
-   * The external endpoint port of the inbound connection. Possible values range between 1 and
-   * 65535, inclusive. If unspecified, a value will be allocated automatically.
-   */
-  frontendPort?: number;
-  /**
-   * The port to which the external traffic will be redirected.
-   */
-  backendPort?: number;
+   * The displayName property for the documentlineobjectdetailstype entity
+  */
+  displayName?: string;
+  item?: Item;
+  account?: Account;
 }
 
-/**
- * A lab.
- */
-export interface Lab extends Resource {
+export interface SalesQuoteLine {
   /**
-   * The lab's default storage account.
-   */
-  readonly defaultStorageAccount?: string;
+   * The id property for the salesQuoteLine entity
+  */
+  id?: string;
   /**
-   * The lab's default premium storage account.
-   */
-  readonly defaultPremiumStorageAccount?: string;
+   * The documentId property for the salesQuoteLine entity
+  */
+  documentId?: string;
   /**
-   * The lab's artifact storage account.
-   */
-  readonly artifactsStorageAccount?: string;
+   * The sequence property for the salesQuoteLine entity
+  */
+  sequence?: number;
   /**
-   * The lab's premium data disk storage account.
-   */
-  readonly premiumDataDiskStorageAccount?: string;
+   * The itemId property for the salesQuoteLine entity
+  */
+  itemId?: string;
   /**
-   * The lab's Key vault.
-   */
-  readonly vaultName?: string;
+   * The accountId property for the salesQuoteLine entity
+  */
+  accountId?: string;
   /**
-   * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-   * Possible values include: 'Standard', 'Premium'
-   */
-  labStorageType?: string;
+   * The lineType property for the salesQuoteLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
   /**
-   * The creation date of the lab.
-   */
-  readonly createdDate?: Date;
+   * The description property for the salesQuoteLine entity
+  */
+  description?: string;
   /**
-   * The setting to enable usage of premium data disks.
-   * When its value is 'Enabled', creation of standard or premium data disks is allowed.
-   * When its value is 'Disabled', only creation of standard data disks is allowed. Possible values
-   * include: 'Disabled', 'Enabled'
-   */
-  premiumDataDisks?: string;
+   * The unitOfMeasureId property for the salesQuoteLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The unitPrice property for the salesQuoteLine entity
+  */
+  unitPrice?: number;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The quantity property for the salesQuoteLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the salesQuoteLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesQuoteLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesQuoteLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesQuoteLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesQuoteLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesQuoteLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesQuoteLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesQuoteLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The netAmount property for the salesQuoteLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesQuoteLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesQuoteLine entity
+  */
+  netAmountIncludingTax?: number;
+  item?: Item;
+  account?: Account;
 }
 
-/**
- * Properties of a cost target.
- */
-export interface TargetCostProperties {
+export interface PdfDocument {
   /**
-   * Target cost status. Possible values include: 'Enabled', 'Disabled'
-   */
-  status?: string;
+   * The id property for the pdfDocument entity
+  */
+  id?: string;
   /**
-   * Lab target cost
-   */
-  target?: number;
-  /**
-   * Cost thresholds.
-   */
-  costThresholds?: CostThresholdProperties[];
-  /**
-   * Reporting cycle start date.
-   */
-  cycleStartDateTime?: Date;
-  /**
-   * Reporting cycle end date.
-   */
-  cycleEndDateTime?: Date;
-  /**
-   * Reporting cycle type. Possible values include: 'CalendarMonth', 'Custom'
-   */
-  cycleType?: string;
+   * The content property for the pdfDocument entity
+  */
+  content?: string;
 }
 
-/**
- * The properties of the cost summary.
- */
-export interface LabCostSummaryProperties {
+export interface Customer {
   /**
-   * The cost component of the cost item.
-   */
-  estimatedLabCost?: number;
-}
-
-/**
- * The properties of a lab cost item.
- */
-export interface LabCostDetailsProperties {
+   * The id property for the customer entity
+  */
+  id?: string;
   /**
-   * The date of the cost item.
-   */
-  date?: Date;
+   * The number property for the customer entity
+  */
+  number?: string;
   /**
-   * The cost component of the cost item.
-   */
-  cost?: number;
+   * The displayName property for the customer entity
+  */
+  displayName?: string;
   /**
-   * The type of the cost. Possible values include: 'Unavailable', 'Reported', 'Projected'
-   */
-  costType?: string;
-}
-
-/**
- * The properties of a resource cost item.
- */
-export interface LabResourceCostProperties {
+   * The type property for the customer entity
+  */
+  type?: string;
+  address?: Postaladdresstype;
   /**
-   * The name of the resource.
-   */
-  resourcename?: string;
+   * The phoneNumber property for the customer entity
+  */
+  phoneNumber?: string;
   /**
-   * The unique identifier of the resource.
-   */
-  resourceUId?: string;
+   * The email property for the customer entity
+  */
+  email?: string;
   /**
-   * The cost component of the resource cost item.
-   */
-  resourceCost?: number;
+   * The website property for the customer entity
+  */
+  website?: string;
   /**
-   * The logical resource type (ex. virtualmachine, storageaccount)
-   */
-  resourceType?: string;
+   * The taxLiable property for the customer entity
+  */
+  taxLiable?: boolean;
   /**
-   * The owner of the resource (ex. janedoe@microsoft.com)
-   */
-  resourceOwner?: string;
+   * The taxAreaId property for the customer entity
+  */
+  taxAreaId?: string;
   /**
-   * The category of the resource (ex. Premium_LRS, Standard_DS1)
-   */
-  resourcePricingTier?: string;
+   * The taxAreaDisplayName property for the customer entity
+  */
+  taxAreaDisplayName?: string;
   /**
-   * The status of the resource (ex. Active)
-   */
-  resourceStatus?: string;
+   * The taxRegistrationNumber property for the customer entity
+  */
+  taxRegistrationNumber?: string;
   /**
-   * The ID of the resource
-   */
-  resourceId?: string;
+   * The currencyId property for the customer entity
+  */
+  currencyId?: string;
   /**
-   * The ID of the external resource
-   */
-  externalResourceId?: string;
-}
-
-/**
- * A cost item.
- */
-export interface LabCost extends Resource {
-  /**
-   * The target cost properties
-   */
-  targetCost?: TargetCostProperties;
-  /**
-   * The lab cost summary component of the cost data.
-   */
-  readonly labCostSummary?: LabCostSummaryProperties;
-  /**
-   * The lab cost details component of the cost data.
-   */
-  readonly labCostDetails?: LabCostDetailsProperties[];
-  /**
-   * The resource cost component of the cost data.
-   */
-  readonly resourceCosts?: LabResourceCostProperties[];
-  /**
-   * The currency code of the cost.
-   */
+   * The currencyCode property for the customer entity
+  */
   currencyCode?: string;
   /**
-   * The start time of the cost data.
-   */
-  startDateTime?: Date;
+   * The paymentTermsId property for the customer entity
+  */
+  paymentTermsId?: string;
   /**
-   * The end time of the cost data.
-   */
-  endDateTime?: Date;
+   * The shipmentMethodId property for the customer entity
+  */
+  shipmentMethodId?: string;
   /**
-   * The creation date of the cost.
-   */
-  createdDate?: Date;
+   * The paymentMethodId property for the customer entity
+  */
+  paymentMethodId?: string;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The blocked property for the customer entity
+  */
+  blocked?: string;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The lastModifiedDateTime property for the customer entity
+  */
+  lastModifiedDateTime?: Date;
+  customerFinancialDetails?: CustomerFinancialDetail[];
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+  shipmentMethod?: ShipmentMethod;
+  paymentMethod?: PaymentMethod;
 }
 
-/**
- * A lab.
- */
-export interface LabFragment extends Resource {
+export interface SalesQuote {
   /**
-   * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-   * Possible values include: 'Standard', 'Premium'
-   */
-  labStorageType?: string;
-  /**
-   * The setting to enable usage of premium data disks.
-   * When its value is 'Enabled', creation of standard or premium data disks is allowed.
-   * When its value is 'Disabled', only creation of standard data disks is allowed. Possible values
-   * include: 'Disabled', 'Enabled'
-   */
-  premiumDataDisks?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * Properties of a VHD in the lab.
- */
-export interface LabVhd {
-  /**
-   * The URI to the VHD.
-   */
+   * The id property for the salesQuote entity
+  */
   id?: string;
+  /**
+   * The number property for the salesQuote entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesQuote entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The documentDate property for the salesQuote entity
+  */
+  documentDate?: Date;
+  /**
+   * The dueDate property for the salesQuote entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerId property for the salesQuote entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesQuote entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesQuote entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesQuote entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesQuote entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesQuote entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesQuote entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesQuote entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesQuote entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesQuote entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesQuote entity
+  */
+  currencyCode?: string;
+  /**
+   * The paymentTermsId property for the salesQuote entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The shipmentMethodId property for the salesQuote entity
+  */
+  shipmentMethodId?: string;
+  /**
+   * The salesperson property for the salesQuote entity
+  */
+  salesperson?: string;
+  /**
+   * The discountAmount property for the salesQuote entity
+  */
+  discountAmount?: number;
+  /**
+   * The totalAmountExcludingTax property for the salesQuote entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesQuote entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesQuote entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesQuote entity
+  */
+  status?: string;
+  /**
+   * The sentDate property for the salesQuote entity
+  */
+  sentDate?: Date;
+  /**
+   * The validUntilDate property for the salesQuote entity
+  */
+  validUntilDate?: Date;
+  /**
+   * The acceptedDate property for the salesQuote entity
+  */
+  acceptedDate?: Date;
+  /**
+   * The lastModifiedDateTime property for the salesQuote entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The phoneNumber property for the salesQuote entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesQuote entity
+  */
+  email?: string;
+  salesQuoteLines?: SalesQuoteLine[];
+  pdfDocument?: PdfDocument[];
+  customer?: Customer;
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+  shipmentMethod?: ShipmentMethod;
 }
 
-/**
- * A virtual machine.
- */
-export interface LabVirtualMachine extends Resource {
+export interface CashFlowStatement {
   /**
-   * The notes of the virtual machine.
-   */
-  notes?: string;
+   * The lineNumber property for the cashFlowStatement entity
+  */
+  lineNumber?: number;
   /**
-   * The object identifier of the owner of the virtual machine.
-   */
-  ownerObjectId?: string;
+   * The display property for the cashFlowStatement entity
+  */
+  display?: string;
   /**
-   * The user principal name of the virtual machine owner.
-   */
-  ownerUserPrincipalName?: string;
+   * The netChange property for the cashFlowStatement entity
+  */
+  netChange?: number;
   /**
-   * The object identifier of the creator of the virtual machine.
-   */
-  createdByUserId?: string;
+   * The lineType property for the cashFlowStatement entity
+  */
+  lineType?: string;
   /**
-   * The email address of creator of the virtual machine.
-   */
-  createdByUser?: string;
+   * The indentation property for the cashFlowStatement entity
+  */
+  indentation?: number;
   /**
-   * The creation date of the virtual machine.
-   */
-  createdDate?: Date;
-  /**
-   * The resource identifier (Microsoft.Compute) of the virtual machine.
-   */
-  readonly computeId?: string;
-  /**
-   * The custom image identifier of the virtual machine.
-   */
-  customImageId?: string;
-  /**
-   * The OS type of the virtual machine.
-   */
-  osType?: string;
-  /**
-   * The size of the virtual machine.
-   */
-  size?: string;
-  /**
-   * The user name of the virtual machine.
-   */
-  userName?: string;
-  /**
-   * The password of the virtual machine administrator.
-   */
-  password?: string;
-  /**
-   * The SSH key of the virtual machine administrator.
-   */
-  sshKey?: string;
-  /**
-   * Indicates whether this virtual machine uses an SSH key for authentication.
-   */
-  isAuthenticationWithSshKey?: boolean;
-  /**
-   * The fully-qualified domain name of the virtual machine.
-   */
-  fqdn?: string;
-  /**
-   * The lab subnet name of the virtual machine.
-   */
-  labSubnetName?: string;
-  /**
-   * The lab virtual network identifier of the virtual machine.
-   */
-  labVirtualNetworkId?: string;
-  /**
-   * Indicates whether the virtual machine is to be created without a public IP address.
-   */
-  disallowPublicIpAddress?: boolean;
-  /**
-   * The artifacts to be installed on the virtual machine.
-   */
-  artifacts?: ArtifactInstallProperties[];
-  /**
-   * The artifact deployment status for the virtual machine.
-   */
-  artifactDeploymentStatus?: ArtifactDeploymentStatusProperties;
-  /**
-   * The Microsoft Azure Marketplace image reference of the virtual machine.
-   */
-  galleryImageReference?: GalleryImageReference;
-  /**
-   * The compute virtual machine properties.
-   */
-  computeVm?: ComputeVmProperties;
-  /**
-   * The network interface properties.
-   */
-  networkInterface?: NetworkInterfaceProperties;
-  /**
-   * The applicable schedule for the virtual machine.
-   */
-  applicableSchedule?: ApplicableSchedule;
-  /**
-   * The expiration date for VM.
-   */
-  expirationDate?: Date;
-  /**
-   * Indicates whether another user can take ownership of the virtual machine
-   */
-  allowClaim?: boolean;
-  /**
-   * Storage type to use for virtual machine (i.e. Standard, Premium).
-   */
-  storageType?: string;
-  /**
-   * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
-   */
-  virtualMachineCreationSource?: string;
-  /**
-   * The resource ID of the environment that contains this virtual machine, if any.
-   */
-  environmentId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The dateFilter property for the cashFlowStatement entity
+  */
+  dateFilter?: Date;
 }
 
-/**
- * Properties of a virtual machine that determine how it is connected to a load balancer.
- */
-export interface SharedPublicIpAddressConfigurationFragment {
+export interface SalesOrderLine {
   /**
-   * The incoming NAT rules
-   */
-  inboundNatRules?: InboundNatRuleFragment[];
-}
-
-/**
- * Properties of a network interface.
- */
-export interface NetworkInterfacePropertiesFragment {
+   * The id property for the salesOrderLine entity
+  */
+  id?: string;
   /**
-   * The resource ID of the virtual network.
-   */
-  virtualNetworkId?: string;
+   * The documentId property for the salesOrderLine entity
+  */
+  documentId?: string;
   /**
-   * The resource ID of the sub net.
-   */
-  subnetId?: string;
+   * The sequence property for the salesOrderLine entity
+  */
+  sequence?: number;
   /**
-   * The resource ID of the public IP address.
-   */
-  publicIpAddressId?: string;
+   * The itemId property for the salesOrderLine entity
+  */
+  itemId?: string;
   /**
-   * The public IP address.
-   */
-  publicIpAddress?: string;
+   * The accountId property for the salesOrderLine entity
+  */
+  accountId?: string;
   /**
-   * The private IP address.
-   */
-  privateIpAddress?: string;
+   * The lineType property for the salesOrderLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
   /**
-   * The DNS name.
-   */
-  dnsName?: string;
-  /**
-   * The RdpAuthority property is a server DNS host name or IP address followed by the service port
-   * number for RDP (Remote Desktop Protocol).
-   */
-  rdpAuthority?: string;
-  /**
-   * The SshAuthority property is a server DNS host name or IP address followed by the service port
-   * number for SSH.
-   */
-  sshAuthority?: string;
-  /**
-   * The configuration for sharing a public IP address across multiple virtual machines.
-   */
-  sharedPublicIpAddressConfiguration?: SharedPublicIpAddressConfigurationFragment;
-}
-
-/**
- * A virtual machine.
- */
-export interface LabVirtualMachineFragment extends Resource {
-  /**
-   * The notes of the virtual machine.
-   */
-  notes?: string;
-  /**
-   * The object identifier of the owner of the virtual machine.
-   */
-  ownerObjectId?: string;
-  /**
-   * The user principal name of the virtual machine owner.
-   */
-  ownerUserPrincipalName?: string;
-  /**
-   * The object identifier of the creator of the virtual machine.
-   */
-  createdByUserId?: string;
-  /**
-   * The email address of creator of the virtual machine.
-   */
-  createdByUser?: string;
-  /**
-   * The creation date of the virtual machine.
-   */
-  createdDate?: Date;
-  /**
-   * The custom image identifier of the virtual machine.
-   */
-  customImageId?: string;
-  /**
-   * The OS type of the virtual machine.
-   */
-  osType?: string;
-  /**
-   * The size of the virtual machine.
-   */
-  size?: string;
-  /**
-   * The user name of the virtual machine.
-   */
-  userName?: string;
-  /**
-   * The password of the virtual machine administrator.
-   */
-  password?: string;
-  /**
-   * The SSH key of the virtual machine administrator.
-   */
-  sshKey?: string;
-  /**
-   * Indicates whether this virtual machine uses an SSH key for authentication.
-   */
-  isAuthenticationWithSshKey?: boolean;
-  /**
-   * The fully-qualified domain name of the virtual machine.
-   */
-  fqdn?: string;
-  /**
-   * The lab subnet name of the virtual machine.
-   */
-  labSubnetName?: string;
-  /**
-   * The lab virtual network identifier of the virtual machine.
-   */
-  labVirtualNetworkId?: string;
-  /**
-   * Indicates whether the virtual machine is to be created without a public IP address.
-   */
-  disallowPublicIpAddress?: boolean;
-  /**
-   * The artifacts to be installed on the virtual machine.
-   */
-  artifacts?: ArtifactInstallPropertiesFragment[];
-  /**
-   * The artifact deployment status for the virtual machine.
-   */
-  artifactDeploymentStatus?: ArtifactDeploymentStatusPropertiesFragment;
-  /**
-   * The Microsoft Azure Marketplace image reference of the virtual machine.
-   */
-  galleryImageReference?: GalleryImageReferenceFragment;
-  /**
-   * The compute virtual machine properties.
-   */
-  computeVm?: ComputeVmPropertiesFragment;
-  /**
-   * The network interface properties.
-   */
-  networkInterface?: NetworkInterfacePropertiesFragment;
-  /**
-   * The applicable schedule for the virtual machine.
-   */
-  applicableSchedule?: ApplicableScheduleFragment;
-  /**
-   * The expiration date for VM.
-   */
-  expirationDate?: Date;
-  /**
-   * Indicates whether another user can take ownership of the virtual machine
-   */
-  allowClaim?: boolean;
-  /**
-   * Storage type to use for virtual machine (i.e. Standard, Premium).
-   */
-  storageType?: string;
-  /**
-   * Tells source of creation of lab virtual machine. Output property only. Possible values
-   * include: 'FromCustomImage', 'FromGalleryImage'
-   */
-  virtualMachineCreationSource?: string;
-  /**
-   * The resource ID of the environment that contains this virtual machine, if any.
-   */
-  environmentId?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
-}
-
-/**
- * A notification.
- */
-export interface NotificationChannel extends Resource {
-  /**
-   * The webhook URL to send notifications to.
-   */
-  webHookUrl?: string;
-  /**
-   * Description of notification.
-   */
+   * The description property for the salesOrderLine entity
+  */
   description?: string;
   /**
-   * The list of event for which this notification is enabled.
-   */
-  events?: Event[];
+   * The unitOfMeasureId property for the salesOrderLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
   /**
-   * The creation date of the notification channel.
-   */
-  readonly createdDate?: Date;
+   * The quantity property for the salesOrderLine entity
+  */
+  quantity?: number;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The unitPrice property for the salesOrderLine entity
+  */
+  unitPrice?: number;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The discountAmount property for the salesOrderLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesOrderLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesOrderLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesOrderLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesOrderLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesOrderLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesOrderLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesOrderLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesOrderLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesOrderLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesOrderLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesOrderLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesOrderLine entity
+  */
+  shipmentDate?: Date;
+  /**
+   * The shippedQuantity property for the salesOrderLine entity
+  */
+  shippedQuantity?: number;
+  /**
+   * The invoicedQuantity property for the salesOrderLine entity
+  */
+  invoicedQuantity?: number;
+  /**
+   * The invoiceQuantity property for the salesOrderLine entity
+  */
+  invoiceQuantity?: number;
+  /**
+   * The shipQuantity property for the salesOrderLine entity
+  */
+  shipQuantity?: number;
+  item?: Item;
+  account?: Account;
 }
 
-/**
- * A notification.
- */
-export interface NotificationChannelFragment extends Resource {
+export interface SalesOrder {
   /**
-   * The webhook URL to send notifications to.
-   */
-  webHookUrl?: string;
+   * The id property for the salesOrder entity
+  */
+  id?: string;
   /**
-   * Description of notification.
-   */
-  description?: string;
+   * The number property for the salesOrder entity
+  */
+  number?: string;
   /**
-   * The list of event for which this notification is enabled.
-   */
-  events?: EventFragment[];
+   * The externalDocumentNumber property for the salesOrder entity
+  */
+  externalDocumentNumber?: string;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The orderDate property for the salesOrder entity
+  */
+  orderDate?: Date;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The customerId property for the salesOrder entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesOrder entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesOrder entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesOrder entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesOrder entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesOrder entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesOrder entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesOrder entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesOrder entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesOrder entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesOrder entity
+  */
+  currencyCode?: string;
+  /**
+   * The pricesIncludeTax property for the salesOrder entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The paymentTermsId property for the salesOrder entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The salesperson property for the salesOrder entity
+  */
+  salesperson?: string;
+  /**
+   * The partialShipping property for the salesOrder entity
+  */
+  partialShipping?: boolean;
+  /**
+   * The requestedDeliveryDate property for the salesOrder entity
+  */
+  requestedDeliveryDate?: Date;
+  /**
+   * The discountAmount property for the salesOrder entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesOrder entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesOrder entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesOrder entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesOrder entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The fullyShipped property for the salesOrder entity
+  */
+  fullyShipped?: boolean;
+  /**
+   * The status property for the salesOrder entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the salesOrder entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The phoneNumber property for the salesOrder entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesOrder entity
+  */
+  email?: string;
+  salesOrderLines?: SalesOrderLine[];
+  customer?: Customer;
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
 }
 
-/**
- * Properties for generating a Notification.
- */
-export interface NotifyParameters {
+export interface Attachments {
   /**
-   * The type of event (i.e. AutoShutdown, Cost). Possible values include: 'AutoShutdown', 'Cost'
-   */
-  eventName?: string;
+   * The parentId property for the attachments entity
+  */
+  parentId?: string;
   /**
-   * Properties for the notification in json format.
-   */
-  jsonPayload?: string;
+   * The id property for the attachments entity
+  */
+  id?: string;
+  /**
+   * The fileName property for the attachments entity
+  */
+  fileName?: string;
+  /**
+   * The byteSize property for the attachments entity
+  */
+  byteSize?: number;
+  /**
+   * The content property for the attachments entity
+  */
+  content?: string;
+  /**
+   * The lastModifiedDateTime property for the attachments entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Error details for the operation in case of a failure.
- */
-export interface OperationError {
+export interface DimensionLine {
   /**
-   * The error code of the operation error.
-   */
+   * The parentId property for the dimensionLine entity
+  */
+  parentId?: string;
+  /**
+   * The id property for the dimensionLine entity
+  */
+  id?: string;
+  /**
+   * The code property for the dimensionLine entity
+  */
   code?: string;
   /**
-   * The error message of the operation error.
-   */
-  message?: string;
+   * The displayName property for the dimensionLine entity
+  */
+  displayName?: string;
+  /**
+   * The valueId property for the dimensionLine entity
+  */
+  valueId?: string;
+  /**
+   * The valueCode property for the dimensionLine entity
+  */
+  valueCode?: string;
+  /**
+   * The valueDisplayName property for the dimensionLine entity
+  */
+  valueDisplayName?: string;
+  dimension?: Dimension;
 }
 
-/**
- * The object that describes the operations
- */
-export interface OperationMetadataDisplay {
+export interface SalesInvoiceLine {
   /**
-   * Friendly name of the resource provider
-   */
-  provider?: string;
+   * The id property for the salesInvoiceLine entity
+  */
+  id?: string;
   /**
-   * Resource type on which the operation is performed.
-   */
-  resource?: string;
+   * The documentId property for the salesInvoiceLine entity
+  */
+  documentId?: string;
   /**
-   * Operation type: read, write, delete, listKeys/action, etc.
-   */
-  operation?: string;
+   * The sequence property for the salesInvoiceLine entity
+  */
+  sequence?: number;
   /**
-   * Friendly name of the operation
-   */
+   * The itemId property for the salesInvoiceLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesInvoiceLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesInvoiceLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesInvoiceLine entity
+  */
   description?: string;
+  /**
+   * The unitOfMeasureId property for the salesInvoiceLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitPrice property for the salesInvoiceLine entity
+  */
+  unitPrice?: number;
+  /**
+   * The quantity property for the salesInvoiceLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the salesInvoiceLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesInvoiceLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesInvoiceLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesInvoiceLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesInvoiceLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesInvoiceLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesInvoiceLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesInvoiceLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesInvoiceLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesInvoiceLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesInvoiceLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesInvoiceLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesInvoiceLine entity
+  */
+  shipmentDate?: Date;
+  item?: Item;
+  account?: Account;
 }
 
-/**
- * The REST API operation supported by DevTestLab ResourceProvider.
- */
-export interface OperationMetadata {
+export interface SalesCreditMemoLine {
   /**
-   * Operation name: {provider}/{resource}/{operation}
-   */
+   * The id property for the salesCreditMemoLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the salesCreditMemoLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the salesCreditMemoLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the salesCreditMemoLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesCreditMemoLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesCreditMemoLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesCreditMemoLine entity
+  */
+  description?: string;
+  /**
+   * The unitOfMeasureId property for the salesCreditMemoLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitPrice property for the salesCreditMemoLine entity
+  */
+  unitPrice?: number;
+  /**
+   * The quantity property for the salesCreditMemoLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the salesCreditMemoLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesCreditMemoLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesCreditMemoLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesCreditMemoLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesCreditMemoLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesCreditMemoLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesCreditMemoLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesCreditMemoLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesCreditMemoLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesCreditMemoLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesCreditMemoLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesCreditMemoLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesCreditMemoLine entity
+  */
+  shipmentDate?: Date;
+  item?: Item;
+  account?: Account;
+}
+
+export interface SalesCreditMemo {
+  /**
+   * The id property for the salesCreditMemo entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesCreditMemo entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesCreditMemo entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The creditMemoDate property for the salesCreditMemo entity
+  */
+  creditMemoDate?: Date;
+  /**
+   * The dueDate property for the salesCreditMemo entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerId property for the salesCreditMemo entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesCreditMemo entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesCreditMemo entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesCreditMemo entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesCreditMemo entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesCreditMemo entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesCreditMemo entity
+  */
+  billToCustomerNumber?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesCreditMemo entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesCreditMemo entity
+  */
+  currencyCode?: string;
+  /**
+   * The paymentTermsId property for the salesCreditMemo entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The salesperson property for the salesCreditMemo entity
+  */
+  salesperson?: string;
+  /**
+   * The pricesIncludeTax property for the salesCreditMemo entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the salesCreditMemo entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesCreditMemo entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesCreditMemo entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesCreditMemo entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesCreditMemo entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesCreditMemo entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the salesCreditMemo entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The invoiceId property for the salesCreditMemo entity
+  */
+  invoiceId?: string;
+  /**
+   * The invoiceNumber property for the salesCreditMemo entity
+  */
+  invoiceNumber?: string;
+  /**
+   * The phoneNumber property for the salesCreditMemo entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesCreditMemo entity
+  */
+  email?: string;
+  salesCreditMemoLines?: SalesCreditMemoLine[];
+  pdfDocument?: PdfDocument[];
+  customer?: Customer;
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+}
+
+export interface VendorPurchase {
+  /**
+   * The vendorId property for the vendorPurchase entity
+  */
+  vendorId?: string;
+  /**
+   * The vendorNumber property for the vendorPurchase entity
+  */
+  vendorNumber?: string;
+  /**
+   * The name property for the vendorPurchase entity
+  */
   name?: string;
   /**
-   * The object that describes the operations
-   */
-  display?: OperationMetadataDisplay;
+   * The totalPurchaseAmount property for the vendorPurchase entity
+  */
+  totalPurchaseAmount?: number;
+  /**
+   * The dateFilter_FilterOnly property for the vendorPurchase entity
+  */
+  dateFilterFilterOnly?: Date;
 }
 
-/**
- * An Operation Result
- */
-export interface OperationResult {
+export interface IncomeStatement {
   /**
-   * The operation status.
-   */
+   * The lineNumber property for the incomeStatement entity
+  */
+  lineNumber?: number;
+  /**
+   * The display property for the incomeStatement entity
+  */
+  display?: string;
+  /**
+   * The netChange property for the incomeStatement entity
+  */
+  netChange?: number;
+  /**
+   * The lineType property for the incomeStatement entity
+  */
+  lineType?: string;
+  /**
+   * The indentation property for the incomeStatement entity
+  */
+  indentation?: number;
+  /**
+   * The dateFilter property for the incomeStatement entity
+  */
+  dateFilter?: Date;
+}
+
+export interface Dimensiontype {
+  /**
+   * The code property for the dimensiontype entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the dimensiontype entity
+  */
+  displayName?: string;
+  /**
+   * The valueCode property for the dimensiontype entity
+  */
+  valueCode?: string;
+  /**
+   * The valueDisplayName property for the dimensiontype entity
+  */
+  valueDisplayName?: string;
+  customer?: Customer;
+}
+
+export interface GeneralLedgerEntry {
+  /**
+   * The id property for the generalLedgerEntry entity
+  */
+  id?: number;
+  /**
+   * The postingDate property for the generalLedgerEntry entity
+  */
+  postingDate?: Date;
+  /**
+   * The documentNumber property for the generalLedgerEntry entity
+  */
+  documentNumber?: string;
+  /**
+   * The documentType property for the generalLedgerEntry entity
+  */
+  documentType?: string;
+  /**
+   * The accountId property for the generalLedgerEntry entity
+  */
+  accountId?: string;
+  /**
+   * The accountNumber property for the generalLedgerEntry entity
+  */
+  accountNumber?: string;
+  /**
+   * The description property for the generalLedgerEntry entity
+  */
+  description?: string;
+  /**
+   * The debitAmount property for the generalLedgerEntry entity
+  */
+  debitAmount?: number;
+  /**
+   * The creditAmount property for the generalLedgerEntry entity
+  */
+  creditAmount?: number;
+  dimensions?: Dimensiontype[];
+  /**
+   * The lastModifiedDateTime property for the generalLedgerEntry entity
+  */
+  lastModifiedDateTime?: Date;
+  account?: Account;
+}
+
+export interface CustomerSale {
+  /**
+   * The customerId property for the customerSale entity
+  */
+  customerId?: string;
+  /**
+   * The customerNumber property for the customerSale entity
+  */
+  customerNumber?: string;
+  /**
+   * The name property for the customerSale entity
+  */
+  name?: string;
+  /**
+   * The totalSalesAmount property for the customerSale entity
+  */
+  totalSalesAmount?: number;
+  /**
+   * The dateFilter_FilterOnly property for the customerSale entity
+  */
+  dateFilterFilterOnly?: Date;
+}
+
+export interface CountryRegion {
+  /**
+   * The id property for the countryRegion entity
+  */
+  id?: string;
+  /**
+   * The code property for the countryRegion entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the countryRegion entity
+  */
+  displayName?: string;
+  /**
+   * The addressFormat property for the countryRegion entity
+  */
+  addressFormat?: string;
+  /**
+   * The lastModifiedDateTime property for the countryRegion entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface PurchaseInvoiceLine {
+  /**
+   * The id property for the purchaseInvoiceLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the purchaseInvoiceLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the purchaseInvoiceLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the purchaseInvoiceLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the purchaseInvoiceLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the purchaseInvoiceLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the purchaseInvoiceLine entity
+  */
+  description?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitCost property for the purchaseInvoiceLine entity
+  */
+  unitCost?: number;
+  /**
+   * The quantity property for the purchaseInvoiceLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the purchaseInvoiceLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the purchaseInvoiceLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the purchaseInvoiceLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the purchaseInvoiceLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the purchaseInvoiceLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the purchaseInvoiceLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the purchaseInvoiceLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the purchaseInvoiceLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the purchaseInvoiceLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the purchaseInvoiceLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the purchaseInvoiceLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the purchaseInvoiceLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The expectedReceiptDate property for the purchaseInvoiceLine entity
+  */
+  expectedReceiptDate?: Date;
+  item?: Item;
+  account?: Account;
+}
+
+export interface Vendor {
+  /**
+   * The id property for the vendor entity
+  */
+  id?: string;
+  /**
+   * The number property for the vendor entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the vendor entity
+  */
+  displayName?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the vendor entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the vendor entity
+  */
+  email?: string;
+  /**
+   * The website property for the vendor entity
+  */
+  website?: string;
+  /**
+   * The taxRegistrationNumber property for the vendor entity
+  */
+  taxRegistrationNumber?: string;
+  /**
+   * The currencyId property for the vendor entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the vendor entity
+  */
+  currencyCode?: string;
+  /**
+   * The irs1099Code property for the vendor entity
+  */
+  irs1099Code?: string;
+  /**
+   * The paymentTermsId property for the vendor entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The paymentMethodId property for the vendor entity
+  */
+  paymentMethodId?: string;
+  /**
+   * The taxLiable property for the vendor entity
+  */
+  taxLiable?: boolean;
+  /**
+   * The blocked property for the vendor entity
+  */
+  blocked?: string;
+  /**
+   * The balance property for the vendor entity
+  */
+  balance?: number;
+  /**
+   * The lastModifiedDateTime property for the vendor entity
+  */
+  lastModifiedDateTime?: Date;
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+  paymentMethod?: PaymentMethod;
+}
+
+export interface JournalLine {
+  /**
+   * The id property for the journalLine entity
+  */
+  id?: string;
+  /**
+   * The journalDisplayName property for the journalLine entity
+  */
+  journalDisplayName?: string;
+  /**
+   * The lineNumber property for the journalLine entity
+  */
+  lineNumber?: number;
+  /**
+   * The accountId property for the journalLine entity
+  */
+  accountId?: string;
+  /**
+   * The accountNumber property for the journalLine entity
+  */
+  accountNumber?: string;
+  /**
+   * The postingDate property for the journalLine entity
+  */
+  postingDate?: Date;
+  /**
+   * The documentNumber property for the journalLine entity
+  */
+  documentNumber?: string;
+  /**
+   * The externalDocumentNumber property for the journalLine entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The amount property for the journalLine entity
+  */
+  amount?: number;
+  /**
+   * The description property for the journalLine entity
+  */
+  description?: string;
+  /**
+   * The comment property for the journalLine entity
+  */
+  comment?: string;
+  dimensions?: Dimensiontype[];
+  /**
+   * The lastModifiedDateTime property for the journalLine entity
+  */
+  lastModifiedDateTime?: Date;
+  attachments?: Attachments[];
+  account?: Account;
+}
+
+export interface Journal {
+  /**
+   * The id property for the journal entity
+  */
+  id?: string;
+  /**
+   * The code property for the journal entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the journal entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the journal entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The balancingAccountId property for the journal entity
+  */
+  balancingAccountId?: string;
+  /**
+   * The balancingAccountNumber property for the journal entity
+  */
+  balancingAccountNumber?: string;
+  journalLines?: JournalLine[];
+  account?: Account;
+}
+
+export interface RetainedEarningsStatement {
+  /**
+   * The lineNumber property for the retainedEarningsStatement entity
+  */
+  lineNumber?: number;
+  /**
+   * The display property for the retainedEarningsStatement entity
+  */
+  display?: string;
+  /**
+   * The netChange property for the retainedEarningsStatement entity
+  */
+  netChange?: number;
+  /**
+   * The lineType property for the retainedEarningsStatement entity
+  */
+  lineType?: string;
+  /**
+   * The indentation property for the retainedEarningsStatement entity
+  */
+  indentation?: number;
+  /**
+   * The dateFilter property for the retainedEarningsStatement entity
+  */
+  dateFilter?: Date;
+}
+
+export interface PurchaseInvoice {
+  /**
+   * The id property for the purchaseInvoice entity
+  */
+  id?: string;
+  /**
+   * The number property for the purchaseInvoice entity
+  */
+  number?: string;
+  /**
+   * The invoiceDate property for the purchaseInvoice entity
+  */
+  invoiceDate?: Date;
+  /**
+   * The dueDate property for the purchaseInvoice entity
+  */
+  dueDate?: Date;
+  /**
+   * The vendorInvoiceNumber property for the purchaseInvoice entity
+  */
+  vendorInvoiceNumber?: string;
+  /**
+   * The vendorId property for the purchaseInvoice entity
+  */
+  vendorId?: string;
+  /**
+   * The vendorNumber property for the purchaseInvoice entity
+  */
+  vendorNumber?: string;
+  /**
+   * The vendorName property for the purchaseInvoice entity
+  */
+  vendorName?: string;
+  /**
+   * The payToName property for the purchaseInvoice entity
+  */
+  payToName?: string;
+  /**
+   * The payToContact property for the purchaseInvoice entity
+  */
+  payToContact?: string;
+  /**
+   * The payToVendorId property for the purchaseInvoice entity
+  */
+  payToVendorId?: string;
+  /**
+   * The payToVendorNumber property for the purchaseInvoice entity
+  */
+  payToVendorNumber?: string;
+  /**
+   * The shipToName property for the purchaseInvoice entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the purchaseInvoice entity
+  */
+  shipToContact?: string;
+  buyFromAddress?: Postaladdresstype;
+  payToAddress?: Postaladdresstype;
+  shipToAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the purchaseInvoice entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the purchaseInvoice entity
+  */
+  currencyCode?: string;
+  /**
+   * The pricesIncludeTax property for the purchaseInvoice entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the purchaseInvoice entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the purchaseInvoice entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the purchaseInvoice entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the purchaseInvoice entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the purchaseInvoice entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the purchaseInvoice entity
+  */
   status?: string;
   /**
-   * The status code for the operation. Possible values include: 'Continue', 'SwitchingProtocols',
-   * 'OK', 'Created', 'Accepted', 'NonAuthoritativeInformation', 'NoContent', 'ResetContent',
-   * 'PartialContent', 'MultipleChoices', 'MovedPermanently', 'Redirect', 'SeeOther',
-   * 'NotModified', 'UseProxy', 'Unused', 'TemporaryRedirect', 'BadRequest', 'Unauthorized',
-   * 'PaymentRequired', 'Forbidden', 'NotFound', 'MethodNotAllowed', 'NotAcceptable',
-   * 'ProxyAuthenticationRequired', 'RequestTimeout', 'Conflict', 'Gone', 'LengthRequired',
-   * 'PreconditionFailed', 'RequestEntityTooLarge', 'RequestUriTooLong', 'UnsupportedMediaType',
-   * 'RequestedRangeNotSatisfiable', 'ExpectationFailed', 'UpgradeRequired', 'InternalServerError',
-   * 'NotImplemented', 'BadGateway', 'ServiceUnavailable', 'GatewayTimeout',
-   * 'HttpVersionNotSupported'
-   */
-  statusCode?: string;
-  /**
-   * Error details for the operation in case of a failure.
-   */
-  error?: OperationError;
+   * The lastModifiedDateTime property for the purchaseInvoice entity
+  */
+  lastModifiedDateTime?: Date;
+  purchaseInvoiceLines?: PurchaseInvoiceLine[];
+  pdfDocument?: PdfDocument[];
+  vendor?: Vendor;
+  currency?: Currency;
 }
 
-/**
- * A Policy.
- */
-export interface Policy extends Resource {
+export interface TimeRegistrationEntry {
   /**
-   * The description of the policy.
-   */
-  description?: string;
+   * The id property for the timeRegistrationEntry entity
+  */
+  id?: string;
   /**
-   * The status of the policy. Possible values include: 'Enabled', 'Disabled'
-   */
+   * The employeeId property for the timeRegistrationEntry entity
+  */
+  employeeId?: string;
+  /**
+   * The employeeNumber property for the timeRegistrationEntry entity
+  */
+  employeeNumber?: string;
+  /**
+   * The lineNumber property for the timeRegistrationEntry entity
+  */
+  lineNumber?: number;
+  /**
+   * The date property for the timeRegistrationEntry entity
+  */
+  date?: Date;
+  /**
+   * The quantity property for the timeRegistrationEntry entity
+  */
+  quantity?: number;
+  /**
+   * The status property for the timeRegistrationEntry entity
+  */
   status?: string;
   /**
-   * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc. Possible
-   * values include: 'UserOwnedLabVmCount', 'UserOwnedLabPremiumVmCount', 'LabVmCount',
-   * 'LabPremiumVmCount', 'LabVmSize', 'GalleryImage', 'UserOwnedLabVmCountInSubnet',
-   * 'LabTargetCost'
-   */
-  factName?: string;
+   * The unitOfMeasureId property for the timeRegistrationEntry entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
   /**
-   * The fact data of the policy.
-   */
-  factData?: string;
-  /**
-   * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for
-   * AllowedValuesPolicy).
-   */
-  threshold?: string;
-  /**
-   * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy). Possible values
-   * include: 'AllowedValuesPolicy', 'MaxValuePolicy'
-   */
-  evaluatorType?: string;
-  /**
-   * The creation date of the policy.
-   */
-  readonly createdDate?: Date;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The lastModfiedDateTime property for the timeRegistrationEntry entity
+  */
+  lastModfiedDateTime?: Date;
 }
 
-/**
- * A Policy.
- */
-export interface PolicyFragment extends Resource {
+export interface CustomerPayment {
   /**
-   * The description of the policy.
-   */
+   * The id property for the customerPayment entity
+  */
+  id?: string;
+  /**
+   * The journalDisplayName property for the customerPayment entity
+  */
+  journalDisplayName?: string;
+  /**
+   * The lineNumber property for the customerPayment entity
+  */
+  lineNumber?: number;
+  /**
+   * The customerId property for the customerPayment entity
+  */
+  customerId?: string;
+  /**
+   * The customerNumber property for the customerPayment entity
+  */
+  customerNumber?: string;
+  /**
+   * The contactId property for the customerPayment entity
+  */
+  contactId?: string;
+  /**
+   * The postingDate property for the customerPayment entity
+  */
+  postingDate?: Date;
+  /**
+   * The documentNumber property for the customerPayment entity
+  */
+  documentNumber?: string;
+  /**
+   * The externalDocumentNumber property for the customerPayment entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The amount property for the customerPayment entity
+  */
+  amount?: number;
+  /**
+   * The appliesToInvoiceId property for the customerPayment entity
+  */
+  appliesToInvoiceId?: string;
+  /**
+   * The appliesToInvoiceNumber property for the customerPayment entity
+  */
+  appliesToInvoiceNumber?: string;
+  /**
+   * The description property for the customerPayment entity
+  */
   description?: string;
   /**
-   * The status of the policy. Possible values include: 'Enabled', 'Disabled'
-   */
+   * The comment property for the customerPayment entity
+  */
+  comment?: string;
+  dimensions?: Dimensiontype[];
+  /**
+   * The lastModifiedDateTime property for the customerPayment entity
+  */
+  lastModifiedDateTime?: Date;
+  customer?: Customer;
+}
+
+export interface TrialBalance {
+  /**
+   * The number property for the trialBalance entity
+  */
+  number?: string;
+  /**
+   * The accountId property for the trialBalance entity
+  */
+  accountId?: string;
+  /**
+   * The accountType property for the trialBalance entity
+  */
+  accountType?: string;
+  /**
+   * The display property for the trialBalance entity
+  */
+  display?: string;
+  /**
+   * The totalDebit property for the trialBalance entity
+  */
+  totalDebit?: string;
+  /**
+   * The totalCredit property for the trialBalance entity
+  */
+  totalCredit?: string;
+  /**
+   * The balanceAtDateDebit property for the trialBalance entity
+  */
+  balanceAtDateDebit?: string;
+  /**
+   * The balanceAtDateCredit property for the trialBalance entity
+  */
+  balanceAtDateCredit?: string;
+  /**
+   * The dateFilter property for the trialBalance entity
+  */
+  dateFilter?: Date;
+  account?: Account;
+}
+
+export interface AgedAccountsPayable {
+  /**
+   * The vendorId property for the agedAccountsPayable entity
+  */
+  vendorId?: string;
+  /**
+   * The vendorNumber property for the agedAccountsPayable entity
+  */
+  vendorNumber?: string;
+  /**
+   * The name property for the agedAccountsPayable entity
+  */
+  name?: string;
+  /**
+   * The currencyCode property for the agedAccountsPayable entity
+  */
+  currencyCode?: string;
+  /**
+   * The balanceDue property for the agedAccountsPayable entity
+  */
+  balanceDue?: number;
+  /**
+   * The currentAmount property for the agedAccountsPayable entity
+  */
+  currentAmount?: number;
+  /**
+   * The period1Amount property for the agedAccountsPayable entity
+  */
+  period1Amount?: number;
+  /**
+   * The period2Amount property for the agedAccountsPayable entity
+  */
+  period2Amount?: number;
+  /**
+   * The period3Amount property for the agedAccountsPayable entity
+  */
+  period3Amount?: number;
+  /**
+   * The agedAsOfDate property for the agedAccountsPayable entity
+  */
+  agedAsOfDate?: Date;
+  /**
+   * The periodLengthFilter property for the agedAccountsPayable entity
+  */
+  periodLengthFilter?: string;
+}
+
+export interface CustomerPaymentJournal {
+  /**
+   * The id property for the customerPaymentJournal entity
+  */
+  id?: string;
+  /**
+   * The code property for the customerPaymentJournal entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the customerPaymentJournal entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the customerPaymentJournal entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The balancingAccountId property for the customerPaymentJournal entity
+  */
+  balancingAccountId?: string;
+  /**
+   * The balancingAccountNumber property for the customerPaymentJournal entity
+  */
+  balancingAccountNumber?: string;
+  customerPayments?: CustomerPayment[];
+  account?: Account;
+}
+
+export interface SalesInvoice {
+  /**
+   * The id property for the salesInvoice entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesInvoice entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesInvoice entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The invoiceDate property for the salesInvoice entity
+  */
+  invoiceDate?: Date;
+  /**
+   * The dueDate property for the salesInvoice entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerPurchaseOrderReference property for the salesInvoice entity
+  */
+  customerPurchaseOrderReference?: string;
+  /**
+   * The customerId property for the salesInvoice entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesInvoice entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesInvoice entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesInvoice entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesInvoice entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesInvoice entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesInvoice entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesInvoice entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesInvoice entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesInvoice entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesInvoice entity
+  */
+  currencyCode?: string;
+  /**
+   * The orderId property for the salesInvoice entity
+  */
+  orderId?: string;
+  /**
+   * The orderNumber property for the salesInvoice entity
+  */
+  orderNumber?: string;
+  /**
+   * The paymentTermsId property for the salesInvoice entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The shipmentMethodId property for the salesInvoice entity
+  */
+  shipmentMethodId?: string;
+  /**
+   * The salesperson property for the salesInvoice entity
+  */
+  salesperson?: string;
+  /**
+   * The pricesIncludeTax property for the salesInvoice entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the salesInvoice entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesInvoice entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesInvoice entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesInvoice entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesInvoice entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesInvoice entity
+  */
   status?: string;
   /**
-   * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc. Possible
-   * values include: 'UserOwnedLabVmCount', 'UserOwnedLabPremiumVmCount', 'LabVmCount',
-   * 'LabPremiumVmCount', 'LabVmSize', 'GalleryImage', 'UserOwnedLabVmCountInSubnet',
-   * 'LabTargetCost'
-   */
-  factName?: string;
+   * The lastModifiedDateTime property for the salesInvoice entity
+  */
+  lastModifiedDateTime?: Date;
   /**
-   * The fact data of the policy.
-   */
-  factData?: string;
+   * The phoneNumber property for the salesInvoice entity
+  */
+  phoneNumber?: string;
   /**
-   * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for
-   * AllowedValuesPolicy).
-   */
-  threshold?: string;
-  /**
-   * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy). Possible values
-   * include: 'AllowedValuesPolicy', 'MaxValuePolicy'
-   */
-  evaluatorType?: string;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The email property for the salesInvoice entity
+  */
+  email?: string;
+  salesInvoiceLines?: SalesInvoiceLine[];
+  pdfDocument?: PdfDocument[];
+  customer?: Customer;
+  currency?: Currency;
+  paymentTerm?: PaymentTerm;
+  shipmentMethod?: ShipmentMethod;
 }
 
-/**
- * Properties of a network port.
- */
-export interface Port {
+export interface GeneralLedgerEntryAttachments {
   /**
-   * Protocol type of the port. Possible values include: 'Tcp', 'Udp'
-   */
-  transportProtocol?: string;
+   * The generalLedgerEntryNumber property for the generalLedgerEntryAttachments entity
+  */
+  generalLedgerEntryNumber?: number;
   /**
-   * Backend port of the target virtual machine.
-   */
-  backendPort?: number;
+   * The id property for the generalLedgerEntryAttachments entity
+  */
+  id?: string;
+  /**
+   * The fileName property for the generalLedgerEntryAttachments entity
+  */
+  fileName?: string;
+  /**
+   * The byteSize property for the generalLedgerEntryAttachments entity
+  */
+  byteSize?: number;
+  /**
+   * The content property for the generalLedgerEntryAttachments entity
+  */
+  content?: string;
+  /**
+   * The createdDateTime property for the generalLedgerEntryAttachments entity
+  */
+  createdDateTime?: Date;
+  generalLedgerEntry?: GeneralLedgerEntry;
 }
 
-/**
- * Properties of a network port.
- */
-export interface PortFragment {
+export interface UnitOfMeasure {
   /**
-   * Protocol type of the port. Possible values include: 'Tcp', 'Udp'
-   */
-  transportProtocol?: string;
+   * The id property for the unitOfMeasure entity
+  */
+  id?: string;
   /**
-   * Backend port of the target virtual machine.
-   */
-  backendPort?: number;
+   * The code property for the unitOfMeasure entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the unitOfMeasure entity
+  */
+  displayName?: string;
+  /**
+   * The internationalStandardCode property for the unitOfMeasure entity
+  */
+  internationalStandardCode?: string;
+  /**
+   * The lastModifiedDateTime property for the unitOfMeasure entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Properties for retargeting a virtual machine schedule.
- */
-export interface RetargetScheduleProperties {
+export interface CompanyInformation {
   /**
-   * The resource Id of the virtual machine on which the schedule operates
-   */
-  currentResourceId?: string;
+   * The id property for the companyInformation entity
+  */
+  id?: string;
   /**
-   * The resource Id of the virtual machine that the schedule should be retargeted to
-   */
-  targetResourceId?: string;
+   * The displayName property for the companyInformation entity
+  */
+  displayName?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the companyInformation entity
+  */
+  phoneNumber?: string;
+  /**
+   * The faxNumber property for the companyInformation entity
+  */
+  faxNumber?: string;
+  /**
+   * The email property for the companyInformation entity
+  */
+  email?: string;
+  /**
+   * The website property for the companyInformation entity
+  */
+  website?: string;
+  /**
+   * The taxRegistrationNumber property for the companyInformation entity
+  */
+  taxRegistrationNumber?: string;
+  /**
+   * The currencyCode property for the companyInformation entity
+  */
+  currencyCode?: string;
+  /**
+   * The currentFiscalYearStartDate property for the companyInformation entity
+  */
+  currentFiscalYearStartDate?: Date;
+  /**
+   * The industry property for the companyInformation entity
+  */
+  industry?: string;
+  /**
+   * The picture property for the companyInformation entity
+  */
+  picture?: string;
+  /**
+   * The lastModifiedDateTime property for the companyInformation entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * A secret.
- */
-export interface Secret extends Resource {
+export interface TaxGroup {
   /**
-   * The value of the secret for secret creation.
-   */
-  value?: string;
+   * The id property for the taxGroup entity
+  */
+  id?: string;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The code property for the taxGroup entity
+  */
+  code?: string;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The displayName property for the taxGroup entity
+  */
+  displayName?: string;
+  /**
+   * The taxType property for the taxGroup entity
+  */
+  taxType?: string;
+  /**
+   * The lastModifiedDateTime property for the taxGroup entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * A container for a managed identity to execute DevTest lab services.
- */
-export interface ServiceRunner extends Resource {
+export interface Employee {
   /**
-   * The identity of the resource.
-   */
-  identity?: IdentityProperties;
+   * The id property for the employee entity
+  */
+  id?: string;
+  /**
+   * The number property for the employee entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the employee entity
+  */
+  displayName?: string;
+  /**
+   * The givenName property for the employee entity
+  */
+  givenName?: string;
+  /**
+   * The middleName property for the employee entity
+  */
+  middleName?: string;
+  /**
+   * The surname property for the employee entity
+  */
+  surname?: string;
+  /**
+   * The jobTitle property for the employee entity
+  */
+  jobTitle?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the employee entity
+  */
+  phoneNumber?: string;
+  /**
+   * The mobilePhone property for the employee entity
+  */
+  mobilePhone?: string;
+  /**
+   * The email property for the employee entity
+  */
+  email?: string;
+  /**
+   * The personalEmail property for the employee entity
+  */
+  personalEmail?: string;
+  /**
+   * The employmentDate property for the employee entity
+  */
+  employmentDate?: Date;
+  /**
+   * The terminationDate property for the employee entity
+  */
+  terminationDate?: Date;
+  /**
+   * The status property for the employee entity
+  */
+  status?: string;
+  /**
+   * The birthDate property for the employee entity
+  */
+  birthDate?: Date;
+  /**
+   * The statisticsGroupCode property for the employee entity
+  */
+  statisticsGroupCode?: string;
+  /**
+   * The lastModifiedDateTime property for the employee entity
+  */
+  lastModifiedDateTime?: Date;
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  timeRegistrationEntries?: TimeRegistrationEntry[];
 }
 
-/**
- * The contents of a shutdown notification. Webhooks can use this type to deserialize the request
- * body when they get notified of an imminent shutdown.
- */
-export interface ShutdownNotificationContent {
+export interface AgedAccountsReceivable {
   /**
-   * The URL to skip auto-shutdown.
-   */
-  skipUrl?: string;
+   * The customerId property for the agedAccountsReceivable entity
+  */
+  customerId?: string;
   /**
-   * The URL to delay shutdown by 60 minutes.
-   */
-  delayUrl60?: string;
+   * The customerNumber property for the agedAccountsReceivable entity
+  */
+  customerNumber?: string;
   /**
-   * The URL to delay shutdown by 2 hours.
-   */
-  delayUrl120?: string;
+   * The name property for the agedAccountsReceivable entity
+  */
+  name?: string;
   /**
-   * The virtual machine to be shut down.
-   */
-  vmName?: string;
+   * The currencyCode property for the agedAccountsReceivable entity
+  */
+  currencyCode?: string;
   /**
-   * The GUID for the virtual machine to be shut down.
-   */
-  guid?: string;
+   * The balanceDue property for the agedAccountsReceivable entity
+  */
+  balanceDue?: number;
   /**
-   * The owner of the virtual machine.
-   */
-  owner?: string;
+   * The currentAmount property for the agedAccountsReceivable entity
+  */
+  currentAmount?: number;
   /**
-   * The event for which a notification will be sent.
-   */
-  eventType?: string;
+   * The period1Amount property for the agedAccountsReceivable entity
+  */
+  period1Amount?: number;
   /**
-   * The text for the notification.
-   */
-  text?: string;
+   * The period2Amount property for the agedAccountsReceivable entity
+  */
+  period2Amount?: number;
   /**
-   * The subscription ID for the schedule.
-   */
-  subscriptionId?: string;
+   * The period3Amount property for the agedAccountsReceivable entity
+  */
+  period3Amount?: number;
   /**
-   * The resource group name for the schedule.
-   */
-  resourceGroupName?: string;
+   * The agedAsOfDate property for the agedAccountsReceivable entity
+  */
+  agedAsOfDate?: Date;
   /**
-   * The lab for the schedule.
-   */
-  labName?: string;
+   * The periodLengthFilter property for the agedAccountsReceivable entity
+  */
+  periodLengthFilter?: string;
 }
 
-/**
- * Subnet information.
- */
-export interface Subnet {
+export interface BalanceSheet {
   /**
-   * The resource ID of the subnet.
-   */
-  resourceId?: string;
+   * The lineNumber property for the balanceSheet entity
+  */
+  lineNumber?: number;
   /**
-   * The name of the subnet as seen in the lab.
-   */
-  labSubnetName?: string;
+   * The display property for the balanceSheet entity
+  */
+  display?: string;
   /**
-   * The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-   * Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  allowPublicIp?: string;
+   * The balance property for the balanceSheet entity
+  */
+  balance?: number;
+  /**
+   * The lineType property for the balanceSheet entity
+  */
+  lineType?: string;
+  /**
+   * The indentation property for the balanceSheet entity
+  */
+  indentation?: number;
+  /**
+   * The dateFilter property for the balanceSheet entity
+  */
+  dateFilter?: Date;
 }
 
-/**
- * Subnet information.
- */
-export interface SubnetFragment {
+export interface Company {
   /**
-   * The resource ID of the subnet.
-   */
-  resourceId?: string;
+   * The id property for the company entity
+  */
+  id?: string;
   /**
-   * The name of the subnet as seen in the lab.
-   */
-  labSubnetName?: string;
+   * The systemVersion property for the company entity
+  */
+  systemVersion?: string;
   /**
-   * The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-   * Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  allowPublicIp?: string;
+   * The name property for the company entity
+  */
+  name?: string;
+  /**
+   * The displayName property for the company entity
+  */
+  displayName?: string;
+  /**
+   * The businessProfileId property for the company entity
+  */
+  businessProfileId?: string;
+  items?: Item[];
+  picture?: Picture[];
+  defaultDimensions?: DefaultDimensions[];
+  customers?: Customer[];
+  customerFinancialDetails?: CustomerFinancialDetail[];
+  vendors?: Vendor[];
+  companyInformation?: CompanyInformation[];
+  salesInvoices?: SalesInvoice[];
+  salesInvoiceLines?: SalesInvoiceLine[];
+  pdfDocument?: PdfDocument[];
+  customerPaymentJournals?: CustomerPaymentJournal[];
+  customerPayments?: CustomerPayment[];
+  accounts?: Account[];
+  taxGroups?: TaxGroup[];
+  journals?: Journal[];
+  journalLines?: JournalLine[];
+  attachments?: Attachments[];
+  employees?: Employee[];
+  timeRegistrationEntries?: TimeRegistrationEntry[];
+  generalLedgerEntries?: GeneralLedgerEntry[];
+  currencies?: Currency[];
+  paymentMethods?: PaymentMethod[];
+  dimensions?: Dimension[];
+  dimensionValues?: DimensionValue[];
+  dimensionLines?: DimensionLine[];
+  paymentTerms?: PaymentTerm[];
+  shipmentMethods?: ShipmentMethod[];
+  itemCategories?: ItemCategory[];
+  cashFlowStatement?: CashFlowStatement[];
+  countriesRegions?: CountryRegion[];
+  salesOrders?: SalesOrder[];
+  salesOrderLines?: SalesOrderLine[];
+  retainedEarningsStatement?: RetainedEarningsStatement[];
+  unitsOfMeasure?: UnitOfMeasure[];
+  agedAccountsReceivable?: AgedAccountsReceivable[];
+  agedAccountsPayable?: AgedAccountsPayable[];
+  balanceSheet?: BalanceSheet[];
+  trialBalance?: TrialBalance[];
+  incomeStatement?: IncomeStatement[];
+  taxAreas?: TaxArea[];
+  salesQuotes?: SalesQuote[];
+  salesQuoteLines?: SalesQuoteLine[];
+  salesCreditMemos?: SalesCreditMemo[];
+  salesCreditMemoLines?: SalesCreditMemoLine[];
+  generalLedgerEntryAttachments?: GeneralLedgerEntryAttachments[];
+  purchaseInvoices?: PurchaseInvoice[];
+  purchaseInvoiceLines?: PurchaseInvoiceLine[];
+  customerSales?: CustomerSale[];
+  vendorPurchases?: VendorPurchase[];
 }
 
-/**
- * Configuration for public IP address sharing.
- */
-export interface SubnetSharedPublicIpAddressConfiguration {
-  /**
-   * Backend ports that virtual machines on this subnet are allowed to expose
-   */
-  allowedPorts?: Port[];
+export interface GetCompaniesOKResponse {
+  value?: Company[];
 }
 
-/**
- * Property overrides on a subnet of a virtual network.
- */
-export interface SubnetOverride {
-  /**
-   * The resource ID of the subnet.
-   */
-  resourceId?: string;
-  /**
-   * The name given to the subnet within the lab.
-   */
-  labSubnetName?: string;
-  /**
-   * Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-   * Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  useInVmCreationPermission?: string;
-  /**
-   * Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e.
-   * Allow, Deny). Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  usePublicIpAddressPermission?: string;
-  /**
-   * Properties that virtual machines on this subnet will share.
-   */
-  sharedPublicIpAddressConfiguration?: SubnetSharedPublicIpAddressConfiguration;
-  /**
-   * The virtual network pool associated with this subnet.
-   */
-  virtualNetworkPoolName?: string;
+export interface GetItemsOKResponse {
+  value?: Item[];
 }
 
-/**
- * Configuration for public IP address sharing.
- */
-export interface SubnetSharedPublicIpAddressConfigurationFragment {
+export interface Body {
   /**
-   * Backend ports that virtual machines on this subnet are allowed to expose
-   */
-  allowedPorts?: PortFragment[];
+   * The id property for the item entity
+  */
+  id?: string;
+  /**
+   * The number property for the item entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the item entity
+  */
+  displayName?: string;
+  /**
+   * The type property for the item entity
+  */
+  type?: string;
+  /**
+   * The itemCategoryId property for the item entity
+  */
+  itemCategoryId?: string;
+  /**
+   * The itemCategoryCode property for the item entity
+  */
+  itemCategoryCode?: string;
+  /**
+   * The blocked property for the item entity
+  */
+  blocked?: boolean;
+  /**
+   * The baseUnitOfMeasureId property for the item entity
+  */
+  baseUnitOfMeasureId?: string;
+  baseUnitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The gtin property for the item entity
+  */
+  gtin?: string;
+  /**
+   * The inventory property for the item entity
+  */
+  inventory?: number;
+  /**
+   * The unitPrice property for the item entity
+  */
+  unitPrice?: number;
+  /**
+   * The priceIncludesTax property for the item entity
+  */
+  priceIncludesTax?: boolean;
+  /**
+   * The unitCost property for the item entity
+  */
+  unitCost?: number;
+  /**
+   * The taxGroupId property for the item entity
+  */
+  taxGroupId?: string;
+  /**
+   * The taxGroupCode property for the item entity
+  */
+  taxGroupCode?: string;
+  /**
+   * The lastModifiedDateTime property for the item entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Property overrides on a subnet of a virtual network.
- */
-export interface SubnetOverrideFragment {
-  /**
-   * The resource ID of the subnet.
-   */
-  resourceId?: string;
-  /**
-   * The name given to the subnet within the lab.
-   */
-  labSubnetName?: string;
-  /**
-   * Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-   * Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  useInVmCreationPermission?: string;
-  /**
-   * Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e.
-   * Allow, Deny). Possible values include: 'Default', 'Deny', 'Allow'
-   */
-  usePublicIpAddressPermission?: string;
-  /**
-   * Properties that virtual machines on this subnet will share.
-   */
-  sharedPublicIpAddressConfiguration?: SubnetSharedPublicIpAddressConfigurationFragment;
-  /**
-   * The virtual network pool associated with this subnet.
-   */
-  virtualNetworkPoolName?: string;
+export interface GetPictureForItemOKResponse {
+  value?: Picture[];
 }
 
-/**
- * Identity attributes of a lab user.
- */
-export interface UserIdentity {
+export interface BodyModel {
   /**
-   * Set to the principal name / UPN of the client JWT making the request.
-   */
-  principalName?: string;
+   * The id property for the picture entity
+  */
+  id?: string;
   /**
-   * Set to the principal Id of the client JWT making the request. Service principal will not have
-   * the principal Id.
-   */
-  principalId?: string;
+   * The width property for the picture entity
+  */
+  width?: number;
   /**
-   * Set to the tenant ID of the client JWT making the request.
-   */
-  tenantId?: string;
+   * The height property for the picture entity
+  */
+  height?: number;
   /**
-   * Set to the object Id of the client JWT making the request. Not all users have object Id. For
-   * CSP (reseller) scenarios for example, object Id is not available.
-   */
-  objectId?: string;
+   * The contentType property for the picture entity
+  */
+  contentType?: string;
   /**
-   * Set to the app Id of the client JWT making the request.
-   */
-  appId?: string;
+   * The content property for the picture entity
+  */
+  content?: string;
 }
 
-/**
- * Properties of a user's secret store.
- */
-export interface UserSecretStore {
-  /**
-   * The URI of the user's Key vault.
-   */
-  keyVaultUri?: string;
-  /**
-   * The ID of the user's Key vault.
-   */
-  keyVaultId?: string;
+export interface GetDefaultDimensionsForItemOKResponse {
+  value?: DefaultDimensions[];
 }
 
-/**
- * Profile of a lab user.
- */
-export interface User extends Resource {
+export interface BodyModelModel {
   /**
-   * The identity of the user.
-   */
-  identity?: UserIdentity;
+   * The parentId property for the defaultDimensions entity
+  */
+  parentId?: string;
   /**
-   * The secret store of the user.
-   */
-  secretStore?: UserSecretStore;
+   * The dimensionId property for the defaultDimensions entity
+  */
+  dimensionId?: string;
   /**
-   * The creation date of the user profile.
-   */
-  readonly createdDate?: Date;
+   * The dimensionCode property for the defaultDimensions entity
+  */
+  dimensionCode?: string;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The dimensionValueId property for the defaultDimensions entity
+  */
+  dimensionValueId?: string;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The dimensionValueCode property for the defaultDimensions entity
+  */
+  dimensionValueCode?: string;
+  /**
+   * The postingValidation property for the defaultDimensions entity
+  */
+  postingValidation?: string;
 }
 
-/**
- * Identity attributes of a lab user.
- */
-export interface UserIdentityFragment {
-  /**
-   * Set to the principal name / UPN of the client JWT making the request.
-   */
-  principalName?: string;
-  /**
-   * Set to the principal Id of the client JWT making the request. Service principal will not have
-   * the principal Id.
-   */
-  principalId?: string;
-  /**
-   * Set to the tenant ID of the client JWT making the request.
-   */
-  tenantId?: string;
-  /**
-   * Set to the object Id of the client JWT making the request. Not all users have object Id. For
-   * CSP (reseller) scenarios for example, object Id is not available.
-   */
-  objectId?: string;
-  /**
-   * Set to the app Id of the client JWT making the request.
-   */
-  appId?: string;
+export interface GetPictureOKResponse {
+  value?: Picture[];
 }
 
-/**
- * Properties of a user's secret store.
- */
-export interface UserSecretStoreFragment {
-  /**
-   * The URI of the user's Key vault.
-   */
-  keyVaultUri?: string;
-  /**
-   * The ID of the user's Key vault.
-   */
-  keyVaultId?: string;
+export interface GetDefaultDimensionsOKResponse {
+  value?: DefaultDimensions[];
 }
 
-/**
- * Profile of a lab user.
- */
-export interface UserFragment extends Resource {
-  /**
-   * The identity of the user.
-   */
-  identity?: UserIdentityFragment;
-  /**
-   * The secret store of the user.
-   */
-  secretStore?: UserSecretStoreFragment;
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+export interface GetCustomersOKResponse {
+  value?: Customer[];
 }
 
-/**
- * A virtual network.
- */
-export interface VirtualNetwork extends Resource {
+export interface BodyModelModelModel {
   /**
-   * The allowed subnets of the virtual network.
-   */
-  allowedSubnets?: Subnet[];
+   * The id property for the customer entity
+  */
+  id?: string;
   /**
-   * The description of the virtual network.
-   */
+   * The number property for the customer entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the customer entity
+  */
+  displayName?: string;
+  /**
+   * The type property for the customer entity
+  */
+  type?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the customer entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the customer entity
+  */
+  email?: string;
+  /**
+   * The website property for the customer entity
+  */
+  website?: string;
+  /**
+   * The taxLiable property for the customer entity
+  */
+  taxLiable?: boolean;
+  /**
+   * The taxAreaId property for the customer entity
+  */
+  taxAreaId?: string;
+  /**
+   * The taxAreaDisplayName property for the customer entity
+  */
+  taxAreaDisplayName?: string;
+  /**
+   * The taxRegistrationNumber property for the customer entity
+  */
+  taxRegistrationNumber?: string;
+  /**
+   * The currencyId property for the customer entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the customer entity
+  */
+  currencyCode?: string;
+  /**
+   * The paymentTermsId property for the customer entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The shipmentMethodId property for the customer entity
+  */
+  shipmentMethodId?: string;
+  /**
+   * The paymentMethodId property for the customer entity
+  */
+  paymentMethodId?: string;
+  /**
+   * The blocked property for the customer entity
+  */
+  blocked?: string;
+  /**
+   * The lastModifiedDateTime property for the customer entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetCustomerFinancialDetailsForCustomerOKResponse {
+  value?: CustomerFinancialDetail[];
+}
+
+export interface GetPictureForCustomerOKResponse {
+  value?: Picture[];
+}
+
+export interface GetDefaultDimensionsForCustomerOKResponse {
+  value?: DefaultDimensions[];
+}
+
+export interface GetCustomerFinancialDetailsOKResponse {
+  value?: CustomerFinancialDetail[];
+}
+
+export interface GetVendorsOKResponse {
+  value?: Vendor[];
+}
+
+export interface BodyModelModelModelModel {
+  /**
+   * The id property for the vendor entity
+  */
+  id?: string;
+  /**
+   * The number property for the vendor entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the vendor entity
+  */
+  displayName?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the vendor entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the vendor entity
+  */
+  email?: string;
+  /**
+   * The website property for the vendor entity
+  */
+  website?: string;
+  /**
+   * The taxRegistrationNumber property for the vendor entity
+  */
+  taxRegistrationNumber?: string;
+  /**
+   * The currencyId property for the vendor entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the vendor entity
+  */
+  currencyCode?: string;
+  /**
+   * The irs1099Code property for the vendor entity
+  */
+  irs1099Code?: string;
+  /**
+   * The paymentTermsId property for the vendor entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The paymentMethodId property for the vendor entity
+  */
+  paymentMethodId?: string;
+  /**
+   * The taxLiable property for the vendor entity
+  */
+  taxLiable?: boolean;
+  /**
+   * The blocked property for the vendor entity
+  */
+  blocked?: string;
+  /**
+   * The balance property for the vendor entity
+  */
+  balance?: number;
+  /**
+   * The lastModifiedDateTime property for the vendor entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetPictureForVendorOKResponse {
+  value?: Picture[];
+}
+
+export interface GetDefaultDimensionsForVendorOKResponse {
+  value?: DefaultDimensions[];
+}
+
+export interface GetCompanyInformationOKResponse {
+  value?: CompanyInformation[];
+}
+
+export interface BodyModelModelModelModelModel {
+  /**
+   * The id property for the companyInformation entity
+  */
+  id?: string;
+  /**
+   * The displayName property for the companyInformation entity
+  */
+  displayName?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the companyInformation entity
+  */
+  phoneNumber?: string;
+  /**
+   * The faxNumber property for the companyInformation entity
+  */
+  faxNumber?: string;
+  /**
+   * The email property for the companyInformation entity
+  */
+  email?: string;
+  /**
+   * The website property for the companyInformation entity
+  */
+  website?: string;
+  /**
+   * The taxRegistrationNumber property for the companyInformation entity
+  */
+  taxRegistrationNumber?: string;
+  /**
+   * The currencyCode property for the companyInformation entity
+  */
+  currencyCode?: string;
+  /**
+   * The currentFiscalYearStartDate property for the companyInformation entity
+  */
+  currentFiscalYearStartDate?: Date;
+  /**
+   * The industry property for the companyInformation entity
+  */
+  industry?: string;
+  /**
+   * The picture property for the companyInformation entity
+  */
+  picture?: string;
+  /**
+   * The lastModifiedDateTime property for the companyInformation entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetSalesInvoicesOKResponse {
+  value?: SalesInvoice[];
+}
+
+export interface BodyModelModelModelModelModelModel {
+  /**
+   * The id property for the salesInvoice entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesInvoice entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesInvoice entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The invoiceDate property for the salesInvoice entity
+  */
+  invoiceDate?: Date;
+  /**
+   * The dueDate property for the salesInvoice entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerPurchaseOrderReference property for the salesInvoice entity
+  */
+  customerPurchaseOrderReference?: string;
+  /**
+   * The customerId property for the salesInvoice entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesInvoice entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesInvoice entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesInvoice entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesInvoice entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesInvoice entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesInvoice entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesInvoice entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesInvoice entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesInvoice entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesInvoice entity
+  */
+  currencyCode?: string;
+  /**
+   * The orderId property for the salesInvoice entity
+  */
+  orderId?: string;
+  /**
+   * The orderNumber property for the salesInvoice entity
+  */
+  orderNumber?: string;
+  /**
+   * The paymentTermsId property for the salesInvoice entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The shipmentMethodId property for the salesInvoice entity
+  */
+  shipmentMethodId?: string;
+  /**
+   * The salesperson property for the salesInvoice entity
+  */
+  salesperson?: string;
+  /**
+   * The pricesIncludeTax property for the salesInvoice entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the salesInvoice entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesInvoice entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesInvoice entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesInvoice entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesInvoice entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesInvoice entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the salesInvoice entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The phoneNumber property for the salesInvoice entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesInvoice entity
+  */
+  email?: string;
+}
+
+export interface GetSalesInvoiceLinesForSalesInvoiceOKResponse {
+  value?: SalesInvoiceLine[];
+}
+
+export interface BodyModelModelModelModelModelModelModel {
+  /**
+   * The id property for the salesInvoiceLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the salesInvoiceLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the salesInvoiceLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the salesInvoiceLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesInvoiceLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesInvoiceLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesInvoiceLine entity
+  */
   description?: string;
   /**
-   * The Microsoft.Network resource identifier of the virtual network.
-   */
-  externalProviderResourceId?: string;
+   * The unitOfMeasureId property for the salesInvoiceLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
   /**
-   * The external subnet properties.
-   */
-  externalSubnets?: ExternalSubnet[];
+   * The unitPrice property for the salesInvoiceLine entity
+  */
+  unitPrice?: number;
   /**
-   * The subnet overrides of the virtual network.
-   */
-  subnetOverrides?: SubnetOverride[];
+   * The quantity property for the salesInvoiceLine entity
+  */
+  quantity?: number;
   /**
-   * The creation date of the virtual network.
-   */
-  readonly createdDate?: Date;
+   * The discountAmount property for the salesInvoiceLine entity
+  */
+  discountAmount?: number;
   /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
+   * The discountPercent property for the salesInvoiceLine entity
+  */
+  discountPercent?: number;
   /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The discountAppliedBeforeTax property for the salesInvoiceLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesInvoiceLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesInvoiceLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesInvoiceLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesInvoiceLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesInvoiceLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesInvoiceLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesInvoiceLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesInvoiceLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesInvoiceLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesInvoiceLine entity
+  */
+  shipmentDate?: Date;
 }
 
-/**
- * A virtual network.
- */
-export interface VirtualNetworkFragment extends Resource {
+export interface GetPdfDocumentForSalesInvoiceOKResponse {
+  value?: PdfDocument[];
+}
+
+export interface GetSalesInvoiceLinesOKResponse {
+  value?: SalesInvoiceLine[];
+}
+
+export interface GetPdfDocumentOKResponse {
+  value?: PdfDocument[];
+}
+
+export interface GetCustomerPaymentJournalsOKResponse {
+  value?: CustomerPaymentJournal[];
+}
+
+export interface BodyModelModelModelModelModelModelModelModel {
   /**
-   * The allowed subnets of the virtual network.
-   */
-  allowedSubnets?: SubnetFragment[];
+   * The id property for the customerPaymentJournal entity
+  */
+  id?: string;
   /**
-   * The description of the virtual network.
-   */
+   * The code property for the customerPaymentJournal entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the customerPaymentJournal entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the customerPaymentJournal entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The balancingAccountId property for the customerPaymentJournal entity
+  */
+  balancingAccountId?: string;
+  /**
+   * The balancingAccountNumber property for the customerPaymentJournal entity
+  */
+  balancingAccountNumber?: string;
+}
+
+export interface GetCustomerPaymentsForCustomerPaymentJournalOKResponse {
+  value?: CustomerPayment[];
+}
+
+export interface BodyModelModelModelModelModelModelModelModelModel {
+  /**
+   * The id property for the customerPayment entity
+  */
+  id?: string;
+  /**
+   * The journalDisplayName property for the customerPayment entity
+  */
+  journalDisplayName?: string;
+  /**
+   * The lineNumber property for the customerPayment entity
+  */
+  lineNumber?: number;
+  /**
+   * The customerId property for the customerPayment entity
+  */
+  customerId?: string;
+  /**
+   * The customerNumber property for the customerPayment entity
+  */
+  customerNumber?: string;
+  /**
+   * The contactId property for the customerPayment entity
+  */
+  contactId?: string;
+  /**
+   * The postingDate property for the customerPayment entity
+  */
+  postingDate?: Date;
+  /**
+   * The documentNumber property for the customerPayment entity
+  */
+  documentNumber?: string;
+  /**
+   * The externalDocumentNumber property for the customerPayment entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The amount property for the customerPayment entity
+  */
+  amount?: number;
+  /**
+   * The appliesToInvoiceId property for the customerPayment entity
+  */
+  appliesToInvoiceId?: string;
+  /**
+   * The appliesToInvoiceNumber property for the customerPayment entity
+  */
+  appliesToInvoiceNumber?: string;
+  /**
+   * The description property for the customerPayment entity
+  */
   description?: string;
   /**
-   * The Microsoft.Network resource identifier of the virtual network.
-   */
-  externalProviderResourceId?: string;
+   * The comment property for the customerPayment entity
+  */
+  comment?: string;
+  dimensions?: Dimensiontype[];
   /**
-   * The external subnet properties.
-   */
-  externalSubnets?: ExternalSubnetFragment[];
-  /**
-   * The subnet overrides of the virtual network.
-   */
-  subnetOverrides?: SubnetOverrideFragment[];
-  /**
-   * The provisioning status of the resource.
-   */
-  provisioningState?: string;
-  /**
-   * The unique immutable identifier of a resource (Guid).
-   */
-  uniqueIdentifier?: string;
+   * The lastModifiedDateTime property for the customerPayment entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * Result of the request to list REST API operations
- */
-export interface ProviderOperationResult extends Array<OperationMetadata> {
-  /**
-   * URL to get the next set of operation list results if there are any.
-   */
-  readonly nextLink?: string;
+export interface GetCustomerPaymentsOKResponse {
+  value?: CustomerPayment[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationLab extends Array<Lab> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetAccountsOKResponse {
+  value?: Account[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationLabVhd extends Array<LabVhd> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetTaxGroupsOKResponse {
+  value?: TaxGroup[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationSchedule extends Array<Schedule> {
+export interface BodyModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The id property for the taxGroup entity
+  */
+  id?: string;
+  /**
+   * The code property for the taxGroup entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the taxGroup entity
+  */
+  displayName?: string;
+  /**
+   * The taxType property for the taxGroup entity
+  */
+  taxType?: string;
+  /**
+   * The lastModifiedDateTime property for the taxGroup entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationArtifactSource extends Array<ArtifactSource> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetJournalsOKResponse {
+  value?: Journal[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationArmTemplate extends Array<ArmTemplate> {
+export interface BodyModelModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The id property for the journal entity
+  */
+  id?: string;
+  /**
+   * The code property for the journal entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the journal entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the journal entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The balancingAccountId property for the journal entity
+  */
+  balancingAccountId?: string;
+  /**
+   * The balancingAccountNumber property for the journal entity
+  */
+  balancingAccountNumber?: string;
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationArtifact extends Array<Artifact> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetJournalLinesForJournalOKResponse {
+  value?: JournalLine[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationCustomImage extends Array<CustomImage> {
+export interface BodyModelModelModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The id property for the journalLine entity
+  */
+  id?: string;
+  /**
+   * The journalDisplayName property for the journalLine entity
+  */
+  journalDisplayName?: string;
+  /**
+   * The lineNumber property for the journalLine entity
+  */
+  lineNumber?: number;
+  /**
+   * The accountId property for the journalLine entity
+  */
+  accountId?: string;
+  /**
+   * The accountNumber property for the journalLine entity
+  */
+  accountNumber?: string;
+  /**
+   * The postingDate property for the journalLine entity
+  */
+  postingDate?: Date;
+  /**
+   * The documentNumber property for the journalLine entity
+  */
+  documentNumber?: string;
+  /**
+   * The externalDocumentNumber property for the journalLine entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The amount property for the journalLine entity
+  */
+  amount?: number;
+  /**
+   * The description property for the journalLine entity
+  */
+  description?: string;
+  /**
+   * The comment property for the journalLine entity
+  */
+  comment?: string;
+  dimensions?: Dimensiontype[];
+  /**
+   * The lastModifiedDateTime property for the journalLine entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationFormula extends Array<Formula> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetAttachmentsForJournalLineForJournalOKResponse {
+  value?: Attachments[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationGalleryImage extends Array<GalleryImage> {
+export interface BodyModelModelModelModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The parentId property for the attachments entity
+  */
+  parentId?: string;
+  /**
+   * The id property for the attachments entity
+  */
+  id?: string;
+  /**
+   * The fileName property for the attachments entity
+  */
+  fileName?: string;
+  /**
+   * The byteSize property for the attachments entity
+  */
+  byteSize?: number;
+  /**
+   * The content property for the attachments entity
+  */
+  content?: string;
+  /**
+   * The lastModifiedDateTime property for the attachments entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationNotificationChannel extends Array<NotificationChannel> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetJournalLinesOKResponse {
+  value?: JournalLine[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationPolicy extends Array<Policy> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetAttachmentsForJournalLineOKResponse {
+  value?: Attachments[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationServiceRunner extends Array<ServiceRunner> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetAttachmentsOKResponse {
+  value?: Attachments[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationUser extends Array<User> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetEmployeesOKResponse {
+  value?: Employee[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationDisk extends Array<Disk> {
+export interface BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The id property for the employee entity
+  */
+  id?: string;
+  /**
+   * The number property for the employee entity
+  */
+  number?: string;
+  /**
+   * The displayName property for the employee entity
+  */
+  displayName?: string;
+  /**
+   * The givenName property for the employee entity
+  */
+  givenName?: string;
+  /**
+   * The middleName property for the employee entity
+  */
+  middleName?: string;
+  /**
+   * The surname property for the employee entity
+  */
+  surname?: string;
+  /**
+   * The jobTitle property for the employee entity
+  */
+  jobTitle?: string;
+  address?: Postaladdresstype;
+  /**
+   * The phoneNumber property for the employee entity
+  */
+  phoneNumber?: string;
+  /**
+   * The mobilePhone property for the employee entity
+  */
+  mobilePhone?: string;
+  /**
+   * The email property for the employee entity
+  */
+  email?: string;
+  /**
+   * The personalEmail property for the employee entity
+  */
+  personalEmail?: string;
+  /**
+   * The employmentDate property for the employee entity
+  */
+  employmentDate?: Date;
+  /**
+   * The terminationDate property for the employee entity
+  */
+  terminationDate?: Date;
+  /**
+   * The status property for the employee entity
+  */
+  status?: string;
+  /**
+   * The birthDate property for the employee entity
+  */
+  birthDate?: Date;
+  /**
+   * The statisticsGroupCode property for the employee entity
+  */
+  statisticsGroupCode?: string;
+  /**
+   * The lastModifiedDateTime property for the employee entity
+  */
+  lastModifiedDateTime?: Date;
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationDtlEnvironment extends Array<DtlEnvironment> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetPictureForEmployeeOKResponse {
+  value?: Picture[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationSecret extends Array<Secret> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetDefaultDimensionsForEmployeeOKResponse {
+  value?: DefaultDimensions[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationLabVirtualMachine extends Array<LabVirtualMachine> {
-  /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+export interface GetTimeRegistrationEntriesForEmployeeOKResponse {
+  value?: TimeRegistrationEntry[];
 }
 
-/**
- * The response of a list operation.
- */
-export interface ResponseWithContinuationVirtualNetwork extends Array<VirtualNetwork> {
+export interface BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel {
   /**
-   * Link for next set of results.
-   */
-  nextLink?: string;
+   * The id property for the timeRegistrationEntry entity
+  */
+  id?: string;
+  /**
+   * The employeeId property for the timeRegistrationEntry entity
+  */
+  employeeId?: string;
+  /**
+   * The employeeNumber property for the timeRegistrationEntry entity
+  */
+  employeeNumber?: string;
+  /**
+   * The lineNumber property for the timeRegistrationEntry entity
+  */
+  lineNumber?: number;
+  /**
+   * The date property for the timeRegistrationEntry entity
+  */
+  date?: Date;
+  /**
+   * The quantity property for the timeRegistrationEntry entity
+  */
+  quantity?: number;
+  /**
+   * The status property for the timeRegistrationEntry entity
+  */
+  status?: string;
+  /**
+   * The unitOfMeasureId property for the timeRegistrationEntry entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The lastModfiedDateTime property for the timeRegistrationEntry entity
+  */
+  lastModfiedDateTime?: Date;
+}
+
+export interface GetTimeRegistrationEntriesOKResponse {
+  value?: TimeRegistrationEntry[];
+}
+
+export interface GetGeneralLedgerEntriesOKResponse {
+  value?: GeneralLedgerEntry[];
+}
+
+export interface GetCurrenciesOKResponse {
+  value?: Currency[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel {
+  /**
+   * The id property for the currency entity
+  */
+  id?: string;
+  /**
+   * The code property for the currency entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the currency entity
+  */
+  displayName?: string;
+  /**
+   * The symbol property for the currency entity
+  */
+  symbol?: string;
+  /**
+   * The amountDecimalPlaces property for the currency entity
+  */
+  amountDecimalPlaces?: string;
+  /**
+   * The amountRoundingPrecision property for the currency entity
+  */
+  amountRoundingPrecision?: number;
+  /**
+   * The lastModifiedDateTime property for the currency entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetPaymentMethodsOKResponse {
+  value?: PaymentMethod[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel {
+  /**
+   * The id property for the paymentMethod entity
+  */
+  id?: string;
+  /**
+   * The code property for the paymentMethod entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the paymentMethod entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the paymentMethod entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetDimensionsOKResponse {
+  value?: Dimension[];
+}
+
+export interface GetDimensionValuesForDimensionOKResponse {
+  value?: DimensionValue[];
+}
+
+export interface GetDimensionValuesOKResponse {
+  value?: DimensionValue[];
+}
+
+export interface GetDimensionLinesOKResponse {
+  value?: DimensionLine[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel {
+  /**
+   * The parentId property for the dimensionLine entity
+  */
+  parentId?: string;
+  /**
+   * The id property for the dimensionLine entity
+  */
+  id?: string;
+  /**
+   * The code property for the dimensionLine entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the dimensionLine entity
+  */
+  displayName?: string;
+  /**
+   * The valueId property for the dimensionLine entity
+  */
+  valueId?: string;
+  /**
+   * The valueCode property for the dimensionLine entity
+  */
+  valueCode?: string;
+  /**
+   * The valueDisplayName property for the dimensionLine entity
+  */
+  valueDisplayName?: string;
+}
+
+export interface GetPaymentTermsOKResponse {
+  value?: PaymentTerm[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the paymentTerm entity
+  */
+  id?: string;
+  /**
+   * The code property for the paymentTerm entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the paymentTerm entity
+  */
+  displayName?: string;
+  /**
+   * The dueDateCalculation property for the paymentTerm entity
+  */
+  dueDateCalculation?: string;
+  /**
+   * The discountDateCalculation property for the paymentTerm entity
+  */
+  discountDateCalculation?: string;
+  /**
+   * The discountPercent property for the paymentTerm entity
+  */
+  discountPercent?: number;
+  /**
+   * The calculateDiscountOnCreditMemos property for the paymentTerm entity
+  */
+  calculateDiscountOnCreditMemos?: boolean;
+  /**
+   * The lastModifiedDateTime property for the paymentTerm entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetShipmentMethodsOKResponse {
+  value?: ShipmentMethod[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the shipmentMethod entity
+  */
+  id?: string;
+  /**
+   * The code property for the shipmentMethod entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the shipmentMethod entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the shipmentMethod entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetItemCategoriesOKResponse {
+  value?: ItemCategory[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the itemCategory entity
+  */
+  id?: string;
+  /**
+   * The code property for the itemCategory entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the itemCategory entity
+  */
+  displayName?: string;
+  /**
+   * The lastModifiedDateTime property for the itemCategory entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetCashFlowStatementOKResponse {
+  value?: CashFlowStatement[];
+}
+
+export interface GetCountriesRegionsOKResponse {
+  value?: CountryRegion[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the countryRegion entity
+  */
+  id?: string;
+  /**
+   * The code property for the countryRegion entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the countryRegion entity
+  */
+  displayName?: string;
+  /**
+   * The addressFormat property for the countryRegion entity
+  */
+  addressFormat?: string;
+  /**
+   * The lastModifiedDateTime property for the countryRegion entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetSalesOrdersOKResponse {
+  value?: SalesOrder[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesOrder entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesOrder entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesOrder entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The orderDate property for the salesOrder entity
+  */
+  orderDate?: Date;
+  /**
+   * The customerId property for the salesOrder entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesOrder entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesOrder entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesOrder entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesOrder entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesOrder entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesOrder entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesOrder entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesOrder entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesOrder entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesOrder entity
+  */
+  currencyCode?: string;
+  /**
+   * The pricesIncludeTax property for the salesOrder entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The paymentTermsId property for the salesOrder entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The salesperson property for the salesOrder entity
+  */
+  salesperson?: string;
+  /**
+   * The partialShipping property for the salesOrder entity
+  */
+  partialShipping?: boolean;
+  /**
+   * The requestedDeliveryDate property for the salesOrder entity
+  */
+  requestedDeliveryDate?: Date;
+  /**
+   * The discountAmount property for the salesOrder entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesOrder entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesOrder entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesOrder entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesOrder entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The fullyShipped property for the salesOrder entity
+  */
+  fullyShipped?: boolean;
+  /**
+   * The status property for the salesOrder entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the salesOrder entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The phoneNumber property for the salesOrder entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesOrder entity
+  */
+  email?: string;
+}
+
+export interface GetSalesOrderLinesForSalesOrderOKResponse {
+  value?: SalesOrderLine[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesOrderLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the salesOrderLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the salesOrderLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the salesOrderLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesOrderLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesOrderLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesOrderLine entity
+  */
+  description?: string;
+  /**
+   * The unitOfMeasureId property for the salesOrderLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The quantity property for the salesOrderLine entity
+  */
+  quantity?: number;
+  /**
+   * The unitPrice property for the salesOrderLine entity
+  */
+  unitPrice?: number;
+  /**
+   * The discountAmount property for the salesOrderLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesOrderLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesOrderLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesOrderLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesOrderLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesOrderLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesOrderLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesOrderLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesOrderLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesOrderLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesOrderLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesOrderLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesOrderLine entity
+  */
+  shipmentDate?: Date;
+  /**
+   * The shippedQuantity property for the salesOrderLine entity
+  */
+  shippedQuantity?: number;
+  /**
+   * The invoicedQuantity property for the salesOrderLine entity
+  */
+  invoicedQuantity?: number;
+  /**
+   * The invoiceQuantity property for the salesOrderLine entity
+  */
+  invoiceQuantity?: number;
+  /**
+   * The shipQuantity property for the salesOrderLine entity
+  */
+  shipQuantity?: number;
+}
+
+export interface GetSalesOrderLinesOKResponse {
+  value?: SalesOrderLine[];
+}
+
+export interface GetRetainedEarningsStatementOKResponse {
+  value?: RetainedEarningsStatement[];
+}
+
+export interface GetUnitsOfMeasureOKResponse {
+  value?: UnitOfMeasure[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the unitOfMeasure entity
+  */
+  id?: string;
+  /**
+   * The code property for the unitOfMeasure entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the unitOfMeasure entity
+  */
+  displayName?: string;
+  /**
+   * The internationalStandardCode property for the unitOfMeasure entity
+  */
+  internationalStandardCode?: string;
+  /**
+   * The lastModifiedDateTime property for the unitOfMeasure entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetAgedAccountsReceivableOKResponse {
+  value?: AgedAccountsReceivable[];
+}
+
+export interface GetAgedAccountsPayableOKResponse {
+  value?: AgedAccountsPayable[];
+}
+
+export interface GetBalanceSheetOKResponse {
+  value?: BalanceSheet[];
+}
+
+export interface GetTrialBalanceOKResponse {
+  value?: TrialBalance[];
+}
+
+export interface GetIncomeStatementOKResponse {
+  value?: IncomeStatement[];
+}
+
+export interface GetTaxAreasOKResponse {
+  value?: TaxArea[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the taxArea entity
+  */
+  id?: string;
+  /**
+   * The code property for the taxArea entity
+  */
+  code?: string;
+  /**
+   * The displayName property for the taxArea entity
+  */
+  displayName?: string;
+  /**
+   * The taxType property for the taxArea entity
+  */
+  taxType?: string;
+  /**
+   * The lastModifiedDateTime property for the taxArea entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetSalesQuotesOKResponse {
+  value?: SalesQuote[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesQuote entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesQuote entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesQuote entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The documentDate property for the salesQuote entity
+  */
+  documentDate?: Date;
+  /**
+   * The dueDate property for the salesQuote entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerId property for the salesQuote entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesQuote entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesQuote entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesQuote entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesQuote entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesQuote entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesQuote entity
+  */
+  billToCustomerNumber?: string;
+  /**
+   * The shipToName property for the salesQuote entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the salesQuote entity
+  */
+  shipToContact?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  shippingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesQuote entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesQuote entity
+  */
+  currencyCode?: string;
+  /**
+   * The paymentTermsId property for the salesQuote entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The shipmentMethodId property for the salesQuote entity
+  */
+  shipmentMethodId?: string;
+  /**
+   * The salesperson property for the salesQuote entity
+  */
+  salesperson?: string;
+  /**
+   * The discountAmount property for the salesQuote entity
+  */
+  discountAmount?: number;
+  /**
+   * The totalAmountExcludingTax property for the salesQuote entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesQuote entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesQuote entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesQuote entity
+  */
+  status?: string;
+  /**
+   * The sentDate property for the salesQuote entity
+  */
+  sentDate?: Date;
+  /**
+   * The validUntilDate property for the salesQuote entity
+  */
+  validUntilDate?: Date;
+  /**
+   * The acceptedDate property for the salesQuote entity
+  */
+  acceptedDate?: Date;
+  /**
+   * The lastModifiedDateTime property for the salesQuote entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The phoneNumber property for the salesQuote entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesQuote entity
+  */
+  email?: string;
+}
+
+export interface GetSalesQuoteLinesForSalesQuoteOKResponse {
+  value?: SalesQuoteLine[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesQuoteLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the salesQuoteLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the salesQuoteLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the salesQuoteLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesQuoteLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesQuoteLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesQuoteLine entity
+  */
+  description?: string;
+  /**
+   * The unitOfMeasureId property for the salesQuoteLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitPrice property for the salesQuoteLine entity
+  */
+  unitPrice?: number;
+  /**
+   * The quantity property for the salesQuoteLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the salesQuoteLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesQuoteLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesQuoteLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesQuoteLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesQuoteLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesQuoteLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesQuoteLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesQuoteLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The netAmount property for the salesQuoteLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesQuoteLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesQuoteLine entity
+  */
+  netAmountIncludingTax?: number;
+}
+
+export interface GetPdfDocumentForSalesQuoteOKResponse {
+  value?: PdfDocument[];
+}
+
+export interface GetSalesQuoteLinesOKResponse {
+  value?: SalesQuoteLine[];
+}
+
+export interface GetSalesCreditMemosOKResponse {
+  value?: SalesCreditMemo[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesCreditMemo entity
+  */
+  id?: string;
+  /**
+   * The number property for the salesCreditMemo entity
+  */
+  number?: string;
+  /**
+   * The externalDocumentNumber property for the salesCreditMemo entity
+  */
+  externalDocumentNumber?: string;
+  /**
+   * The creditMemoDate property for the salesCreditMemo entity
+  */
+  creditMemoDate?: Date;
+  /**
+   * The dueDate property for the salesCreditMemo entity
+  */
+  dueDate?: Date;
+  /**
+   * The customerId property for the salesCreditMemo entity
+  */
+  customerId?: string;
+  /**
+   * The contactId property for the salesCreditMemo entity
+  */
+  contactId?: string;
+  /**
+   * The customerNumber property for the salesCreditMemo entity
+  */
+  customerNumber?: string;
+  /**
+   * The customerName property for the salesCreditMemo entity
+  */
+  customerName?: string;
+  /**
+   * The billToName property for the salesCreditMemo entity
+  */
+  billToName?: string;
+  /**
+   * The billToCustomerId property for the salesCreditMemo entity
+  */
+  billToCustomerId?: string;
+  /**
+   * The billToCustomerNumber property for the salesCreditMemo entity
+  */
+  billToCustomerNumber?: string;
+  sellingPostalAddress?: Postaladdresstype;
+  billingPostalAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the salesCreditMemo entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the salesCreditMemo entity
+  */
+  currencyCode?: string;
+  /**
+   * The paymentTermsId property for the salesCreditMemo entity
+  */
+  paymentTermsId?: string;
+  /**
+   * The salesperson property for the salesCreditMemo entity
+  */
+  salesperson?: string;
+  /**
+   * The pricesIncludeTax property for the salesCreditMemo entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the salesCreditMemo entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesCreditMemo entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the salesCreditMemo entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the salesCreditMemo entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the salesCreditMemo entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the salesCreditMemo entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the salesCreditMemo entity
+  */
+  lastModifiedDateTime?: Date;
+  /**
+   * The invoiceId property for the salesCreditMemo entity
+  */
+  invoiceId?: string;
+  /**
+   * The invoiceNumber property for the salesCreditMemo entity
+  */
+  invoiceNumber?: string;
+  /**
+   * The phoneNumber property for the salesCreditMemo entity
+  */
+  phoneNumber?: string;
+  /**
+   * The email property for the salesCreditMemo entity
+  */
+  email?: string;
+}
+
+export interface GetSalesCreditMemoLinesForSalesCreditMemoOKResponse {
+  value?: SalesCreditMemoLine[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the salesCreditMemoLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the salesCreditMemoLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the salesCreditMemoLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the salesCreditMemoLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the salesCreditMemoLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the salesCreditMemoLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the salesCreditMemoLine entity
+  */
+  description?: string;
+  /**
+   * The unitOfMeasureId property for the salesCreditMemoLine entity
+  */
+  unitOfMeasureId?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitPrice property for the salesCreditMemoLine entity
+  */
+  unitPrice?: number;
+  /**
+   * The quantity property for the salesCreditMemoLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the salesCreditMemoLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the salesCreditMemoLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the salesCreditMemoLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the salesCreditMemoLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the salesCreditMemoLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the salesCreditMemoLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the salesCreditMemoLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the salesCreditMemoLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the salesCreditMemoLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the salesCreditMemoLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the salesCreditMemoLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the salesCreditMemoLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The shipmentDate property for the salesCreditMemoLine entity
+  */
+  shipmentDate?: Date;
+}
+
+export interface GetPdfDocumentForSalesCreditMemoOKResponse {
+  value?: PdfDocument[];
+}
+
+export interface GetSalesCreditMemoLinesOKResponse {
+  value?: SalesCreditMemoLine[];
+}
+
+export interface GetGeneralLedgerEntryAttachmentsOKResponse {
+  value?: GeneralLedgerEntryAttachments[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The generalLedgerEntryNumber property for the generalLedgerEntryAttachments entity
+  */
+  generalLedgerEntryNumber?: number;
+  /**
+   * The id property for the generalLedgerEntryAttachments entity
+  */
+  id?: string;
+  /**
+   * The fileName property for the generalLedgerEntryAttachments entity
+  */
+  fileName?: string;
+  /**
+   * The byteSize property for the generalLedgerEntryAttachments entity
+  */
+  byteSize?: number;
+  /**
+   * The content property for the generalLedgerEntryAttachments entity
+  */
+  content?: string;
+  /**
+   * The createdDateTime property for the generalLedgerEntryAttachments entity
+  */
+  createdDateTime?: Date;
+}
+
+export interface GetPurchaseInvoicesOKResponse {
+  value?: PurchaseInvoice[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the purchaseInvoice entity
+  */
+  id?: string;
+  /**
+   * The number property for the purchaseInvoice entity
+  */
+  number?: string;
+  /**
+   * The invoiceDate property for the purchaseInvoice entity
+  */
+  invoiceDate?: Date;
+  /**
+   * The dueDate property for the purchaseInvoice entity
+  */
+  dueDate?: Date;
+  /**
+   * The vendorInvoiceNumber property for the purchaseInvoice entity
+  */
+  vendorInvoiceNumber?: string;
+  /**
+   * The vendorId property for the purchaseInvoice entity
+  */
+  vendorId?: string;
+  /**
+   * The vendorNumber property for the purchaseInvoice entity
+  */
+  vendorNumber?: string;
+  /**
+   * The vendorName property for the purchaseInvoice entity
+  */
+  vendorName?: string;
+  /**
+   * The payToName property for the purchaseInvoice entity
+  */
+  payToName?: string;
+  /**
+   * The payToContact property for the purchaseInvoice entity
+  */
+  payToContact?: string;
+  /**
+   * The payToVendorId property for the purchaseInvoice entity
+  */
+  payToVendorId?: string;
+  /**
+   * The payToVendorNumber property for the purchaseInvoice entity
+  */
+  payToVendorNumber?: string;
+  /**
+   * The shipToName property for the purchaseInvoice entity
+  */
+  shipToName?: string;
+  /**
+   * The shipToContact property for the purchaseInvoice entity
+  */
+  shipToContact?: string;
+  buyFromAddress?: Postaladdresstype;
+  payToAddress?: Postaladdresstype;
+  shipToAddress?: Postaladdresstype;
+  /**
+   * The currencyId property for the purchaseInvoice entity
+  */
+  currencyId?: string;
+  /**
+   * The currencyCode property for the purchaseInvoice entity
+  */
+  currencyCode?: string;
+  /**
+   * The pricesIncludeTax property for the purchaseInvoice entity
+  */
+  pricesIncludeTax?: boolean;
+  /**
+   * The discountAmount property for the purchaseInvoice entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountAppliedBeforeTax property for the purchaseInvoice entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The totalAmountExcludingTax property for the purchaseInvoice entity
+  */
+  totalAmountExcludingTax?: number;
+  /**
+   * The totalTaxAmount property for the purchaseInvoice entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The totalAmountIncludingTax property for the purchaseInvoice entity
+  */
+  totalAmountIncludingTax?: number;
+  /**
+   * The status property for the purchaseInvoice entity
+  */
+  status?: string;
+  /**
+   * The lastModifiedDateTime property for the purchaseInvoice entity
+  */
+  lastModifiedDateTime?: Date;
+}
+
+export interface GetPurchaseInvoiceLinesForPurchaseInvoiceOKResponse {
+  value?: PurchaseInvoiceLine[];
+}
+
+export interface
+BodyModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModelModel
+{
+  /**
+   * The id property for the purchaseInvoiceLine entity
+  */
+  id?: string;
+  /**
+   * The documentId property for the purchaseInvoiceLine entity
+  */
+  documentId?: string;
+  /**
+   * The sequence property for the purchaseInvoiceLine entity
+  */
+  sequence?: number;
+  /**
+   * The itemId property for the purchaseInvoiceLine entity
+  */
+  itemId?: string;
+  /**
+   * The accountId property for the purchaseInvoiceLine entity
+  */
+  accountId?: string;
+  /**
+   * The lineType property for the purchaseInvoiceLine entity
+  */
+  lineType?: string;
+  lineDetails?: Documentlineobjectdetailstype;
+  /**
+   * The description property for the purchaseInvoiceLine entity
+  */
+  description?: string;
+  unitOfMeasure?: Unitofmeasuretype;
+  /**
+   * The unitCost property for the purchaseInvoiceLine entity
+  */
+  unitCost?: number;
+  /**
+   * The quantity property for the purchaseInvoiceLine entity
+  */
+  quantity?: number;
+  /**
+   * The discountAmount property for the purchaseInvoiceLine entity
+  */
+  discountAmount?: number;
+  /**
+   * The discountPercent property for the purchaseInvoiceLine entity
+  */
+  discountPercent?: number;
+  /**
+   * The discountAppliedBeforeTax property for the purchaseInvoiceLine entity
+  */
+  discountAppliedBeforeTax?: boolean;
+  /**
+   * The amountExcludingTax property for the purchaseInvoiceLine entity
+  */
+  amountExcludingTax?: number;
+  /**
+   * The taxCode property for the purchaseInvoiceLine entity
+  */
+  taxCode?: string;
+  /**
+   * The taxPercent property for the purchaseInvoiceLine entity
+  */
+  taxPercent?: number;
+  /**
+   * The totalTaxAmount property for the purchaseInvoiceLine entity
+  */
+  totalTaxAmount?: number;
+  /**
+   * The amountIncludingTax property for the purchaseInvoiceLine entity
+  */
+  amountIncludingTax?: number;
+  /**
+   * The invoiceDiscountAllocation property for the purchaseInvoiceLine entity
+  */
+  invoiceDiscountAllocation?: number;
+  /**
+   * The netAmount property for the purchaseInvoiceLine entity
+  */
+  netAmount?: number;
+  /**
+   * The netTaxAmount property for the purchaseInvoiceLine entity
+  */
+  netTaxAmount?: number;
+  /**
+   * The netAmountIncludingTax property for the purchaseInvoiceLine entity
+  */
+  netAmountIncludingTax?: number;
+  /**
+   * The expectedReceiptDate property for the purchaseInvoiceLine entity
+  */
+  expectedReceiptDate?: Date;
+}
+
+export interface GetPdfDocumentForPurchaseInvoiceOKResponse {
+  value?: PdfDocument[];
+}
+
+export interface GetPurchaseInvoiceLinesOKResponse {
+  value?: PurchaseInvoiceLine[];
+}
+
+export interface GetCustomerSalesOKResponse {
+  value?: CustomerSale[];
+}
+
+export interface GetVendorPurchasesOKResponse {
+  value?: VendorPurchase[];
 }

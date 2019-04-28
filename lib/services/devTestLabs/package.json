@@ -1,7 +1,7 @@
 {
   "name": "azure-arm-devtestlabs",
   "author": "Microsoft Corporation",
-  "description": "DevTestLabsClient Library with typescript type definitions for node",
+  "description": "Dynamics365BusinessCentral Library with typescript type definitions for node",
   "version": "3.2.0",
   "dependencies": {
     "ms-rest": "^2.3.3",
@@ -12,8 +12,8 @@
     "azure"
   ],
   "license": "MIT",
-  "main": "./lib/devTestLabsClient.js",
-  "types": "./lib/devTestLabsClient.d.ts",
+  "main": "./lib/dynamics365BusinessCentral.js",
+  "types": "./lib/dynamics365BusinessCentral.d.ts",
   "homepage": "https://github.com/azure/azure-sdk-for-node/tree/master/lib/services/devTestLabs",
   "repository": {
     "type": "git",
