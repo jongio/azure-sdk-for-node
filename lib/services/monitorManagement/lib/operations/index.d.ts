@@ -3854,6 +3854,137 @@ export interface MetricBaseline {
 
 /**
  * @class
+ * Baselines
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the MonitorManagementClient.
+ */
+export interface Baselines {
+
+
+    /**
+     * **Lists the metric baseline values for a resource**.
+     *
+     * @param {string} resourceUri The identifier of the resource.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {string} [options.metricnames] The names of the metrics (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.metricnamespace] Metric namespace to query metric
+     * definitions for.
+     *
+     * @param {string} [options.timespan] The timespan of the query. It is a string
+     * with the following format 'startDateTime_ISO/endDateTime_ISO'.
+     *
+     * @param {moment.duration} [options.interval] The interval (i.e. timegrain) of
+     * the query.
+     *
+     * @param {string} [options.aggregation] The list of aggregation types (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.sensitivities] The list of sensitivities (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.filter] The **$filter** is used to reduce the set
+     * of metric data returned.<br>Example:<br>Metric contains metadata A, B and
+     * C.<br>- Return all time series of C where A = a1 and B = b1 or
+     * b2<br>**$filter=A eq ‘a1’ and B eq ‘b1’ or B eq ‘b2’ and C eq ‘*’**<br>-
+     * Invalid variant:<br>**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘*’ or B =
+     * ‘b2’**<br>This is invalid because the logical or operator cannot separate
+     * two different metadata names.<br>- Return all time series where A = a1, B =
+     * b1 and C = c1:<br>**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘c1’**<br>-
+     * Return all time series where A = a1<br>**$filter=A eq ‘a1’ and B eq ‘*’ and
+     * C eq ‘*’**.
+     *
+     * @param {string} [options.resultType] Allows retrieving only metadata of the
+     * baseline. On data request all information is retrieved. Possible values
+     * include: 'Data', 'Metadata'
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MetricBaselinesResponse>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listWithHttpOperationResponse(resourceUri: string, options?: { metricnames? : string, metricnamespace? : string, timespan? : string, interval? : moment.Duration, aggregation? : string, sensitivities? : string, filter? : string, resultType? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MetricBaselinesResponse>>;
+
+    /**
+     * **Lists the metric baseline values for a resource**.
+     *
+     * @param {string} resourceUri The identifier of the resource.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {string} [options.metricnames] The names of the metrics (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.metricnamespace] Metric namespace to query metric
+     * definitions for.
+     *
+     * @param {string} [options.timespan] The timespan of the query. It is a string
+     * with the following format 'startDateTime_ISO/endDateTime_ISO'.
+     *
+     * @param {moment.duration} [options.interval] The interval (i.e. timegrain) of
+     * the query.
+     *
+     * @param {string} [options.aggregation] The list of aggregation types (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.sensitivities] The list of sensitivities (comma
+     * separated) to retrieve.
+     *
+     * @param {string} [options.filter] The **$filter** is used to reduce the set
+     * of metric data returned.<br>Example:<br>Metric contains metadata A, B and
+     * C.<br>- Return all time series of C where A = a1 and B = b1 or
+     * b2<br>**$filter=A eq ‘a1’ and B eq ‘b1’ or B eq ‘b2’ and C eq ‘*’**<br>-
+     * Invalid variant:<br>**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘*’ or B =
+     * ‘b2’**<br>This is invalid because the logical or operator cannot separate
+     * two different metadata names.<br>- Return all time series where A = a1, B =
+     * b1 and C = c1:<br>**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘c1’**<br>-
+     * Return all time series where A = a1<br>**$filter=A eq ‘a1’ and B eq ‘*’ and
+     * C eq ‘*’**.
+     *
+     * @param {string} [options.resultType] Allows retrieving only metadata of the
+     * baseline. On data request all information is retrieved. Possible values
+     * include: 'Data', 'Metadata'
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MetricBaselinesResponse} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MetricBaselinesResponse} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MetricBaselinesResponse} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    list(resourceUri: string, options?: { metricnames? : string, metricnamespace? : string, timespan? : string, interval? : moment.Duration, aggregation? : string, sensitivities? : string, filter? : string, resultType? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.MetricBaselinesResponse>;
+    list(resourceUri: string, callback: ServiceCallback<models.MetricBaselinesResponse>): void;
+    list(resourceUri: string, options: { metricnames? : string, metricnamespace? : string, timespan? : string, interval? : moment.Duration, aggregation? : string, sensitivities? : string, filter? : string, resultType? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MetricBaselinesResponse>): void;
+}
+
+/**
+ * @class
  * MetricAlerts
  * __NOTE__: An instance of this class is automatically created for an
  * instance of the MonitorManagementClient.

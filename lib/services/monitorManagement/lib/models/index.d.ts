@@ -1862,6 +1862,116 @@ export interface CalculateBaselineResponse {
 }
 
 /**
+ * The metric dimension name and value.
+ */
+export interface MetricSingleDimension {
+  /**
+   * Name of the dimension.
+   */
+  name: string;
+  /**
+   * Value of the dimension.
+   */
+  value: string;
+}
+
+/**
+ * The baseline values for a single sensitivity value.
+ */
+export interface SingleBaseline {
+  /**
+   * the sensitivity of the baseline. Possible values include: 'Low', 'Medium', 'High'
+   */
+  sensitivity: string;
+  /**
+   * The low thresholds of the baseline.
+   */
+  lowThresholds: number[];
+  /**
+   * The high thresholds of the baseline.
+   */
+  highThresholds: number[];
+}
+
+/**
+ * Represents a baseline metadata value.
+ */
+export interface BaselineMetadata {
+  /**
+   * Name of the baseline metadata.
+   */
+  name: string;
+  /**
+   * Value of the baseline metadata.
+   */
+  value: string;
+}
+
+/**
+ * The baseline values for a single time series.
+ */
+export interface TimeSeriesBaseline {
+  /**
+   * The aggregation type of the metric.
+   */
+  aggregation: string;
+  /**
+   * The dimensions of this time series.
+   */
+  dimensions?: MetricSingleDimension[];
+  /**
+   * The list of timestamps of the baselines.
+   */
+  timestamps: Date[];
+  /**
+   * The baseline values for each sensitivity.
+   */
+  data: SingleBaseline[];
+  /**
+   * The baseline metadata values.
+   */
+  metadata?: BaselineMetadata[];
+}
+
+/**
+ * The baseline results of a single metric.
+ */
+export interface SingleMetricBaseline {
+  /**
+   * The metric baseline Id.
+   */
+  id: string;
+  /**
+   * The resource type of the metric baseline resource.
+   */
+  type: string;
+  /**
+   * The name of the metric for which the baselines were retrieved.
+   */
+  name: string;
+  /**
+   * The timespan for which the data was retrieved. Its value consists of two datetimes
+   * concatenated, separated by '/'.  This may be adjusted in the future and returned back from
+   * what was originally requested.
+   */
+  timespan: string;
+  /**
+   * The interval (window size) for which the metric data was returned in.  This may be adjusted in
+   * the future and returned back from what was originally requested.  This is not present if a
+   * metadata request was made.
+   */
+  interval: moment.Duration;
+  /**
+   * The namespace of the metrics been queried.
+   */
+  namespace?: string;
+  /**
+   * The baseline for each time series that was queried.
+   */
+  baselines: TimeSeriesBaseline[];
+}
+
+/**
  * An alert action.
  */
 export interface MetricAlertAction {
@@ -2060,6 +2170,64 @@ export interface MetricAlertStatusCollection {
 }
 
 /**
+ * The types of conditions for a multi resource alert.
+ */
+export interface MultiMetricCriteria {
+  /**
+   * Name of the criteria.
+   */
+  name: string;
+  /**
+   * Name of the metric.
+   */
+  metricName: string;
+  /**
+   * Namespace of the metric.
+   */
+  metricNamespace?: string;
+  /**
+   * the criteria time aggregation types.
+   */
+  timeAggregation: any;
+  /**
+   * List of dimension conditions.
+   */
+  dimensions?: MetricDimension[];
+  /**
+   * Polymorphic Discriminator
+   */
+  criterionType: string;
+  /**
+   * Describes unknown properties. The value of an unknown property can be of "any" type.
+   */
+  [additionalPropertyName: string]: any;
+}
+
+/**
+ * Criterion to filter metrics.
+ */
+export interface MetricCriteria extends MultiMetricCriteria {
+  /**
+   * the criteria operator.
+   */
+  operator: any;
+  /**
+   * the criteria threshold value that activates the alert.
+   */
+  threshold: number;
+}
+
+/**
+ * Specifies the metric alert criteria for a single resource that has multiple metric criteria.
+ */
+export interface MetricAlertSingleResourceMultipleMetricCriteria extends MetricAlertCriteria {
+  /**
+   * The list of metric criteria for this 'all of' operation.
+   */
+  allOf?: MetricCriteria[];
+}
+
+/**
  * Specifies a metric dimension.
  */
 export interface MetricDimension {
@@ -2078,64 +2246,6 @@ export interface MetricDimension {
 }
 
 /**
- * The types of conditions for a multi resource alert
- */
-export interface MultiMetricCriteria {
-  /**
-   * Polymorphic Discriminator
-   */
-  criterionType: string;
-  /**
-   * Describes unknown properties. The value of an unknown property can be of "any" type.
-   */
-  [additionalPropertyName: string]: any;
-}
-
-/**
- * Criterion to filter metrics.
- */
-export interface MetricCriteria extends MultiMetricCriteria {
-  /**
-   * Name of the criteria.
-   */
-  name: string;
-  /**
-   * Name of the metric.
-   */
-  metricName: string;
-  /**
-   * Namespace of the metric.
-   */
-  metricNamespace?: string;
-  /**
-   * the criteria operator.
-   */
-  operator: any;
-  /**
-   * the criteria time aggregation types.
-   */
-  timeAggregation: any;
-  /**
-   * the criteria threshold value that activates the alert.
-   */
-  threshold: number;
-  /**
-   * List of dimension conditions.
-   */
-  dimensions?: MetricDimension[];
-}
-
-/**
- * Specifies the metric alert criteria for a single resource that has multiple metric criteria.
- */
-export interface MetricAlertSingleResourceMultipleMetricCriteria extends MetricAlertCriteria {
-  /**
-   * The list of metric criteria for this 'all of' operation.
-   */
-  allOf?: MetricCriteria[];
-}
-
-/**
  * Specifies the metric alert criteria for multiple resource that has multiple metric criteria.
  */
 export interface MetricAlertMultipleResourceMultipleMetricCriteria extends MetricAlertCriteria {
@@ -2143,6 +2253,48 @@ export interface MetricAlertMultipleResourceMultipleMetricCriteria extends Metri
    * the list of multiple metric criteria for this 'all of' operation.
    */
   allOf?: MultiMetricCriteria[];
+}
+
+/**
+ * The minimum number of violations required within the selected lookback time window required to
+ * raise an alert.
+ */
+export interface DynamicThresholdFailingPeriods {
+  /**
+   * The number of aggregated lookback points. The lookback time window is calculated based on the
+   * aggregation granularity (windowSize) and the selected number of aggregated points.
+   */
+  numberOfEvaluationPeriods: number;
+  /**
+   * The number of violations to trigger an alert. Should be smaller or equal to
+   * numberOfEvaluationPeriods.
+   */
+  minFailingPeriodsToAlert: number;
+}
+
+/**
+ * Criterion for dynamic threshold.
+ */
+export interface DynamicMetricCriteria extends MultiMetricCriteria {
+  /**
+   * The operator used to compare the metric value against the threshold.
+   */
+  operator: any;
+  /**
+   * The extent of deviation required to trigger an alert. This will affect how tight the threshold
+   * is to the metric series pattern.
+   */
+  alertSensitivity: any;
+  /**
+   * The minimum number of violations required within the selected lookback time window required to
+   * raise an alert.
+   */
+  failingPeriods: DynamicThresholdFailingPeriods;
+  /**
+   * Use this option to set the date from which to start learning the metric historical data and
+   * calculate the dynamic thresholds (in ISO8601 format)
+   */
+  ignoreDataBefore?: Date;
 }
 
 /**
@@ -2359,9 +2511,9 @@ export interface Criteria {
  */
 export interface LogToMetricAction extends Action {
   /**
-   * Severity of the alert
+   * Criteria of Metric
    */
-  criteria: Criteria;
+  criteria: Criteria[];
 }
 
 /**
@@ -2562,6 +2714,12 @@ export interface EventCategoryCollection extends Array<LocalizableString> {
  * Represents collection of metric definitions.
  */
 export interface MetricDefinitionCollection extends Array<MetricDefinition> {
+}
+
+/**
+ * A list of metric baselines.
+ */
+export interface MetricBaselinesResponse extends Array<SingleMetricBaseline> {
 }
 
 /**
