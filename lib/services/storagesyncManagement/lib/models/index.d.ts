@@ -197,6 +197,26 @@ export interface CloudEndpoint extends ProxyResource {
 }
 
 /**
+ * The parameters used when calling trigger change detection action on cloud endpoint.
+*/
+export interface TriggerChangeDetectionParameters {
+  /**
+   * Relative path to a directory Azure File share for which change detection is to be performed.
+  */
+  directoryPath?: string;
+  /**
+   * Change Detection Mode. Applies to a directory specified in directoryPath parameter. Possible
+   * values include: 'Default', 'Recursive'
+  */
+  changeDetectionMode?: string;
+  /**
+   * Array of relative paths on the Azure File share to be included in the change detection. Can be
+   * files and directories.
+  */
+  readonly paths?: string[];
+}
+
+/**
  * The parameters used when calling recall action on server endpoint.
 */
 export interface RecallActionParameters {

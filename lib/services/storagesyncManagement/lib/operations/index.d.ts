@@ -1667,6 +1667,96 @@ export interface CloudEndpoints {
 
 
     /**
+     * Triggers detection of changes performed on Azure File share connected to the
+     * specified Azure File Sync Cloud Endpoint.
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} storageSyncServiceName Name of Storage Sync Service
+     * resource.
+     *
+     * @param {string} syncGroupName Name of Sync Group resource.
+     *
+     * @param {string} cloudEndpointName Name of Cloud Endpoint object.
+     *
+     * @param {object} parameters Trigger Change Detecton Action parameters.
+     *
+     * @param {string} [parameters.directoryPath] Relative path to a directory
+     * Azure File share for which change detection is to be performed.
+     *
+     * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
+     * Applies to a directory specified in directoryPath parameter. Possible values
+     * include: 'Default', 'Recursive'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    triggerChangeDetectionWithHttpOperationResponse(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Triggers detection of changes performed on Azure File share connected to the
+     * specified Azure File Sync Cloud Endpoint.
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} storageSyncServiceName Name of Storage Sync Service
+     * resource.
+     *
+     * @param {string} syncGroupName Name of Sync Group resource.
+     *
+     * @param {string} cloudEndpointName Name of Cloud Endpoint object.
+     *
+     * @param {object} parameters Trigger Change Detecton Action parameters.
+     *
+     * @param {string} [parameters.directoryPath] Relative path to a directory
+     * Azure File share for which change detection is to be performed.
+     *
+     * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
+     * Applies to a directory specified in directoryPath parameter. Possible values
+     * include: 'Default', 'Recursive'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    triggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    triggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, callback: ServiceCallback<void>): void;
+    triggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
      * Create a new CloudEndpoint.
      *
      * @param {string} resourceGroupName The name of the resource group. The name
@@ -2216,6 +2306,96 @@ export interface CloudEndpoints {
     beginPostRestore(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.PostRestoreRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
     beginPostRestore(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.PostRestoreRequest, callback: ServiceCallback<void>): void;
     beginPostRestore(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.PostRestoreRequest, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Triggers detection of changes performed on Azure File share connected to the
+     * specified Azure File Sync Cloud Endpoint.
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} storageSyncServiceName Name of Storage Sync Service
+     * resource.
+     *
+     * @param {string} syncGroupName Name of Sync Group resource.
+     *
+     * @param {string} cloudEndpointName Name of Cloud Endpoint object.
+     *
+     * @param {object} parameters Trigger Change Detecton Action parameters.
+     *
+     * @param {string} [parameters.directoryPath] Relative path to a directory
+     * Azure File share for which change detection is to be performed.
+     *
+     * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
+     * Applies to a directory specified in directoryPath parameter. Possible values
+     * include: 'Default', 'Recursive'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginTriggerChangeDetectionWithHttpOperationResponse(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Triggers detection of changes performed on Azure File share connected to the
+     * specified Azure File Sync Cloud Endpoint.
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} storageSyncServiceName Name of Storage Sync Service
+     * resource.
+     *
+     * @param {string} syncGroupName Name of Sync Group resource.
+     *
+     * @param {string} cloudEndpointName Name of Cloud Endpoint object.
+     *
+     * @param {object} parameters Trigger Change Detecton Action parameters.
+     *
+     * @param {string} [parameters.directoryPath] Relative path to a directory
+     * Azure File share for which change detection is to be performed.
+     *
+     * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
+     * Applies to a directory specified in directoryPath parameter. Possible values
+     * include: 'Default', 'Recursive'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginTriggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginTriggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, callback: ServiceCallback<void>): void;
+    beginTriggerChangeDetection(resourceGroupName: string, storageSyncServiceName: string, syncGroupName: string, cloudEndpointName: string, parameters: models.TriggerChangeDetectionParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
 }
 
 /**
