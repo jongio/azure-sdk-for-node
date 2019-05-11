@@ -102,11 +102,6 @@ export interface Workspace extends Resource {
    */
   readonly creationTime?: Date;
   /**
-   * ARM id of the Batch AI workspace associated with this workspace. This cannot be changed once
-   * the workspace has been created
-   */
-  batchaiWorkspace?: string;
-  /**
    * ARM id of the key vault associated with this workspace. This cannot be changed once the
    * workspace has been created
    */
@@ -158,6 +153,106 @@ export interface WorkspaceUpdateParameters {
 }
 
 /**
+ * The Usage Names.
+ */
+export interface UsageName {
+  /**
+   * The name of the resource.
+   */
+  readonly value?: string;
+  /**
+   * The localized name of the resource.
+   */
+  readonly localizedValue?: string;
+}
+
+/**
+ * Describes AML Resource Usage.
+ */
+export interface Usage {
+  /**
+   * An enum describing the unit of usage measurement. Possible values include: 'Count'
+   */
+  readonly unit?: string;
+  /**
+   * The current usage of the resource.
+   */
+  readonly currentValue?: number;
+  /**
+   * The maximum permitted usage of the resource.
+   */
+  readonly limit?: number;
+  /**
+   * The name of the type of usage.
+   */
+  readonly name?: UsageName;
+}
+
+/**
+ * Describes Batch AI Resource Usage by VM Family, broken down by Workspace and Cluster usage
+ */
+export interface UsageByVMFamily extends Usage {
+  /**
+   * The name of the resource group this resource type belongs to
+   */
+  readonly resourceGroupName?: string;
+  /**
+   * The type of the resource, whether its VM family, workspace name, or cluster
+   */
+  readonly resourceType?: string;
+  /**
+   * The breakdown of usage by Workspace or Cluster
+   */
+  readonly usageBreakdown?: UsageByVMFamily[];
+}
+
+/**
+ * Describes the properties of a VM size.
+ */
+export interface VirtualMachineSize {
+  /**
+   * @summary Virtual Machine size name
+   * @description The name of the virtual machine size.
+   */
+  readonly name?: string;
+  /**
+   * @summary Virtual Machine family name
+   * @description The family name of the virtual machine size.
+   */
+  readonly family?: string;
+  /**
+   * @summary Number of vPUs
+   * @description The number of vCPUs supported by the virtual machine size.
+   */
+  readonly vCPUs?: number;
+  /**
+   * @summary OS VHD Disk size
+   * @description The OS VHD disk size, in MB, allowed by the virtual machine size.
+   */
+  readonly osVhdSizeMB?: number;
+  /**
+   * @summary Resource volume size
+   * @description The resource volume size, in MB, allowed by the virtual machine size.
+   */
+  readonly maxResourceVolumeMB?: number;
+  /**
+   * @summary Memory size
+   * @description The amount of memory, in GB, supported by the virtual machine size.
+   */
+  readonly memoryGB?: number;
+  /**
+   * @summary Low priority capable
+   * @description Specifies if the virtual machine size supports low priority VMs.
+   */
+  readonly lowPriorityCapable?: boolean;
+  /**
+   * @summary Premium IO supported
+   * @description Specifies if the virtual machine size supports premium IO.
+   */
+  readonly premiumIO?: boolean;
+}
+
+/**
  * Identity for the resource.
  */
 export interface Identity {
@@ -173,6 +268,16 @@ export interface Identity {
    * The identity type. Possible values include: 'SystemAssigned'
    */
   type?: string;
+}
+
+/**
+ * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+ */
+export interface ResourceId extends BaseResource {
+  /**
+   * The ID of the resource
+   */
+  id: string;
 }
 
 export interface Password {
@@ -214,15 +319,15 @@ export interface ErrorResponse {
   /**
    * Error code.
   */
-  code: string;
+  readonly code?: string;
   /**
    * Error message.
   */
-  message: string;
+  readonly message?: string;
   /**
    * An array of error detail objects.
   */
-  details?: ErrorDetail[];
+  readonly details?: ErrorDetail[];
 }
 
 /**
@@ -232,7 +337,7 @@ export interface MachineLearningServiceError {
   /**
    * The error response.
   */
-  error?: ErrorResponse;
+  readonly error?: ErrorResponse;
 }
 
 /**
@@ -262,13 +367,18 @@ export interface Compute {
   */
   readonly modifiedOn?: Date;
   /**
-   * ARM resource id of the compute
+   * ARM resource id of the underlying compute
   */
   resourceId?: string;
   /**
    * Errors during provisioning
   */
   readonly provisioningErrors?: MachineLearningServiceError[];
+  /**
+   * Indicating whether the compute was provisioned by user and brought from outside if true, or
+   * machine learning service provisioned it if false.
+  */
+  readonly isAttachedCompute?: boolean;
   /**
    * Polymorphic Discriminator
   */
@@ -304,11 +414,11 @@ export interface SystemService {
 }
 
 /**
- * The SSL configuration for scoring
+ * The ssl configuration for scoring
 */
 export interface SslConfiguration {
   /**
-   * Enable or disable SSL for scoring. Possible values include: 'Disabled', 'Enabled'
+   * Enable or disable ssl for scoring. Possible values include: 'Disabled', 'Enabled'
   */
   status?: string;
   /**
@@ -326,6 +436,31 @@ export interface SslConfiguration {
 }
 
 /**
+ * Advance configuration for AKS networking
+*/
+export interface AksNetworkingConfiguration {
+  /**
+   * Virtual network subnet resource ID the compute nodes belong to
+  */
+  subnetId?: string;
+  /**
+   * A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with
+   * any Subnet IP ranges.
+  */
+  serviceCidr?: string;
+  /**
+   * An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service
+   * address range specified in serviceCidr.
+  */
+  dnsServiceIP?: string;
+  /**
+   * A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any
+   * Subnet IP ranges or the Kubernetes service address range.
+  */
+  dockerBridgeCidr?: string;
+}
+
+/**
  * AKS properties
 */
 export interface AKSProperties {
@@ -336,7 +471,7 @@ export interface AKSProperties {
   /**
    * System services
   */
-  systemServices?: SystemService[];
+  readonly systemServices?: SystemService[];
   /**
    * Number of agents
   */
@@ -349,6 +484,10 @@ export interface AKSProperties {
    * SSL configuration
   */
   sslConfiguration?: SslConfiguration;
+  /**
+   * AKS networking configuration for vnet
+  */
+  aksNetworkingConfiguration?: AksNetworkingConfiguration;
 }
 
 /**
@@ -362,49 +501,155 @@ export interface AKS extends Compute {
 }
 
 /**
- * scale settings for BatchAI Compute
+ * scale settings for AML Compute
 */
 export interface ScaleSettings {
   /**
    * Max number of nodes to use
   */
-  maxNodeCount?: number;
+  maxNodeCount: number;
   /**
    * Min number of nodes to use
   */
   minNodeCount?: number;
   /**
-   * Enable or disable auto scale
+   * Node Idle Time before scaling down amlCompute
   */
-  autoScaleEnabled?: boolean;
+  nodeIdleTimeBeforeScaleDown?: moment.Duration;
 }
 
 /**
- * BatchAI properties
+ * Settings for user account that gets created on each on the nodes of a compute.
 */
-export interface BatchAIProperties {
+export interface UserAccountCredentials {
+  /**
+   * @summary User name.
+   * @description Name of the administrator user account which can be used to SSH to nodes.
+  */
+  adminUserName: string;
+  /**
+   * @summary SSH public key.
+   * @description SSH public key of the administrator user account.
+  */
+  adminUserSshPublicKey?: string;
+  /**
+   * @summary Password.
+   * @description Password of the administrator user account.
+  */
+  adminUserPassword?: string;
+}
+
+/**
+ * Counts of various compute node states on the amlCompute.
+*/
+export interface NodeStateCounts {
+  /**
+   * @summary Idle node count.
+   * @description Number of compute nodes in idle state.
+  */
+  readonly idleNodeCount?: number;
+  /**
+   * @summary Running node count.
+   * @description Number of compute nodes which are running jobs.
+  */
+  readonly runningNodeCount?: number;
+  /**
+   * @summary Preparing node count.
+   * @description Number of compute nodes which are being prepared.
+  */
+  readonly preparingNodeCount?: number;
+  /**
+   * @summary Unusable node count.
+   * @description Number of compute nodes which are in unusable state.
+  */
+  readonly unusableNodeCount?: number;
+  /**
+   * @summary Leaving node count.
+   * @description Number of compute nodes which are leaving the amlCompute.
+  */
+  readonly leavingNodeCount?: number;
+  /**
+   * @summary Preempted node count.
+   * @description Number of compute nodes which are in preempted state.
+  */
+  readonly preemptedNodeCount?: number;
+}
+
+/**
+ * AML Compute properties
+*/
+export interface AmlComputeProperties {
   /**
    * Virtual Machine Size
   */
   vmSize?: string;
   /**
-   * Virtual Machine priority
+   * Virtual Machine priority. Possible values include: 'Dedicated', 'LowPriority'
   */
   vmPriority?: string;
   /**
-   * Scale settings for BatchAI
+   * Scale settings for AML Compute
   */
   scaleSettings?: ScaleSettings;
+  /**
+   * @summary User account credentials.
+   * @description Credentials for an administrator user account that will be created on each
+   * compute node.
+  */
+  userAccountCredentials?: UserAccountCredentials;
+  /**
+   * @summary Subnet.
+   * @description Virtual network subnet resource ID the compute nodes belong to.
+  */
+  subnet?: ResourceId;
+  /**
+   * @summary Allocation state.
+   * @description Allocation state of the compute. Possible values are: steady - Indicates that the
+   * compute is not resizing. There are no changes to the number of compute nodes in the compute in
+   * progress. A compute enters this state when it is created and when no operations are being
+   * performed on the compute to change the number of compute nodes. resizing - Indicates that the
+   * compute is resizing; that is, compute nodes are being added to or removed from the compute.
+   * Possible values include: 'Steady', 'Resizing'
+  */
+  readonly allocationState?: string;
+  /**
+   * @summary Allocation state transition time.
+   * @description The time at which the compute entered its current allocation state.
+  */
+  readonly allocationStateTransitionTime?: Date;
+  /**
+   * @summary Errors.
+   * @description Collection of errors encountered by various compute nodes during node setup.
+  */
+  readonly errors?: MachineLearningServiceError[];
+  /**
+   * @summary Current node count.
+   * @description The number of compute nodes currently assigned to the compute.
+  */
+  readonly currentNodeCount?: number;
+  /**
+   * @summary Target node count.
+   * @description The target number of compute nodes for the compute. If the allocationState is
+   * resizing, this property denotes the target node count for the ongoing resize operation. If the
+   * allocationState is steady, this property denotes the target node count for the previous resize
+   * operation.
+  */
+  readonly targetNodeCount?: number;
+  /**
+   * @summary Node state counts.
+   * @description Counts of various node states on the compute.
+  */
+  readonly nodeStateCounts?: NodeStateCounts;
 }
 
 /**
- * A Machine Learning compute based on Azure BatchAI.
+ * An Azure Machine Learning compute.
 */
-export interface BatchAI extends Compute {
+export interface AmlCompute extends Compute {
   /**
-   * BatchAI properties
+   * AML Compute properties
   */
-  properties?: BatchAIProperties;
+  properties?: AmlComputeProperties;
 }
 
 /**
@@ -483,6 +728,34 @@ export interface HDInsight extends Compute {
 export interface DataFactory extends Compute {
 }
 
+export interface DatabricksProperties {
+  /**
+   * Databricks access token
+  */
+  databricksAccessToken?: string;
+}
+
+/**
+ * A DataFactory compute.
+*/
+export interface Databricks extends Compute {
+  properties?: DatabricksProperties;
+}
+
+export interface DataLakeAnalyticsProperties {
+  /**
+   * DataLake Store Account Name
+  */
+  dataLakeStoreAccountName?: string;
+}
+
+/**
+ * A DataLakeAnalytics compute.
+*/
+export interface DataLakeAnalytics extends Compute {
+  properties?: DataLakeAnalyticsProperties;
+}
+
 /**
  * Service principal credentials.
 */
@@ -495,6 +768,63 @@ export interface ServicePrincipalCredentials {
    * Client secret
   */
   clientSecret: string;
+}
+
+/**
+ * AmlCompute update parameters.
+*/
+export interface ClusterUpdateParameters {
+  /**
+   * @summary Scale settings.
+   * @description Desired scale settings for the amlCompute.
+  */
+  scaleSettings?: ScaleSettings;
+}
+
+/**
+ * Compute nodes information related to a Machine Learning compute. Might differ for every type of
+ * compute.
+*/
+export interface ComputeNodesInformation {
+  /**
+   * The continuation token.
+  */
+  readonly nextLink?: string;
+  /**
+   * Polymorphic Discriminator
+  */
+  computeType: string;
+}
+
+/**
+ * Compute node information related to a AmlCompute.
+*/
+export interface AmlComputeNodeInformation {
+  /**
+   * @summary Node ID.
+   * @description ID of the compute node.
+  */
+  readonly nodeId?: string;
+  /**
+   * @summary IP address.
+   * @description Public IP address of the compute node.
+  */
+  readonly ipAddress?: string;
+  /**
+   * @summary Port.
+   * @description SSH port number of the node.
+  */
+  readonly port?: number;
+}
+
+/**
+ * Compute node information related to a AmlCompute.
+*/
+export interface AmlComputeNodesInformation extends ComputeNodesInformation {
+  /**
+   * The collection of returned AmlCompute nodes details.
+  */
+  readonly nodes?: AmlComputeNodeInformation[];
 }
 
 /**
@@ -536,6 +866,16 @@ export interface VirtualMachineSecrets extends ComputeSecrets {
 }
 
 /**
+ * Secrets related to a Machine Learning compute based on Databricks.
+*/
+export interface DatabricksComputeSecrets extends ComputeSecrets {
+  /**
+   * access token for databricks account.
+  */
+  databricksAccessToken?: string;
+}
+
+/**
  * An array of operations supported by the resource provider.
 */
 export interface OperationListResult extends Array<Operation> {
@@ -549,6 +889,33 @@ export interface WorkspaceListResult extends Array<Workspace> {
    * The URI that can be used to request the next list of machine learning workspaces.
   */
   nextLink?: string;
+}
+
+/**
+ * The List Usages operation response.
+*/
+export interface ListUsagesResult extends Array<Usage> {
+  /**
+   * The URI to fetch the next page of AML resource usage information. Call ListNext() with this to
+   * fetch the next page of AML resource usage information.
+  */
+  readonly nextLink?: string;
+}
+
+/**
+ * The List UsagesByVMFamily operation response.
+*/
+export interface ListUsagesByVMFamilyResult extends Array<UsageByVMFamily> {
+  /**
+   * The URI to fetch the next page of compute resource usage information.
+  */
+  readonly nextLink?: string;
+}
+
+/**
+ * The List Virtual Machine size operation response.
+*/
+export interface VirtualMachineSizeListResult extends Array<VirtualMachineSize> {
 }
 
 /**
