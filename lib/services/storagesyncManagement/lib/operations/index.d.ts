@@ -929,6 +929,8 @@ export interface CloudEndpoints {
      * @param {string} [parameters.storageAccountTenantId] Storage Account Tenant
      * Id
      *
+     * @param {string} [parameters.friendlyName] Friendly Name
+     *
      * @param {object} [options] Optional Parameters.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
@@ -964,6 +966,8 @@ export interface CloudEndpoints {
      *
      * @param {string} [parameters.storageAccountTenantId] Storage Account Tenant
      * Id
+     *
+     * @param {string} [parameters.friendlyName] Friendly Name
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1779,6 +1783,8 @@ export interface CloudEndpoints {
      * @param {string} [parameters.storageAccountTenantId] Storage Account Tenant
      * Id
      *
+     * @param {string} [parameters.friendlyName] Friendly Name
+     *
      * @param {object} [options] Optional Parameters.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
@@ -1814,6 +1820,8 @@ export interface CloudEndpoints {
      *
      * @param {string} [parameters.storageAccountTenantId] Storage Account Tenant
      * Id
+     *
+     * @param {string} [parameters.friendlyName] Friendly Name
      *
      * @param {object} [options] Optional Parameters.
      *
