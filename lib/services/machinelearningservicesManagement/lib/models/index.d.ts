@@ -253,6 +253,16 @@ export interface VirtualMachineSize {
 }
 
 /**
+ * The List Virtual Machine size operation response.
+ */
+export interface VirtualMachineSizeListResult {
+  /**
+   * The list of virtual machine sizes supported by AmlCompute.
+   */
+  amlCompute?: VirtualMachineSize[];
+}
+
+/**
  * Identity for the resource.
  */
 export interface Identity {
@@ -910,12 +920,6 @@ export interface ListUsagesByVMFamilyResult extends Array<UsageByVMFamily> {
    * The URI to fetch the next page of compute resource usage information.
   */
   readonly nextLink?: string;
-}
-
-/**
- * The List Virtual Machine size operation response.
-*/
-export interface VirtualMachineSizeListResult extends Array<VirtualMachineSize> {
 }
 
 /**
