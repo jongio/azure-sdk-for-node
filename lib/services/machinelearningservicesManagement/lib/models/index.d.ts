@@ -189,9 +189,45 @@ export interface Usage {
 }
 
 /**
+ * The Usage Names.
+ */
+export interface ResourceUsageName {
+  /**
+   * The name of the resource.
+   */
+  readonly value?: string;
+  /**
+   * The localized name of the resource.
+   */
+  readonly localizedValue?: string;
+}
+
+/**
+ * Describes AML Resource Usage.
+ */
+export interface ResourceUsage {
+  /**
+   * An enum describing the unit of usage measurement. Possible values include: 'Count'
+   */
+  readonly unit?: string;
+  /**
+   * The current usage of the resource.
+   */
+  readonly currentValue?: number;
+  /**
+   * The maximum permitted usage of the resource.
+   */
+  readonly limit?: number;
+  /**
+   * The name of the type of usage.
+   */
+  readonly name?: ResourceUsageName;
+}
+
+/**
  * Describes Batch AI Resource Usage by VM Family, broken down by Workspace and Cluster usage
  */
-export interface UsageByVMFamily extends Usage {
+export interface UsageByVMFamily extends ResourceUsage {
   /**
    * The name of the resource group this resource type belongs to
    */
