@@ -4142,3 +4142,81 @@ export interface Workflows {
     abort(resourceGroupName: string, storageSyncServiceName: string, workflowId: string, callback: ServiceCallback<void>): void;
     abort(resourceGroupName: string, storageSyncServiceName: string, workflowId: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
 }
+
+/**
+ * @class
+ * OperationStatusOperations
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the StorageSyncManagementClient.
+ */
+export interface OperationStatusOperations {
+
+
+    /**
+     * Get Operation status
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} locationName The desired region to obtain information from.
+     *
+     * @param {string} workflowId workflow Id
+     *
+     * @param {string} operationId operation Id
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<OperationStatus>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getWithHttpOperationResponse(resourceGroupName: string, locationName: string, workflowId: string, operationId: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.OperationStatus>>;
+
+    /**
+     * Get Operation status
+     *
+     * @param {string} resourceGroupName The name of the resource group. The name
+     * is case insensitive.
+     *
+     * @param {string} locationName The desired region to obtain information from.
+     *
+     * @param {string} workflowId workflow Id
+     *
+     * @param {string} operationId operation Id
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {OperationStatus} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {OperationStatus} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link OperationStatus} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    get(resourceGroupName: string, locationName: string, workflowId: string, operationId: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.OperationStatus>;
+    get(resourceGroupName: string, locationName: string, workflowId: string, operationId: string, callback: ServiceCallback<models.OperationStatus>): void;
+    get(resourceGroupName: string, locationName: string, workflowId: string, operationId: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.OperationStatus>): void;
+}

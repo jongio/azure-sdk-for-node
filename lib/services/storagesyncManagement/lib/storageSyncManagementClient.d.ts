@@ -63,6 +63,7 @@ export default class StorageSyncManagementClient extends AzureServiceClient {
   serverEndpoints: operations.ServerEndpoints;
   registeredServers: operations.RegisteredServers;
   workflows: operations.Workflows;
+  operationStatusOperations: operations.OperationStatusOperations;
 }
 
 export { StorageSyncManagementClient, models as StorageSyncManagementModels };

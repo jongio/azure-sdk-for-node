@@ -942,6 +942,32 @@ export interface StorageSyncServiceUpdateParameters {
 }
 
 /**
+ * Operation status object
+*/
+export interface OperationStatus {
+  /**
+   * Operation Id
+  */
+  readonly name?: string;
+  /**
+   * Operation status
+  */
+  readonly status?: string;
+  /**
+   * Start time of the operation
+  */
+  readonly startTime?: Date;
+  /**
+   * End time of the operation
+  */
+  readonly endTime?: Date;
+  /**
+   * Error details.
+  */
+  readonly error?: StorageSyncApiError;
+}
+
+/**
  * The resource model definition for a Azure Resource Manager resource with an etag.
 */
 export interface AzureEntityResource extends Resource {
