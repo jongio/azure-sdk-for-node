@@ -1684,7 +1684,7 @@ export interface CloudEndpoints {
      *
      * @param {string} cloudEndpointName Name of Cloud Endpoint object.
      *
-     * @param {object} parameters Trigger Change Detecton Action parameters.
+     * @param {object} parameters Trigger Change Detection Action parameters.
      *
      * @param {string} [parameters.directoryPath] Relative path to a directory
      * Azure File share for which change detection is to be performed.
@@ -1720,7 +1720,7 @@ export interface CloudEndpoints {
      *
      * @param {string} cloudEndpointName Name of Cloud Endpoint object.
      *
-     * @param {object} parameters Trigger Change Detecton Action parameters.
+     * @param {object} parameters Trigger Change Detection Action parameters.
      *
      * @param {string} [parameters.directoryPath] Relative path to a directory
      * Azure File share for which change detection is to be performed.
@@ -2330,7 +2330,7 @@ export interface CloudEndpoints {
      *
      * @param {string} cloudEndpointName Name of Cloud Endpoint object.
      *
-     * @param {object} parameters Trigger Change Detecton Action parameters.
+     * @param {object} parameters Trigger Change Detection Action parameters.
      *
      * @param {string} [parameters.directoryPath] Relative path to a directory
      * Azure File share for which change detection is to be performed.
@@ -2366,7 +2366,7 @@ export interface CloudEndpoints {
      *
      * @param {string} cloudEndpointName Name of Cloud Endpoint object.
      *
-     * @param {object} parameters Trigger Change Detecton Action parameters.
+     * @param {object} parameters Trigger Change Detection Action parameters.
      *
      * @param {string} [parameters.directoryPath] Relative path to a directory
      * Azure File share for which change detection is to be performed.
