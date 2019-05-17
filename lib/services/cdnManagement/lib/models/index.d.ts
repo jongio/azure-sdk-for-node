@@ -21,7 +21,8 @@ export {
 export interface Sku {
   /**
    * Name of the pricing tier. Possible values include: 'Standard_Verizon', 'Premium_Verizon',
-   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+   * 'Custom_Verizon', 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+   * 'Premium_ChinaCdn'
    */
   name?: string;
 }
@@ -236,9 +237,9 @@ export interface GeoFilter {
 }
 
 /**
- * An action for the delivery rule.
+ * A condition for the delivery rule.
  */
-export interface DeliveryRuleAction {
+export interface DeliveryRuleCondition {
   /**
    * Polymorphic Discriminator
    */
@@ -246,9 +247,9 @@ export interface DeliveryRuleAction {
 }
 
 /**
- * A condition for the delivery rule.
+ * An action for the delivery rule.
  */
-export interface DeliveryRuleCondition {
+export interface DeliveryRuleAction {
   /**
    * Polymorphic Discriminator
    */
@@ -260,6 +261,10 @@ export interface DeliveryRuleCondition {
  */
 export interface DeliveryRule {
   /**
+   * Name of the rule
+   */
+  name?: string;
+  /**
    * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A
    * rule with a lesser order will be applied before a rule with a greater order. Rule with order 0
    * is a special rule. It does not require any condition and actions listed in it will always be
@@ -267,13 +272,13 @@ export interface DeliveryRule {
    */
   order: number;
   /**
-   * A list of actions that are executed when all the conditions of a rule are satisfied.
-   */
-  actions: DeliveryRuleAction[];
-  /**
    * A list of conditions that must be matched for the actions to be executed
    */
   conditions?: DeliveryRuleCondition[];
+  /**
+   * A list of actions that are executed when all the conditions of a rule are satisfied.
+   */
+  actions: DeliveryRuleAction[];
 }
 
 /**
@@ -361,48 +366,470 @@ export interface EndpointUpdateParameters extends BaseResource {
 }
 
 /**
- * Defines the parameters for the URL path condition.
+ * Defines the parameters for RemoteAddress match conditions
  */
-export interface UrlPathConditionParameters {
+export interface RemoteAddressMatchConditionParameters {
   /**
-   * A URL path for the condition of the delivery rule
+   * Describes operator to be matched. Possible values include: 'Any', 'IPMatch', 'GeoMatch'
    */
-  path: string;
+  operator: string;
   /**
-   * The match type for the condition of the delivery rule. Possible values include: 'Literal',
-   * 'Wildcard'
+   * Describes if this is negate condition or not
    */
-  matchType: string;
+  negateCondition?: boolean;
+  /**
+   * Match values to match against. The operator will apply to each value in here with OR
+   * semantics. If any of them match the variable with the given operator this match condition is
+   * considered a match.
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
 }
 
 /**
- * Defines the URL path condition for the delivery rule.
+ * Defines the RemoteAddress condition for the delivery rule.
+ */
+export interface DeliveryRuleRemoteAddressCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RemoteAddressMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestMethod match conditions
+ */
+export interface RequestMethodMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+}
+
+/**
+ * Defines the RequestMethod condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestMethodCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestMethodMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for QueryString match conditions
+ */
+export interface QueryStringMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the QueryString condition for the delivery rule.
+ */
+export interface DeliveryRuleQueryStringCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: QueryStringMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for PostArgs match conditions
+ */
+export interface PostArgsMatchConditionParameters {
+  /**
+   * Name of PostArg to be matched
+   */
+  selector: string;
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the PostArgs condition for the delivery rule.
+ */
+export interface DeliveryRulePostArgsCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: PostArgsMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestUri match conditions
+ */
+export interface RequestUriMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the RequestUri condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestUriCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestUriMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestHeader match conditions
+ */
+export interface RequestHeaderMatchConditionParameters {
+  /**
+   * Name of Header to be matched
+   */
+  selector: string;
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the RequestHeader condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestHeaderCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestHeaderMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestBody match conditions
+ */
+export interface RequestBodyMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the RequestBody condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestBodyCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestBodyMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for RequestScheme match conditions
+ */
+export interface RequestSchemeMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+}
+
+/**
+ * Defines the RequestScheme condition for the delivery rule.
+ */
+export interface DeliveryRuleRequestSchemeCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: RequestSchemeMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for UrlPath match conditions
+ */
+export interface UrlPathMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual',
+   * 'Wildcard'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the UrlPath condition for the delivery rule.
  */
 export interface DeliveryRuleUrlPathCondition extends DeliveryRuleCondition {
   /**
    * Defines the parameters for the condition.
    */
-  parameters: UrlPathConditionParameters;
+  parameters: UrlPathMatchConditionParameters;
 }
 
 /**
- * Defines the parameters for the URL file extension condition.
+ * Defines the parameters for UrlFileExtension match conditions
  */
-export interface UrlFileExtensionConditionParameters {
+export interface UrlFileExtensionMatchConditionParameters {
   /**
-   * A list of extensions for the condition of the delivery rule.
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
    */
-  extensions: string[];
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
 }
 
 /**
- * Defines the URL file extension condition for the delivery rule.
+ * Defines the UrlFileExtension condition for the delivery rule.
  */
 export interface DeliveryRuleUrlFileExtensionCondition extends DeliveryRuleCondition {
   /**
    * Defines the parameters for the condition.
    */
-  parameters: UrlFileExtensionConditionParameters;
+  parameters: UrlFileExtensionMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for UrlFilename match conditions
+ */
+export interface UrlFileNameMatchConditionParameters {
+  /**
+   * Describes operator to be matched. Possible values include: 'Any', 'Equal', 'Contains',
+   * 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual'
+   */
+  operator: string;
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the UrlFileName condition for the delivery rule.
+ */
+export interface DeliveryRuleUrlFileNameCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: UrlFileNameMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for IsDevice match conditions
+ */
+export interface IsDeviceMatchConditionParameters {
+  /**
+   * Describes if this is negate condition or not
+   */
+  negateCondition?: boolean;
+  /**
+   * The match value for the condition of the delivery rule
+   */
+  matchValues: string[];
+  /**
+   * List of transforms
+   */
+  transforms?: string[];
+}
+
+/**
+ * Defines the IsDevice condition for the delivery rule.
+ */
+export interface DeliveryRuleIsDeviceCondition extends DeliveryRuleCondition {
+  /**
+   * Defines the parameters for the condition.
+   */
+  parameters: IsDeviceMatchConditionParameters;
+}
+
+/**
+ * Defines the parameters for the url redirect action.
+ */
+export interface UrlRedirectActionParameters {
+  /**
+   * The redirect type the rule will use when redirecting traffic. Possible values include:
+   * 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'
+   */
+  redirectType: string;
+  /**
+   * Protocol to use for the redirect. The default value is MatchRequest. Possible values include:
+   * 'MatchRequest', 'Http', 'Https'
+   */
+  destinationProtocol?: string;
+  /**
+   * The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the
+   * incoming path as destination path.
+   */
+  customPath?: string;
+  /**
+   * Host to redirect. Leave empty to use use the incoming host as the destination host.
+   */
+  customHostname?: string;
+  /**
+   * The set of query strings to be placed in the redirect URL. Setting this value would replace
+   * any existing query string; leave empty to preserve the incoming query string. Query string
+   * must be in <key>=<value> format. ? and & will be added automatically so do not include them.
+   */
+  customQueryString?: string;
+  /**
+   * Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do
+   * not include the #.
+   */
+  customFragment?: string;
+}
+
+/**
+ * Defines the url redirect action for the delivery rule.
+ */
+export interface UrlRedirectAction extends DeliveryRuleAction {
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: UrlRedirectActionParameters;
+}
+
+/**
+ * Defines the parameters for the request header action.
+ */
+export interface HeaderActionParameters {
+  /**
+   * Action to perform. Possible values include: 'Append', 'Overwrite', 'Delete'
+   */
+  headerAction: string;
+  /**
+   * Name of the header to modify
+   */
+  headerName: string;
+  /**
+   * Value for the specified action
+   */
+  value?: string;
+}
+
+/**
+ * Defines the request header action for the delivery rule.
+ */
+export interface DeliveryRuleRequestHeaderAction extends DeliveryRuleAction {
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: HeaderActionParameters;
+}
+
+/**
+ * Defines the response header action for the delivery rule.
+ */
+export interface DeliveryRuleResponseHeaderAction extends DeliveryRuleAction {
+  /**
+   * Defines the parameters for the action.
+   */
+  parameters: HeaderActionParameters;
 }
 
 /**
@@ -410,8 +837,8 @@ export interface DeliveryRuleUrlFileExtensionCondition extends DeliveryRuleCondi
  */
 export interface CacheExpirationActionParameters {
   /**
-   * Caching behavior for the requests that include query strings. Possible values include:
-   * 'BypassCache', 'Override', 'SetIfMissing'
+   * Caching behavior for the requests. Possible values include: 'BypassCache', 'Override',
+   * 'SetIfMissing'
    */
   cacheBehavior: string;
   /**
