@@ -34,11 +34,11 @@ export default class BillingManagementClient extends AzureServiceClient {
    *
    * @param {boolean} [options.noRetryPolicy] - If set to true, turn off default retry policy
    *
-   * @param {string} [options.acceptLanguage] - Gets or sets the preferred language for the response.
+   * @param {string} [options.acceptLanguage] - The preferred language for the response.
    *
-   * @param {number} [options.longRunningOperationRetryTimeout] - Gets or sets the retry timeout in seconds for Long Running Operations. Default value is 30.
+   * @param {number} [options.longRunningOperationRetryTimeout] - The retry timeout in seconds for Long Running Operations. Default value is 30.
    *
-   * @param {boolean} [options.generateClientRequestId] - When set to true a unique x-ms-client-request-id value is generated and included in each request. Default is true.
+   * @param {boolean} [options.generateClientRequestId] - Whether a unique x-ms-client-request-id should be generated. When set to true a unique x-ms-client-request-id value is generated and included in each request. Default is true.
    *
    */
   constructor(credentials: ServiceClientCredentials, subscriptionId: string, baseUri?: string, options?: AzureServiceClientOptions);
@@ -56,10 +56,27 @@ export default class BillingManagementClient extends AzureServiceClient {
   generateClientRequestId: boolean;
 
   // Operation groups
+  billingAccounts: operations.BillingAccounts;
+  paymentMethods: operations.PaymentMethods;
+  availableBalances: operations.AvailableBalances;
+  billingProfiles: operations.BillingProfiles;
+  invoiceSections: operations.InvoiceSections;
+  departments: operations.Departments;
   enrollmentAccounts: operations.EnrollmentAccounts;
-  billingPeriods: operations.BillingPeriods;
   invoices: operations.Invoices;
+  priceSheet: operations.PriceSheet;
+  billingSubscriptions: operations.BillingSubscriptions;
+  products: operations.Products;
+  transactions: operations.Transactions;
+  policies: operations.Policies;
+  billingPropertyOperations: operations.BillingPropertyOperations;
+  transfers: operations.Transfers;
+  recipientTransfers: operations.RecipientTransfers;
   operations: operations.Operations;
+  billingPermissions: operations.BillingPermissions;
+  billingRoleDefinitions: operations.BillingRoleDefinitions;
+  billingRoleAssignments: operations.BillingRoleAssignments;
+  agreements: operations.Agreements;
 }
 
 export { BillingManagementClient, models as BillingManagementModels };
