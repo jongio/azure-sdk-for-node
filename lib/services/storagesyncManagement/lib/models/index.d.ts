@@ -213,7 +213,7 @@ export interface TriggerChangeDetectionParameters {
    * Array of relative paths on the Azure File share to be included in the change detection. Can be
    * files and directories.
   */
-  readonly paths?: string[];
+  paths?: string[];
 }
 
 /**

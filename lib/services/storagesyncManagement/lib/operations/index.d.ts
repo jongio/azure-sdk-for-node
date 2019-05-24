@@ -1693,6 +1693,9 @@ export interface CloudEndpoints {
      * Applies to a directory specified in directoryPath parameter. Possible values
      * include: 'Default', 'Recursive'
      *
+     * @param {array} [parameters.paths] Array of relative paths on the Azure File
+     * share to be included in the change detection. Can be files and directories.
+     *
      * @param {object} [options] Optional Parameters.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
@@ -1728,6 +1731,9 @@ export interface CloudEndpoints {
      * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
      * Applies to a directory specified in directoryPath parameter. Possible values
      * include: 'Default', 'Recursive'
+     *
+     * @param {array} [parameters.paths] Array of relative paths on the Azure File
+     * share to be included in the change detection. Can be files and directories.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -2339,6 +2345,9 @@ export interface CloudEndpoints {
      * Applies to a directory specified in directoryPath parameter. Possible values
      * include: 'Default', 'Recursive'
      *
+     * @param {array} [parameters.paths] Array of relative paths on the Azure File
+     * share to be included in the change detection. Can be files and directories.
+     *
      * @param {object} [options] Optional Parameters.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
@@ -2374,6 +2383,9 @@ export interface CloudEndpoints {
      * @param {string} [parameters.changeDetectionMode] Change Detection Mode.
      * Applies to a directory specified in directoryPath parameter. Possible values
      * include: 'Default', 'Recursive'
+     *
+     * @param {array} [parameters.paths] Array of relative paths on the Azure File
+     * share to be included in the change detection. Can be files and directories.
      *
      * @param {object} [options] Optional Parameters.
      *
