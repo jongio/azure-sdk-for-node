@@ -1,10 +1,10 @@
 {
   "name": "azure-arm-cdn",
   "author": "Microsoft Corporation",
-  "description": "CdnManagementClient Library with typescript type definitions for node",
+  "description": "CdnManagementClientDONTMERGE Library with typescript type definitions for node",
   "version": "4.2.0",
   "dependencies": {
-    "ms-rest": "^2.5.0",
+    "ms-rest": "^2.3.3",
     "ms-rest-azure": "^2.5.5"
   },
   "keywords": [
@@ -12,8 +12,8 @@
     "azure"
   ],
   "license": "MIT",
-  "main": "./lib/cdnManagementClient.js",
-  "types": "./lib/cdnManagementClient.d.ts",
+  "main": "./lib/cdnManagementClientDONTMERGE.js",
+  "types": "./lib/cdnManagementClientDONTMERGE.d.ts",
   "homepage": "https://github.com/azure/azure-sdk-for-node/tree/master/lib/services/cdnManagement",
   "repository": {
     "type": "git",
@@ -21,8 +21,5 @@
   },
   "bugs": {
     "url": "https://github.com/azure/azure-sdk-for-node/issues"
-  },
- "scripts": {
-    "postinstall": "node .scripts/postinstall.js"
   }
 }

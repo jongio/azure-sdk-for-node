@@ -16,7 +16,7 @@ import * as models from '../models';
  * @class
  * Profiles
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface Profiles {
 
@@ -211,7 +211,8 @@ export interface Profiles {
      *
      * @param {string} [profile.sku.name] Name of the pricing tier. Possible values
      * include: 'Standard_Verizon', 'Premium_Verizon', 'Custom_Verizon',
-     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+     * 'Premium_ChinaCdn'
      *
      * @param {string} profile.location Resource location.
      *
@@ -247,7 +248,8 @@ export interface Profiles {
      *
      * @param {string} [profile.sku.name] Name of the pricing tier. Possible values
      * include: 'Standard_Verizon', 'Premium_Verizon', 'Custom_Verizon',
-     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+     * 'Premium_ChinaCdn'
      *
      * @param {string} profile.location Resource location.
      *
@@ -640,7 +642,8 @@ export interface Profiles {
      *
      * @param {string} [profile.sku.name] Name of the pricing tier. Possible values
      * include: 'Standard_Verizon', 'Premium_Verizon', 'Custom_Verizon',
-     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+     * 'Premium_ChinaCdn'
      *
      * @param {string} profile.location Resource location.
      *
@@ -676,7 +679,8 @@ export interface Profiles {
      *
      * @param {string} [profile.sku.name] Name of the pricing tier. Possible values
      * include: 'Standard_Verizon', 'Premium_Verizon', 'Custom_Verizon',
-     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft'
+     * 'Standard_Akamai', 'Standard_ChinaCdn', 'Standard_Microsoft',
+     * 'Premium_ChinaCdn'
      *
      * @param {string} profile.location Resource location.
      *
@@ -1025,7 +1029,7 @@ export interface Profiles {
  * @class
  * Endpoints
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface Endpoints {
 
@@ -2959,7 +2963,7 @@ export interface Endpoints {
  * @class
  * Origins
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface Origins {
 
@@ -3363,7 +3367,7 @@ export interface Origins {
  * @class
  * CustomDomains
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface CustomDomains {
 
@@ -4061,7 +4065,7 @@ export interface CustomDomains {
  * @class
  * ResourceUsageOperations
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface ResourceUsageOperations {
 
@@ -4184,7 +4188,7 @@ export interface ResourceUsageOperations {
  * @class
  * Operations
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface Operations {
 
@@ -4301,7 +4305,7 @@ export interface Operations {
  * @class
  * EdgeNodes
  * __NOTE__: An instance of this class is automatically created for an
- * instance of the CdnManagementClient.
+ * instance of the CdnManagementClientDONTMERGE.
  */
 export interface EdgeNodes {
 
