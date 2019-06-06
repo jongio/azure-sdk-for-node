@@ -14,6 +14,132 @@ import * as models from '../models';
 
 /**
  * @class
+ * EndpointSettings
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the QnAMakerClient.
+ */
+export interface EndpointSettings {
+
+
+    /**
+     * @summary Gets endpoint settings for an endpoint.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<EndpointSettingsDTO>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getSettingsWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EndpointSettingsDTO>>;
+
+    /**
+     * @summary Gets endpoint settings for an endpoint.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {EndpointSettingsDTO} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {EndpointSettingsDTO} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link EndpointSettingsDTO} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getSettings(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.EndpointSettingsDTO>;
+    getSettings(callback: ServiceCallback<models.EndpointSettingsDTO>): void;
+    getSettings(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EndpointSettingsDTO>): void;
+
+
+    /**
+     * @summary Updates endpoint settings for an endpoint.
+     *
+     * @param {object} endpointSettingsPayload Post body of the request.
+     *
+     * @param {object} [endpointSettingsPayload.activeLearning] Active Learning
+     * settings of the endpoint.
+     *
+     * @param {string} [endpointSettingsPayload.activeLearning.enable] True/False
+     * string providing Active Learning
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<String>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    updateSettingsWithHttpOperationResponse(endpointSettingsPayload: models.EndpointSettingsDTO, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<string>>;
+
+    /**
+     * @summary Updates endpoint settings for an endpoint.
+     *
+     * @param {object} endpointSettingsPayload Post body of the request.
+     *
+     * @param {object} [endpointSettingsPayload.activeLearning] Active Learning
+     * settings of the endpoint.
+     *
+     * @param {string} [endpointSettingsPayload.activeLearning.enable] True/False
+     * string providing Active Learning
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {String} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {String} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    updateSettings(endpointSettingsPayload: models.EndpointSettingsDTO, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<string>;
+    updateSettings(endpointSettingsPayload: models.EndpointSettingsDTO, callback: ServiceCallback<string>): void;
+    updateSettings(endpointSettingsPayload: models.EndpointSettingsDTO, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<string>): void;
+}
+
+/**
+ * @class
  * EndpointKeys
  * __NOTE__: An instance of this class is automatically created for an
  * instance of the QnAMakerClient.

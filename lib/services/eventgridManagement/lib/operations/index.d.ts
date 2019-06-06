@@ -22,14 +22,14 @@ export interface Domains {
 
 
     /**
-     * @summary Get a domain
+     * @summary Get a domain.
      *
-     * Get properties of a domain
+     * Get properties of a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -45,14 +45,14 @@ export interface Domains {
     getWithHttpOperationResponse(resourceGroupName: string, domainName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Domain>>;
 
     /**
-     * @summary Get a domain
+     * @summary Get a domain.
      *
-     * Get properties of a domain
+     * Get properties of a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -87,7 +87,7 @@ export interface Domains {
 
 
     /**
-     * @summary Create or update a domain
+     * @summary Create or update a domain.
      *
      * Asynchronously creates or updates a new domain with the specified
      * parameters.
@@ -95,24 +95,13 @@ export interface Domains {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainInfo Domain information
+     * @param {object} domainInfo Domain information.
      *
-     * @param {string} [domainInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the domain.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} domainInfo.location Location of the resource.
      *
-     * @param {object} [domainInfo.inputSchemaMapping] Information about the
-     * InputSchemaMapping which specified the info about mapping event payload.
-     *
-     * @param {string} domainInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} domainInfo.location Location of the resource
-     *
-     * @param {object} [domainInfo.tags] Tags of the resource
+     * @param {object} [domainInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -128,7 +117,7 @@ export interface Domains {
     createOrUpdateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainInfo: models.Domain, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Domain>>;
 
     /**
-     * @summary Create or update a domain
+     * @summary Create or update a domain.
      *
      * Asynchronously creates or updates a new domain with the specified
      * parameters.
@@ -136,24 +125,13 @@ export interface Domains {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainInfo Domain information
+     * @param {object} domainInfo Domain information.
      *
-     * @param {string} [domainInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the domain.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} domainInfo.location Location of the resource.
      *
-     * @param {object} [domainInfo.inputSchemaMapping] Information about the
-     * InputSchemaMapping which specified the info about mapping event payload.
-     *
-     * @param {string} domainInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} domainInfo.location Location of the resource
-     *
-     * @param {object} [domainInfo.tags] Tags of the resource
+     * @param {object} [domainInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -188,14 +166,14 @@ export interface Domains {
 
 
     /**
-     * @summary Delete a domain
+     * @summary Delete a domain.
      *
-     * Delete existing domain
+     * Delete existing domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -211,14 +189,14 @@ export interface Domains {
     deleteMethodWithHttpOperationResponse(resourceGroupName: string, domainName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a domain
+     * @summary Delete a domain.
      *
-     * Delete existing domain
+     * Delete existing domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -252,18 +230,18 @@ export interface Domains {
 
 
     /**
-     * @summary Update a domain
+     * @summary Update a domain.
      *
      * Asynchronously updates a domain with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainUpdateParameters Domain update information
+     * @param {object} domainUpdateParameters Domain update information.
      *
-     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource
+     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -279,18 +257,18 @@ export interface Domains {
     updateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainUpdateParameters: models.DomainUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Domain>>;
 
     /**
-     * @summary Update a domain
+     * @summary Update a domain.
      *
      * Asynchronously updates a domain with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainUpdateParameters Domain update information
+     * @param {object} domainUpdateParameters Domain update information.
      *
-     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource
+     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -325,15 +303,25 @@ export interface Domains {
 
 
     /**
-     * @summary List domains under an Azure subscription
+     * @summary List domains under an Azure subscription.
      *
-     * List all the domains under an Azure subscription
+     * List all the domains under an Azure subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -347,15 +335,25 @@ export interface Domains {
     listBySubscriptionWithHttpOperationResponse(options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainsListResult>>;
 
     /**
-     * @summary List domains under an Azure subscription
+     * @summary List domains under an Azure subscription.
      *
-     * List all the domains under an Azure subscription
+     * List all the domains under an Azure subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -388,18 +386,28 @@ export interface Domains {
 
 
     /**
-     * @summary List domains under a resource group
+     * @summary List domains under a resource group.
      *
-     * List all the domains under a resource group
+     * List all the domains under a resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -413,18 +421,28 @@ export interface Domains {
     listByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainsListResult>>;
 
     /**
-     * @summary List domains under a resource group
+     * @summary List domains under a resource group.
      *
-     * List all the domains under a resource group
+     * List all the domains under a resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -457,14 +475,14 @@ export interface Domains {
 
 
     /**
-     * @summary List keys for a domain
+     * @summary List keys for a domain.
      *
-     * List the two keys used to publish to a domain
+     * List the two keys used to publish to a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -480,14 +498,14 @@ export interface Domains {
     listSharedAccessKeysWithHttpOperationResponse(resourceGroupName: string, domainName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainSharedAccessKeys>>;
 
     /**
-     * @summary List keys for a domain
+     * @summary List keys for a domain.
      *
-     * List the two keys used to publish to a domain
+     * List the two keys used to publish to a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -523,19 +541,19 @@ export interface Domains {
 
 
     /**
-     * @summary Regenerate key for a domain
+     * @summary Regenerate key for a domain.
      *
-     * Regenerate a shared access key for a domain
+     * Regenerate a shared access key for a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} regenerateKeyRequest Request body to regenerate key
+     * @param {object} regenerateKeyRequest Request body to regenerate key.
      *
      * @param {string} regenerateKeyRequest.keyName Key name to regenerate key1 or
-     * key2
+     * key2.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -551,19 +569,19 @@ export interface Domains {
     regenerateKeyWithHttpOperationResponse(resourceGroupName: string, domainName: string, regenerateKeyRequest: models.DomainRegenerateKeyRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainSharedAccessKeys>>;
 
     /**
-     * @summary Regenerate key for a domain
+     * @summary Regenerate key for a domain.
      *
-     * Regenerate a shared access key for a domain
+     * Regenerate a shared access key for a domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} regenerateKeyRequest Request body to regenerate key
+     * @param {object} regenerateKeyRequest Request body to regenerate key.
      *
      * @param {string} regenerateKeyRequest.keyName Key name to regenerate key1 or
-     * key2
+     * key2.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -599,7 +617,7 @@ export interface Domains {
 
 
     /**
-     * @summary Create or update a domain
+     * @summary Create or update a domain.
      *
      * Asynchronously creates or updates a new domain with the specified
      * parameters.
@@ -607,24 +625,13 @@ export interface Domains {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainInfo Domain information
+     * @param {object} domainInfo Domain information.
      *
-     * @param {string} [domainInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the domain.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} domainInfo.location Location of the resource.
      *
-     * @param {object} [domainInfo.inputSchemaMapping] Information about the
-     * InputSchemaMapping which specified the info about mapping event payload.
-     *
-     * @param {string} domainInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} domainInfo.location Location of the resource
-     *
-     * @param {object} [domainInfo.tags] Tags of the resource
+     * @param {object} [domainInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -640,7 +647,7 @@ export interface Domains {
     beginCreateOrUpdateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainInfo: models.Domain, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Domain>>;
 
     /**
-     * @summary Create or update a domain
+     * @summary Create or update a domain.
      *
      * Asynchronously creates or updates a new domain with the specified
      * parameters.
@@ -648,24 +655,13 @@ export interface Domains {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainInfo Domain information
+     * @param {object} domainInfo Domain information.
      *
-     * @param {string} [domainInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the domain.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} domainInfo.location Location of the resource.
      *
-     * @param {object} [domainInfo.inputSchemaMapping] Information about the
-     * InputSchemaMapping which specified the info about mapping event payload.
-     *
-     * @param {string} domainInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} domainInfo.location Location of the resource
-     *
-     * @param {object} [domainInfo.tags] Tags of the resource
+     * @param {object} [domainInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -700,14 +696,14 @@ export interface Domains {
 
 
     /**
-     * @summary Delete a domain
+     * @summary Delete a domain.
      *
-     * Delete existing domain
+     * Delete existing domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -723,14 +719,14 @@ export interface Domains {
     beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, domainName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a domain
+     * @summary Delete a domain.
      *
-     * Delete existing domain
+     * Delete existing domain.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -764,18 +760,18 @@ export interface Domains {
 
 
     /**
-     * @summary Update a domain
+     * @summary Update a domain.
      *
      * Asynchronously updates a domain with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainUpdateParameters Domain update information
+     * @param {object} domainUpdateParameters Domain update information.
      *
-     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource
+     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -791,18 +787,18 @@ export interface Domains {
     beginUpdateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainUpdateParameters: models.DomainUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Domain>>;
 
     /**
-     * @summary Update a domain
+     * @summary Update a domain.
      *
      * Asynchronously updates a domain with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {object} domainUpdateParameters Domain update information
+     * @param {object} domainUpdateParameters Domain update information.
      *
-     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource
+     * @param {object} [domainUpdateParameters.tags] Tags of the domains resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -837,9 +833,9 @@ export interface Domains {
 
 
     /**
-     * @summary List domains under an Azure subscription
+     * @summary List domains under an Azure subscription.
      *
-     * List all the domains under an Azure subscription
+     * List all the domains under an Azure subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -858,9 +854,9 @@ export interface Domains {
     listBySubscriptionNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainsListResult>>;
 
     /**
-     * @summary List domains under an Azure subscription
+     * @summary List domains under an Azure subscription.
      *
-     * List all the domains under an Azure subscription
+     * List all the domains under an Azure subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -898,9 +894,9 @@ export interface Domains {
 
 
     /**
-     * @summary List domains under a resource group
+     * @summary List domains under a resource group.
      *
-     * List all the domains under a resource group
+     * List all the domains under a resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -919,9 +915,9 @@ export interface Domains {
     listByResourceGroupNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainsListResult>>;
 
     /**
-     * @summary List domains under a resource group
+     * @summary List domains under a resource group.
      *
-     * List all the domains under a resource group
+     * List all the domains under a resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -968,16 +964,16 @@ export interface DomainTopics {
 
 
     /**
-     * @summary Get a domain topic
+     * @summary Get a domain topic.
      *
-     * Get properties of a domain topic
+     * Get properties of a domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the topic
+     * @param {string} domainTopicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -993,16 +989,16 @@ export interface DomainTopics {
     getWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainTopicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainTopic>>;
 
     /**
-     * @summary Get a domain topic
+     * @summary Get a domain topic.
      *
-     * Get properties of a domain topic
+     * Get properties of a domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the topic
+     * @param {string} domainTopicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1037,7 +1033,7 @@ export interface DomainTopics {
 
 
     /**
-     * @summary Create or update a domain topic
+     * @summary Create or update a domain topic.
      *
      * Asynchronously creates or updates a new domain topic with the specified
      * parameters.
@@ -1045,9 +1041,9 @@ export interface DomainTopics {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1063,7 +1059,7 @@ export interface DomainTopics {
     createOrUpdateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainTopicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainTopic>>;
 
     /**
-     * @summary Create or update a domain topic
+     * @summary Create or update a domain topic.
      *
      * Asynchronously creates or updates a new domain topic with the specified
      * parameters.
@@ -1071,9 +1067,9 @@ export interface DomainTopics {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1108,16 +1104,16 @@ export interface DomainTopics {
 
 
     /**
-     * @summary Delete a domain topic
+     * @summary Delete a domain topic.
      *
-     * Delete existing domain topic
+     * Delete existing domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1133,16 +1129,16 @@ export interface DomainTopics {
     deleteMethodWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainTopicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a domain topic
+     * @summary Delete a domain topic.
      *
-     * Delete existing domain topic
+     * Delete existing domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1187,9 +1183,19 @@ export interface DomainTopics {
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -1214,9 +1220,19 @@ export interface DomainTopics {
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -1250,7 +1266,7 @@ export interface DomainTopics {
 
 
     /**
-     * @summary Create or update a domain topic
+     * @summary Create or update a domain topic.
      *
      * Asynchronously creates or updates a new domain topic with the specified
      * parameters.
@@ -1258,9 +1274,9 @@ export interface DomainTopics {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1276,7 +1292,7 @@ export interface DomainTopics {
     beginCreateOrUpdateWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainTopicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.DomainTopic>>;
 
     /**
-     * @summary Create or update a domain topic
+     * @summary Create or update a domain topic.
      *
      * Asynchronously creates or updates a new domain topic with the specified
      * parameters.
@@ -1284,9 +1300,9 @@ export interface DomainTopics {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1321,16 +1337,16 @@ export interface DomainTopics {
 
 
     /**
-     * @summary Delete a domain topic
+     * @summary Delete a domain topic.
      *
-     * Delete existing domain topic
+     * Delete existing domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1346,16 +1362,16 @@ export interface DomainTopics {
     beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, domainName: string, domainTopicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a domain topic
+     * @summary Delete a domain topic.
      *
-     * Delete existing domain topic
+     * Delete existing domain topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the domain
+     * @param {string} domainName Name of the domain.
      *
-     * @param {string} domainTopicName Name of the domain topic
+     * @param {string} domainTopicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1460,9 +1476,9 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Get an event subscription
+     * @summary Get an event subscription.
      *
-     * Get properties of an event subscription
+     * Get properties of an event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -1475,7 +1491,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1491,9 +1507,9 @@ export interface EventSubscriptions {
     getWithHttpOperationResponse(scope: string, eventSubscriptionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscription>>;
 
     /**
-     * @summary Get an event subscription
+     * @summary Get an event subscription.
      *
-     * Get properties of an event subscription
+     * Get properties of an event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -1506,7 +1522,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1541,7 +1557,7 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Create or update an event subscription
+     * @summary Create or update an event subscription.
      *
      * Asynchronously creates a new event subscription or updates an existing event
      * subscription based on the specified scope.
@@ -1563,7 +1579,7 @@ export interface EventSubscriptions {
      * use alphanumeric letters only.
      *
      * @param {object} eventSubscriptionInfo Event subscription properties
-     * containing the destination and filter information
+     * containing the destination and filter information.
      *
      * @param {object} [eventSubscriptionInfo.destination] Information about the
      * destination where events have to be delivered for the event subscription.
@@ -1602,10 +1618,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionInfo.expirationTimeUtc] Expiration time of
      * the event subscription.
-     *
-     * @param {string} [eventSubscriptionInfo.eventDeliverySchema] The event
-     * delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionInfo.retryPolicy] The retry policy for
      * events. This can be used to configure maximum number of delivery attempts
@@ -1637,7 +1649,7 @@ export interface EventSubscriptions {
     createOrUpdateWithHttpOperationResponse(scope: string, eventSubscriptionName: string, eventSubscriptionInfo: models.EventSubscription, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscription>>;
 
     /**
-     * @summary Create or update an event subscription
+     * @summary Create or update an event subscription.
      *
      * Asynchronously creates a new event subscription or updates an existing event
      * subscription based on the specified scope.
@@ -1659,7 +1671,7 @@ export interface EventSubscriptions {
      * use alphanumeric letters only.
      *
      * @param {object} eventSubscriptionInfo Event subscription properties
-     * containing the destination and filter information
+     * containing the destination and filter information.
      *
      * @param {object} [eventSubscriptionInfo.destination] Information about the
      * destination where events have to be delivered for the event subscription.
@@ -1698,10 +1710,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionInfo.expirationTimeUtc] Expiration time of
      * the event subscription.
-     *
-     * @param {string} [eventSubscriptionInfo.eventDeliverySchema] The event
-     * delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionInfo.retryPolicy] The retry policy for
      * events. This can be used to configure maximum number of delivery attempts
@@ -1752,9 +1760,9 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Delete an event subscription
+     * @summary Delete an event subscription.
      *
-     * Delete an existing event subscription
+     * Delete an existing event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -1767,7 +1775,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1783,9 +1791,9 @@ export interface EventSubscriptions {
     deleteMethodWithHttpOperationResponse(scope: string, eventSubscriptionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete an event subscription
+     * @summary Delete an event subscription.
      *
-     * Delete an existing event subscription
+     * Delete an existing event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -1798,7 +1806,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1832,7 +1840,7 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Update an event subscription
+     * @summary Update an event subscription.
      *
      * Asynchronously updates an existing event subscription.
      *
@@ -1848,10 +1856,10 @@ export interface EventSubscriptions {
      * for an EventGrid topic.
      *
      * @param {string} eventSubscriptionName Name of the event subscription to be
-     * updated
+     * updated.
      *
      * @param {object} eventSubscriptionUpdateParameters Updated event subscription
-     * information
+     * information.
      *
      * @param {object} [eventSubscriptionUpdateParameters.destination] Information
      * about the destination where events have to be delivered for the event
@@ -1892,10 +1900,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionUpdateParameters.expirationTimeUtc]
      * Information about the expiration time for the event subscription.
-     *
-     * @param {string} [eventSubscriptionUpdateParameters.eventDeliverySchema] The
-     * event delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionUpdateParameters.retryPolicy] The retry
      * policy for events. This can be used to configure maximum number of delivery
@@ -1930,7 +1934,7 @@ export interface EventSubscriptions {
     updateWithHttpOperationResponse(scope: string, eventSubscriptionName: string, eventSubscriptionUpdateParameters: models.EventSubscriptionUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscription>>;
 
     /**
-     * @summary Update an event subscription
+     * @summary Update an event subscription.
      *
      * Asynchronously updates an existing event subscription.
      *
@@ -1946,10 +1950,10 @@ export interface EventSubscriptions {
      * for an EventGrid topic.
      *
      * @param {string} eventSubscriptionName Name of the event subscription to be
-     * updated
+     * updated.
      *
      * @param {object} eventSubscriptionUpdateParameters Updated event subscription
-     * information
+     * information.
      *
      * @param {object} [eventSubscriptionUpdateParameters.destination] Information
      * about the destination where events have to be delivered for the event
@@ -1990,10 +1994,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionUpdateParameters.expirationTimeUtc]
      * Information about the expiration time for the event subscription.
-     *
-     * @param {string} [eventSubscriptionUpdateParameters.eventDeliverySchema] The
-     * event delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionUpdateParameters.retryPolicy] The retry
      * policy for events. This can be used to configure maximum number of delivery
@@ -2047,9 +2047,9 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Get full URL of an event subscription
+     * @summary Get full URL of an event subscription.
      *
-     * Get the full endpoint URL for an event subscription
+     * Get the full endpoint URL for an event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -2062,7 +2062,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -2078,9 +2078,9 @@ export interface EventSubscriptions {
     getFullUrlWithHttpOperationResponse(scope: string, eventSubscriptionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionFullUrl>>;
 
     /**
-     * @summary Get full URL of an event subscription
+     * @summary Get full URL of an event subscription.
      *
-     * Get the full endpoint URL for an event subscription
+     * Get the full endpoint URL for an event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -2093,7 +2093,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -2130,19 +2130,26 @@ export interface EventSubscriptions {
 
     /**
      * @summary Get an aggregated list of all global event subscriptions under an
-     * Azure subscription
+     * Azure subscription.
      *
      * List all aggregated global event subscriptions under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2153,23 +2160,30 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listGlobalBySubscriptionWithHttpOperationResponse(options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listGlobalBySubscriptionWithHttpOperationResponse(options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary Get an aggregated list of all global event subscriptions under an
-     * Azure subscription
+     * Azure subscription.
      *
      * List all aggregated global event subscriptions under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2197,27 +2211,34 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listGlobalBySubscription(options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listGlobalBySubscription(options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listGlobalBySubscription(callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listGlobalBySubscription(options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listGlobalBySubscription(options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
-     * @summary List all global event subscriptions for a topic type
+     * @summary List all global event subscriptions for a topic type.
      *
      * List all global event subscriptions under an Azure subscription for a topic
      * type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2228,24 +2249,31 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listGlobalBySubscriptionForTopicTypeWithHttpOperationResponse(topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listGlobalBySubscriptionForTopicTypeWithHttpOperationResponse(topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all global event subscriptions for a topic type
+     * @summary List all global event subscriptions for a topic type.
      *
      * List all global event subscriptions under an Azure subscription for a topic
      * type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2273,29 +2301,36 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listGlobalBySubscriptionForTopicType(topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listGlobalBySubscriptionForTopicType(topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listGlobalBySubscriptionForTopicType(topicTypeName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listGlobalBySubscriptionForTopicType(topicTypeName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listGlobalBySubscriptionForTopicType(topicTypeName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
      * @summary List all global event subscriptions under an Azure subscription and
-     * resource group
+     * resource group.
      *
      * List all global event subscriptions under a specific Azure subscription and
-     * resource group
+     * resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2306,26 +2341,33 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listGlobalByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listGlobalByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary List all global event subscriptions under an Azure subscription and
-     * resource group
+     * resource group.
      *
      * List all global event subscriptions under a specific Azure subscription and
-     * resource group
+     * resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2353,14 +2395,14 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listGlobalByResourceGroup(resourceGroupName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listGlobalByResourceGroup(resourceGroupName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listGlobalByResourceGroup(resourceGroupName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listGlobalByResourceGroup(resourceGroupName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listGlobalByResourceGroup(resourceGroupName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
      * @summary List all global event subscriptions under a resource group for a
-     * topic type
+     * topic type.
      *
      * List all global event subscriptions under a resource group for a specific
      * topic type.
@@ -2368,16 +2410,23 @@ export interface EventSubscriptions {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2388,11 +2437,11 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listGlobalByResourceGroupForTopicTypeWithHttpOperationResponse(resourceGroupName: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listGlobalByResourceGroupForTopicTypeWithHttpOperationResponse(resourceGroupName: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary List all global event subscriptions under a resource group for a
-     * topic type
+     * topic type.
      *
      * List all global event subscriptions under a resource group for a specific
      * topic type.
@@ -2400,16 +2449,23 @@ export interface EventSubscriptions {
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2437,27 +2493,34 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listGlobalByResourceGroupForTopicType(resourceGroupName: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listGlobalByResourceGroupForTopicType(resourceGroupName: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listGlobalByResourceGroupForTopicType(resourceGroupName: string, topicTypeName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listGlobalByResourceGroupForTopicType(resourceGroupName: string, topicTypeName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listGlobalByResourceGroupForTopicType(resourceGroupName: string, topicTypeName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
-     * @summary List all regional event subscriptions under an Azure subscription
+     * @summary List all regional event subscriptions under an Azure subscription.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription
+     * subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2468,24 +2531,31 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listRegionalBySubscriptionWithHttpOperationResponse(location: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listRegionalBySubscriptionWithHttpOperationResponse(location: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all regional event subscriptions under an Azure subscription
+     * @summary List all regional event subscriptions under an Azure subscription.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription
+     * subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2513,31 +2583,38 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listRegionalBySubscription(location: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listRegionalBySubscription(location: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listRegionalBySubscription(location: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listRegionalBySubscription(location: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listRegionalBySubscription(location: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group
+     * and resource group.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group
+     * subscription and resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2548,28 +2625,35 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listRegionalByResourceGroupWithHttpOperationResponse(resourceGroupName: string, location: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listRegionalByResourceGroupWithHttpOperationResponse(resourceGroupName: string, location: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group
+     * and resource group.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group
+     * subscription and resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2597,30 +2681,37 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listRegionalByResourceGroup(resourceGroupName: string, location: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listRegionalByResourceGroup(resourceGroupName: string, location: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listRegionalByResourceGroup(resourceGroupName: string, location: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listRegionalByResourceGroup(resourceGroupName: string, location: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listRegionalByResourceGroup(resourceGroupName: string, location: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * for a topic type
+     * for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
      * subscription and topic type.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2631,27 +2722,34 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listRegionalBySubscriptionForTopicTypeWithHttpOperationResponse(location: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listRegionalBySubscriptionForTopicTypeWithHttpOperationResponse(location: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * for a topic type
+     * for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
      * subscription and topic type.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2679,33 +2777,40 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listRegionalBySubscriptionForTopicType(location: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listRegionalBySubscriptionForTopicType(location: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listRegionalBySubscriptionForTopicType(location: string, topicTypeName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listRegionalBySubscriptionForTopicType(location: string, topicTypeName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listRegionalBySubscriptionForTopicType(location: string, topicTypeName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group for a topic type
+     * and resource group for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group and topic type
+     * subscription and resource group and topic type.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2716,30 +2821,37 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listRegionalByResourceGroupForTopicTypeWithHttpOperationResponse(resourceGroupName: string, location: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listRegionalByResourceGroupForTopicTypeWithHttpOperationResponse(resourceGroupName: string, location: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group for a topic type
+     * and resource group for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group and topic type
+     * subscription and resource group and topic type.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} location Name of the location
+     * @param {string} location Name of the location.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2767,33 +2879,40 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listRegionalByResourceGroupForTopicType(resourceGroupName: string, location: string, topicTypeName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listRegionalByResourceGroupForTopicType(resourceGroupName: string, location: string, topicTypeName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listRegionalByResourceGroupForTopicType(resourceGroupName: string, location: string, topicTypeName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listRegionalByResourceGroupForTopicType(resourceGroupName: string, location: string, topicTypeName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listRegionalByResourceGroupForTopicType(resourceGroupName: string, location: string, topicTypeName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
-     * @summary List all event subscriptions for a specific topic
+     * @summary List all event subscriptions for a specific topic.
      *
-     * List all event subscriptions that have been created for a specific topic
+     * List all event subscriptions that have been created for a specific topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} providerNamespace Namespace of the provider of the topic
+     * @param {string} providerNamespace Namespace of the provider of the topic.
      *
-     * @param {string} resourceTypeName Name of the resource type
+     * @param {string} resourceTypeName Name of the resource type.
      *
-     * @param {string} resourceName Name of the resource
+     * @param {string} resourceName Name of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2804,30 +2923,37 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listByResourceWithHttpOperationResponse(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listByResourceWithHttpOperationResponse(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all event subscriptions for a specific topic
+     * @summary List all event subscriptions for a specific topic.
      *
-     * List all event subscriptions that have been created for a specific topic
+     * List all event subscriptions that have been created for a specific topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} providerNamespace Namespace of the provider of the topic
+     * @param {string} providerNamespace Namespace of the provider of the topic.
      *
-     * @param {string} resourceTypeName Name of the resource type
+     * @param {string} resourceTypeName Name of the resource type.
      *
-     * @param {string} resourceName Name of the resource
+     * @param {string} resourceName Name of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2855,32 +2981,39 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listByResource(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listByResource(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listByResource(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listByResource(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listByResource(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
-     * @summary List all event subscriptions for a specific domain topic
+     * @summary List all event subscriptions for a specific domain topic.
      *
      * List all event subscriptions that have been created for a specific domain
-     * topic
+     * topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the top level domain
+     * @param {string} domainName Name of the top level domain.
      *
-     * @param {string} topicName Name of the domain topic
+     * @param {string} topicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2891,29 +3024,36 @@ export interface EventSubscriptions {
      *
      * @reject {Error|ServiceError} - The error object.
      */
-    listByDomainTopicWithHttpOperationResponse(resourceGroupName: string, domainName: string, topicName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
+    listByDomainTopicWithHttpOperationResponse(resourceGroupName: string, domainName: string, topicName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all event subscriptions for a specific domain topic
+     * @summary List all event subscriptions for a specific domain topic.
      *
      * List all event subscriptions that have been created for a specific domain
-     * topic
+     * topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} domainName Name of the top level domain
+     * @param {string} domainName Name of the top level domain.
      *
-     * @param {string} topicName Name of the domain topic
+     * @param {string} topicName Name of the domain topic.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
-     *
-     * @param {string} [options.label] The label used to filter the results for
-     * event subscriptions list.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -2941,13 +3081,13 @@ export interface EventSubscriptions {
      *
      *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
      */
-    listByDomainTopic(resourceGroupName: string, domainName: string, topicName: string, options?: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
+    listByDomainTopic(resourceGroupName: string, domainName: string, topicName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<models.EventSubscriptionsListResult>;
     listByDomainTopic(resourceGroupName: string, domainName: string, topicName: string, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
-    listByDomainTopic(resourceGroupName: string, domainName: string, topicName: string, options: { filter? : string, top? : number, label? : string, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
+    listByDomainTopic(resourceGroupName: string, domainName: string, topicName: string, options: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.EventSubscriptionsListResult>): void;
 
 
     /**
-     * @summary Create or update an event subscription
+     * @summary Create or update an event subscription.
      *
      * Asynchronously creates a new event subscription or updates an existing event
      * subscription based on the specified scope.
@@ -2969,7 +3109,7 @@ export interface EventSubscriptions {
      * use alphanumeric letters only.
      *
      * @param {object} eventSubscriptionInfo Event subscription properties
-     * containing the destination and filter information
+     * containing the destination and filter information.
      *
      * @param {object} [eventSubscriptionInfo.destination] Information about the
      * destination where events have to be delivered for the event subscription.
@@ -3008,10 +3148,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionInfo.expirationTimeUtc] Expiration time of
      * the event subscription.
-     *
-     * @param {string} [eventSubscriptionInfo.eventDeliverySchema] The event
-     * delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionInfo.retryPolicy] The retry policy for
      * events. This can be used to configure maximum number of delivery attempts
@@ -3043,7 +3179,7 @@ export interface EventSubscriptions {
     beginCreateOrUpdateWithHttpOperationResponse(scope: string, eventSubscriptionName: string, eventSubscriptionInfo: models.EventSubscription, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscription>>;
 
     /**
-     * @summary Create or update an event subscription
+     * @summary Create or update an event subscription.
      *
      * Asynchronously creates a new event subscription or updates an existing event
      * subscription based on the specified scope.
@@ -3065,7 +3201,7 @@ export interface EventSubscriptions {
      * use alphanumeric letters only.
      *
      * @param {object} eventSubscriptionInfo Event subscription properties
-     * containing the destination and filter information
+     * containing the destination and filter information.
      *
      * @param {object} [eventSubscriptionInfo.destination] Information about the
      * destination where events have to be delivered for the event subscription.
@@ -3104,10 +3240,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionInfo.expirationTimeUtc] Expiration time of
      * the event subscription.
-     *
-     * @param {string} [eventSubscriptionInfo.eventDeliverySchema] The event
-     * delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionInfo.retryPolicy] The retry policy for
      * events. This can be used to configure maximum number of delivery attempts
@@ -3158,9 +3290,9 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Delete an event subscription
+     * @summary Delete an event subscription.
      *
-     * Delete an existing event subscription
+     * Delete an existing event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -3173,7 +3305,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -3189,9 +3321,9 @@ export interface EventSubscriptions {
     beginDeleteMethodWithHttpOperationResponse(scope: string, eventSubscriptionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete an event subscription
+     * @summary Delete an event subscription.
      *
-     * Delete an existing event subscription
+     * Delete an existing event subscription.
      *
      * @param {string} scope The scope of the event subscription. The scope can be
      * a subscription, or a resource group, or a top level resource belonging to a
@@ -3204,7 +3336,7 @@ export interface EventSubscriptions {
      * '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}'
      * for an EventGrid topic.
      *
-     * @param {string} eventSubscriptionName Name of the event subscription
+     * @param {string} eventSubscriptionName Name of the event subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -3238,7 +3370,7 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary Update an event subscription
+     * @summary Update an event subscription.
      *
      * Asynchronously updates an existing event subscription.
      *
@@ -3254,10 +3386,10 @@ export interface EventSubscriptions {
      * for an EventGrid topic.
      *
      * @param {string} eventSubscriptionName Name of the event subscription to be
-     * updated
+     * updated.
      *
      * @param {object} eventSubscriptionUpdateParameters Updated event subscription
-     * information
+     * information.
      *
      * @param {object} [eventSubscriptionUpdateParameters.destination] Information
      * about the destination where events have to be delivered for the event
@@ -3298,10 +3430,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionUpdateParameters.expirationTimeUtc]
      * Information about the expiration time for the event subscription.
-     *
-     * @param {string} [eventSubscriptionUpdateParameters.eventDeliverySchema] The
-     * event delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionUpdateParameters.retryPolicy] The retry
      * policy for events. This can be used to configure maximum number of delivery
@@ -3336,7 +3464,7 @@ export interface EventSubscriptions {
     beginUpdateWithHttpOperationResponse(scope: string, eventSubscriptionName: string, eventSubscriptionUpdateParameters: models.EventSubscriptionUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscription>>;
 
     /**
-     * @summary Update an event subscription
+     * @summary Update an event subscription.
      *
      * Asynchronously updates an existing event subscription.
      *
@@ -3352,10 +3480,10 @@ export interface EventSubscriptions {
      * for an EventGrid topic.
      *
      * @param {string} eventSubscriptionName Name of the event subscription to be
-     * updated
+     * updated.
      *
      * @param {object} eventSubscriptionUpdateParameters Updated event subscription
-     * information
+     * information.
      *
      * @param {object} [eventSubscriptionUpdateParameters.destination] Information
      * about the destination where events have to be delivered for the event
@@ -3396,10 +3524,6 @@ export interface EventSubscriptions {
      *
      * @param {date} [eventSubscriptionUpdateParameters.expirationTimeUtc]
      * Information about the expiration time for the event subscription.
-     *
-     * @param {string} [eventSubscriptionUpdateParameters.eventDeliverySchema] The
-     * event delivery schema for the event subscription. Possible values include:
-     * 'EventGridSchema', 'CloudEventV01Schema', 'CustomInputSchema'
      *
      * @param {object} [eventSubscriptionUpdateParameters.retryPolicy] The retry
      * policy for events. This can be used to configure maximum number of delivery
@@ -3454,10 +3578,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary Get an aggregated list of all global event subscriptions under an
-     * Azure subscription
+     * Azure subscription.
      *
      * List all aggregated global event subscriptions under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3477,10 +3601,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary Get an aggregated list of all global event subscriptions under an
-     * Azure subscription
+     * Azure subscription.
      *
      * List all aggregated global event subscriptions under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3519,7 +3643,7 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary List all global event subscriptions for a topic type
+     * @summary List all global event subscriptions for a topic type.
      *
      * List all global event subscriptions under an Azure subscription for a topic
      * type.
@@ -3541,7 +3665,7 @@ export interface EventSubscriptions {
     listGlobalBySubscriptionForTopicTypeNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all global event subscriptions for a topic type
+     * @summary List all global event subscriptions for a topic type.
      *
      * List all global event subscriptions under an Azure subscription for a topic
      * type.
@@ -3584,10 +3708,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all global event subscriptions under an Azure subscription and
-     * resource group
+     * resource group.
      *
      * List all global event subscriptions under a specific Azure subscription and
-     * resource group
+     * resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3607,10 +3731,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all global event subscriptions under an Azure subscription and
-     * resource group
+     * resource group.
      *
      * List all global event subscriptions under a specific Azure subscription and
-     * resource group
+     * resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3650,7 +3774,7 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all global event subscriptions under a resource group for a
-     * topic type
+     * topic type.
      *
      * List all global event subscriptions under a resource group for a specific
      * topic type.
@@ -3673,7 +3797,7 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all global event subscriptions under a resource group for a
-     * topic type
+     * topic type.
      *
      * List all global event subscriptions under a resource group for a specific
      * topic type.
@@ -3715,10 +3839,10 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary List all regional event subscriptions under an Azure subscription
+     * @summary List all regional event subscriptions under an Azure subscription.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3737,10 +3861,10 @@ export interface EventSubscriptions {
     listRegionalBySubscriptionNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all regional event subscriptions under an Azure subscription
+     * @summary List all regional event subscriptions under an Azure subscription.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription
+     * subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3780,10 +3904,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group
+     * and resource group.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group
+     * subscription and resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3803,10 +3927,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group
+     * and resource group.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group
+     * subscription and resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3846,7 +3970,7 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * for a topic type
+     * for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
      * subscription and topic type.
@@ -3869,7 +3993,7 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * for a topic type
+     * for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
      * subscription and topic type.
@@ -3912,10 +4036,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group for a topic type
+     * and resource group for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group and topic type
+     * subscription and resource group and topic type.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3935,10 +4059,10 @@ export interface EventSubscriptions {
 
     /**
      * @summary List all regional event subscriptions under an Azure subscription
-     * and resource group for a topic type
+     * and resource group for a topic type.
      *
      * List all event subscriptions from the given location under a specific Azure
-     * subscription and resource group and topic type
+     * subscription and resource group and topic type.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3977,9 +4101,9 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary List all event subscriptions for a specific topic
+     * @summary List all event subscriptions for a specific topic.
      *
-     * List all event subscriptions that have been created for a specific topic
+     * List all event subscriptions that have been created for a specific topic.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -3998,9 +4122,9 @@ export interface EventSubscriptions {
     listByResourceNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all event subscriptions for a specific topic
+     * @summary List all event subscriptions for a specific topic.
      *
-     * List all event subscriptions that have been created for a specific topic
+     * List all event subscriptions that have been created for a specific topic.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -4039,10 +4163,10 @@ export interface EventSubscriptions {
 
 
     /**
-     * @summary List all event subscriptions for a specific domain topic
+     * @summary List all event subscriptions for a specific domain topic.
      *
      * List all event subscriptions that have been created for a specific domain
-     * topic
+     * topic.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -4061,10 +4185,10 @@ export interface EventSubscriptions {
     listByDomainTopicNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventSubscriptionsListResult>>;
 
     /**
-     * @summary List all event subscriptions for a specific domain topic
+     * @summary List all event subscriptions for a specific domain topic.
      *
      * List all event subscriptions that have been created for a specific domain
-     * topic
+     * topic.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -4112,10 +4236,10 @@ export interface Operations {
 
 
     /**
-     * @summary List available operations
+     * @summary List available operations.
      *
      * List the available operations supported by the Microsoft.EventGrid resource
-     * provider
+     * provider.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4131,10 +4255,10 @@ export interface Operations {
     listWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.OperationsListResult>>;
 
     /**
-     * @summary List available operations
+     * @summary List available operations.
      *
      * List the available operations supported by the Microsoft.EventGrid resource
-     * provider
+     * provider.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4178,14 +4302,14 @@ export interface Topics {
 
 
     /**
-     * @summary Get a topic
+     * @summary Get a topic.
      *
-     * Get properties of a topic
+     * Get properties of a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4201,14 +4325,14 @@ export interface Topics {
     getWithHttpOperationResponse(resourceGroupName: string, topicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Topic>>;
 
     /**
-     * @summary Get a topic
+     * @summary Get a topic.
      *
-     * Get properties of a topic
+     * Get properties of a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4243,33 +4367,20 @@ export interface Topics {
 
 
     /**
-     * @summary Create a topic
+     * @summary Create a topic.
      *
      * Asynchronously creates a new topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicInfo Topic information
+     * @param {object} topicInfo Topic information.
      *
-     * @param {string} [topicInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the topic.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} topicInfo.location Location of the resource.
      *
-     * @param {object} [topicInfo.inputSchemaMapping] This enables publishing using
-     * custom event schemas. An InputSchemaMapping can be specified to map various
-     * properties of a source schema to various required properties of the
-     * EventGridEvent schema.
-     *
-     * @param {string} topicInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} topicInfo.location Location of the resource
-     *
-     * @param {object} [topicInfo.tags] Tags of the resource
+     * @param {object} [topicInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4285,33 +4396,20 @@ export interface Topics {
     createOrUpdateWithHttpOperationResponse(resourceGroupName: string, topicName: string, topicInfo: models.Topic, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Topic>>;
 
     /**
-     * @summary Create a topic
+     * @summary Create a topic.
      *
      * Asynchronously creates a new topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicInfo Topic information
+     * @param {object} topicInfo Topic information.
      *
-     * @param {string} [topicInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the topic.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} topicInfo.location Location of the resource.
      *
-     * @param {object} [topicInfo.inputSchemaMapping] This enables publishing using
-     * custom event schemas. An InputSchemaMapping can be specified to map various
-     * properties of a source schema to various required properties of the
-     * EventGridEvent schema.
-     *
-     * @param {string} topicInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} topicInfo.location Location of the resource
-     *
-     * @param {object} [topicInfo.tags] Tags of the resource
+     * @param {object} [topicInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4346,14 +4444,14 @@ export interface Topics {
 
 
     /**
-     * @summary Delete a topic
+     * @summary Delete a topic.
      *
-     * Delete existing topic
+     * Delete existing topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4369,14 +4467,14 @@ export interface Topics {
     deleteMethodWithHttpOperationResponse(resourceGroupName: string, topicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a topic
+     * @summary Delete a topic.
      *
-     * Delete existing topic
+     * Delete existing topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4410,16 +4508,16 @@ export interface Topics {
 
 
     /**
-     * @summary Update a topic
+     * @summary Update a topic.
      *
      * Asynchronously updates a topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicUpdateParameters Topic update information
+     * @param {object} topicUpdateParameters Topic update information.
      *
      * @param {object} [topicUpdateParameters.tags] Tags of the resource
      *
@@ -4437,16 +4535,16 @@ export interface Topics {
     updateWithHttpOperationResponse(resourceGroupName: string, topicName: string, topicUpdateParameters: models.TopicUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Topic>>;
 
     /**
-     * @summary Update a topic
+     * @summary Update a topic.
      *
      * Asynchronously updates a topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicUpdateParameters Topic update information
+     * @param {object} topicUpdateParameters Topic update information.
      *
      * @param {object} [topicUpdateParameters.tags] Tags of the resource
      *
@@ -4483,15 +4581,25 @@ export interface Topics {
 
 
     /**
-     * @summary List topics under an Azure subscription
+     * @summary List topics under an Azure subscription.
      *
-     * List all the topics under an Azure subscription
+     * List all the topics under an Azure subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -4505,15 +4613,25 @@ export interface Topics {
     listBySubscriptionWithHttpOperationResponse(options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicsListResult>>;
 
     /**
-     * @summary List topics under an Azure subscription
+     * @summary List topics under an Azure subscription.
      *
-     * List all the topics under an Azure subscription
+     * List all the topics under an Azure subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -4546,18 +4664,28 @@ export interface Topics {
 
 
     /**
-     * @summary List topics under a resource group
+     * @summary List topics under a resource group.
      *
-     * List all the topics under a resource group
+     * List all the topics under a resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -4571,18 +4699,28 @@ export interface Topics {
     listByResourceGroupWithHttpOperationResponse(resourceGroupName: string, options?: { filter? : string, top? : number, customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicsListResult>>;
 
     /**
-     * @summary List topics under a resource group
+     * @summary List topics under a resource group.
      *
-     * List all the topics under a resource group
+     * List all the topics under a resource group.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
      * @param {object} [options] Optional Parameters.
      *
-     * @param {string} [options.filter] Filter the results using OData syntax.
+     * @param {string} [options.filter] The query used to filter the search results
+     * using OData syntax. Filtering is permitted on the 'name' property only and
+     * with limited number of OData operations. These operations are: the
+     * 'contains' function as well as the following logical operations: not, and,
+     * or, eq (for equal), and ne (for not equal). No arithmetic operations are
+     * supported. The following is a valid filter example: $filter=contains(namE,
+     * 'PATTERN') and name ne 'PATTERN-1'. The following is not a valid filter
+     * example: $filter=location eq 'westus'.
      *
-     * @param {number} [options.top] The number of results to return.
+     * @param {number} [options.top] The number of results to return per page for
+     * the list operation. Valid range for top parameter is 1 to 100. If not
+     * specified, the default number of results to be returned is 20 items per
+     * page.
      *
      * @param {object} [options.customHeaders] Headers that will be added to the
      * request
@@ -4615,14 +4753,14 @@ export interface Topics {
 
 
     /**
-     * @summary List keys for a topic
+     * @summary List keys for a topic.
      *
-     * List the two keys used to publish to a topic
+     * List the two keys used to publish to a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4638,14 +4776,14 @@ export interface Topics {
     listSharedAccessKeysWithHttpOperationResponse(resourceGroupName: string, topicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicSharedAccessKeys>>;
 
     /**
-     * @summary List keys for a topic
+     * @summary List keys for a topic.
      *
-     * List the two keys used to publish to a topic
+     * List the two keys used to publish to a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4680,16 +4818,16 @@ export interface Topics {
 
 
     /**
-     * @summary Regenerate key for a topic
+     * @summary Regenerate key for a topic.
      *
-     * Regenerate a shared access key for a topic
+     * Regenerate a shared access key for a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} regenerateKeyRequest Request body to regenerate key
+     * @param {object} regenerateKeyRequest Request body to regenerate key.
      *
      * @param {string} regenerateKeyRequest.keyName Key name to regenerate key1 or
      * key2
@@ -4708,16 +4846,16 @@ export interface Topics {
     regenerateKeyWithHttpOperationResponse(resourceGroupName: string, topicName: string, regenerateKeyRequest: models.TopicRegenerateKeyRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicSharedAccessKeys>>;
 
     /**
-     * @summary Regenerate key for a topic
+     * @summary Regenerate key for a topic.
      *
-     * Regenerate a shared access key for a topic
+     * Regenerate a shared access key for a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} regenerateKeyRequest Request body to regenerate key
+     * @param {object} regenerateKeyRequest Request body to regenerate key.
      *
      * @param {string} regenerateKeyRequest.keyName Key name to regenerate key1 or
      * key2
@@ -4755,18 +4893,18 @@ export interface Topics {
 
 
     /**
-     * @summary List topic event types
+     * @summary List topic event types.
      *
-     * List event types for a topic
+     * List event types for a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} providerNamespace Namespace of the provider of the topic
+     * @param {string} providerNamespace Namespace of the provider of the topic.
      *
-     * @param {string} resourceTypeName Name of the topic type
+     * @param {string} resourceTypeName Name of the topic type.
      *
-     * @param {string} resourceName Name of the topic
+     * @param {string} resourceName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4782,18 +4920,18 @@ export interface Topics {
     listEventTypesWithHttpOperationResponse(resourceGroupName: string, providerNamespace: string, resourceTypeName: string, resourceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventTypesListResult>>;
 
     /**
-     * @summary List topic event types
+     * @summary List topic event types.
      *
-     * List event types for a topic
+     * List event types for a topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} providerNamespace Namespace of the provider of the topic
+     * @param {string} providerNamespace Namespace of the provider of the topic.
      *
-     * @param {string} resourceTypeName Name of the topic type
+     * @param {string} resourceTypeName Name of the topic type.
      *
-     * @param {string} resourceName Name of the topic
+     * @param {string} resourceName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4828,33 +4966,20 @@ export interface Topics {
 
 
     /**
-     * @summary Create a topic
+     * @summary Create a topic.
      *
      * Asynchronously creates a new topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicInfo Topic information
+     * @param {object} topicInfo Topic information.
      *
-     * @param {string} [topicInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the topic.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} topicInfo.location Location of the resource.
      *
-     * @param {object} [topicInfo.inputSchemaMapping] This enables publishing using
-     * custom event schemas. An InputSchemaMapping can be specified to map various
-     * properties of a source schema to various required properties of the
-     * EventGridEvent schema.
-     *
-     * @param {string} topicInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} topicInfo.location Location of the resource
-     *
-     * @param {object} [topicInfo.tags] Tags of the resource
+     * @param {object} [topicInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4870,33 +4995,20 @@ export interface Topics {
     beginCreateOrUpdateWithHttpOperationResponse(resourceGroupName: string, topicName: string, topicInfo: models.Topic, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Topic>>;
 
     /**
-     * @summary Create a topic
+     * @summary Create a topic.
      *
      * Asynchronously creates a new topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicInfo Topic information
+     * @param {object} topicInfo Topic information.
      *
-     * @param {string} [topicInfo.inputSchema] This determines the format that
-     * Event Grid should expect for incoming events published to the topic.
-     * Possible values include: 'EventGridSchema', 'CustomEventSchema',
-     * 'CloudEventV01Schema'
+     * @param {string} topicInfo.location Location of the resource.
      *
-     * @param {object} [topicInfo.inputSchemaMapping] This enables publishing using
-     * custom event schemas. An InputSchemaMapping can be specified to map various
-     * properties of a source schema to various required properties of the
-     * EventGridEvent schema.
-     *
-     * @param {string} topicInfo.inputSchemaMapping.inputSchemaMappingType
-     * Polymorphic Discriminator
-     *
-     * @param {string} topicInfo.location Location of the resource
-     *
-     * @param {object} [topicInfo.tags] Tags of the resource
+     * @param {object} [topicInfo.tags] Tags of the resource.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4931,14 +5043,14 @@ export interface Topics {
 
 
     /**
-     * @summary Delete a topic
+     * @summary Delete a topic.
      *
-     * Delete existing topic
+     * Delete existing topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4954,14 +5066,14 @@ export interface Topics {
     beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, topicName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
 
     /**
-     * @summary Delete a topic
+     * @summary Delete a topic.
      *
-     * Delete existing topic
+     * Delete existing topic.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -4995,16 +5107,16 @@ export interface Topics {
 
 
     /**
-     * @summary Update a topic
+     * @summary Update a topic.
      *
      * Asynchronously updates a topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicUpdateParameters Topic update information
+     * @param {object} topicUpdateParameters Topic update information.
      *
      * @param {object} [topicUpdateParameters.tags] Tags of the resource
      *
@@ -5022,16 +5134,16 @@ export interface Topics {
     beginUpdateWithHttpOperationResponse(resourceGroupName: string, topicName: string, topicUpdateParameters: models.TopicUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Topic>>;
 
     /**
-     * @summary Update a topic
+     * @summary Update a topic.
      *
      * Asynchronously updates a topic with the specified parameters.
      *
      * @param {string} resourceGroupName The name of the resource group within the
      * user's subscription.
      *
-     * @param {string} topicName Name of the topic
+     * @param {string} topicName Name of the topic.
      *
-     * @param {object} topicUpdateParameters Topic update information
+     * @param {object} topicUpdateParameters Topic update information.
      *
      * @param {object} [topicUpdateParameters.tags] Tags of the resource
      *
@@ -5068,9 +5180,9 @@ export interface Topics {
 
 
     /**
-     * @summary List topics under an Azure subscription
+     * @summary List topics under an Azure subscription.
      *
-     * List all the topics under an Azure subscription
+     * List all the topics under an Azure subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -5089,9 +5201,9 @@ export interface Topics {
     listBySubscriptionNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicsListResult>>;
 
     /**
-     * @summary List topics under an Azure subscription
+     * @summary List topics under an Azure subscription.
      *
-     * List all the topics under an Azure subscription
+     * List all the topics under an Azure subscription.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -5129,9 +5241,9 @@ export interface Topics {
 
 
     /**
-     * @summary List topics under a resource group
+     * @summary List topics under a resource group.
      *
-     * List all the topics under a resource group
+     * List all the topics under a resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -5150,9 +5262,9 @@ export interface Topics {
     listByResourceGroupNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicsListResult>>;
 
     /**
-     * @summary List topics under a resource group
+     * @summary List topics under a resource group.
      *
-     * List all the topics under a resource group
+     * List all the topics under a resource group.
      *
      * @param {string} nextPageLink The NextLink from the previous successful call
      * to List operation.
@@ -5199,9 +5311,9 @@ export interface TopicTypes {
 
 
     /**
-     * @summary List topic types
+     * @summary List topic types.
      *
-     * List all registered topic types
+     * List all registered topic types.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -5217,9 +5329,9 @@ export interface TopicTypes {
     listWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicTypesListResult>>;
 
     /**
-     * @summary List topic types
+     * @summary List topic types.
      *
-     * List all registered topic types
+     * List all registered topic types.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -5254,11 +5366,11 @@ export interface TopicTypes {
 
 
     /**
-     * @summary Get a topic type
+     * @summary Get a topic type.
      *
-     * Get information about a topic type
+     * Get information about a topic type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -5274,11 +5386,11 @@ export interface TopicTypes {
     getWithHttpOperationResponse(topicTypeName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TopicTypeInfo>>;
 
     /**
-     * @summary Get a topic type
+     * @summary Get a topic type.
      *
-     * Get information about a topic type
+     * Get information about a topic type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -5313,11 +5425,11 @@ export interface TopicTypes {
 
 
     /**
-     * @summary List event types
+     * @summary List event types.
      *
-     * List event types for a topic type
+     * List event types for a topic type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -5333,11 +5445,11 @@ export interface TopicTypes {
     listEventTypesWithHttpOperationResponse(topicTypeName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.EventTypesListResult>>;
 
     /**
-     * @summary List event types
+     * @summary List event types.
      *
-     * List event types for a topic type
+     * List event types for a topic type.
      *
-     * @param {string} topicTypeName Name of the topic type
+     * @param {string} topicTypeName Name of the topic type.
      *
      * @param {object} [options] Optional Parameters.
      *

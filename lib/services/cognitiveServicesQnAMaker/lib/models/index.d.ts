@@ -135,6 +135,32 @@ export interface UpdateQnaDTOMetadata extends UpdateMetadataDTO {
 }
 
 /**
+ * Update Body schema to represent context to be updated
+ */
+export interface UpdateContextDTO {
+  /**
+   * List of prompts associated with qna to be deleted
+   */
+  promptsToDelete?: number[];
+  /**
+   * List of prompts to be added to the qna.
+   */
+  promptsToAdd?: PromptDTO[];
+  /**
+   * To mark if a prompt is relevant only with a previous question or not.
+   * true - Do not include this QnA as search result for queries without context
+   * false - ignores context and includes this QnA in search result
+   */
+  isContextOnly?: boolean;
+}
+
+/**
+ * Context associated with Qna to be updated.
+ */
+export interface UpdateQnaDTOContext extends UpdateContextDTO {
+}
+
+/**
  * PATCH Body schema for Update Qna List
  */
 export interface UpdateQnaDTO {
@@ -159,6 +185,10 @@ export interface UpdateQnaDTO {
    * List of metadata associated with the answer to be updated
    */
   metadata?: UpdateQnaDTOMetadata;
+  /**
+   * Context associated with Qna to be updated.
+   */
+  context?: UpdateQnaDTOContext;
 }
 
 /**
@@ -200,6 +230,60 @@ export interface QnADTO {
    * List of metadata associated with the answer.
    */
   metadata?: MetadataDTO[];
+  /**
+   * Context of a QnA
+   */
+  context?: QnADTOContext;
+}
+
+/**
+ * QnADTO - Either QnaId or QnADTO needs to be present in a PromptDTO object
+ */
+export interface PromptDTOQna extends QnADTO {
+}
+
+/**
+ * Prompt for an answer.
+ */
+export interface PromptDTO {
+  /**
+   * Index of the prompt - used in ordering of the prompts
+   */
+  displayOrder?: number;
+  /**
+   * Qna id corresponding to the prompt - if QnaId is present, QnADTO object is ignored.
+   */
+  qnaId?: number;
+  /**
+   * QnADTO - Either QnaId or QnADTO needs to be present in a PromptDTO object
+   */
+  qna?: PromptDTOQna;
+  /**
+   * Text displayed to represent a follow up question prompt
+   */
+  displayText?: string;
+}
+
+/**
+ * Context associated with Qna.
+ */
+export interface ContextDTO {
+  /**
+   * To mark if a prompt is relevant only with a previous question or not.
+   * true - Do not include this QnA as search result for queries without context
+   * false - ignores context and includes this QnA in search result
+   */
+  isContextOnly?: boolean;
+  /**
+   * List of prompts associated with the answer.
+   */
+  prompts?: PromptDTO[];
+}
+
+/**
+ * Context of a QnA
+ */
+export interface QnADTOContext extends ContextDTO {
 }
 
 /**
@@ -407,6 +491,32 @@ export interface KnowledgebasesDTO {
    * Collection of knowledgebase records.
    */
   knowledgebases?: KnowledgebaseDTO[];
+}
+
+/**
+ * Active Learning settings of the endpoint.
+ */
+export interface ActiveLearningSettingsDTO {
+  /**
+   * True/False string providing Active Learning
+   */
+  enable?: string;
+}
+
+/**
+ * Active Learning settings of the endpoint.
+ */
+export interface EndpointSettingsDTOActiveLearning extends ActiveLearningSettingsDTO {
+}
+
+/**
+ * Endpoint settings.
+ */
+export interface EndpointSettingsDTO {
+  /**
+   * Active Learning settings of the endpoint.
+   */
+  activeLearning?: EndpointSettingsDTOActiveLearning;
 }
 
 /**

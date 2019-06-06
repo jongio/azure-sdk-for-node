@@ -39,6 +39,7 @@ export default class QnAMakerClient extends ServiceClient {
   endpoint: string;
 
   // Operation groups
+  endpointSettings: operations.EndpointSettings;
   endpointKeys: operations.EndpointKeys;
   alterations: operations.Alterations;
   knowledgebase: operations.Knowledgebase;

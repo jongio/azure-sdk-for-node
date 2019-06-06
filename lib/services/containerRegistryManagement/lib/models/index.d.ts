@@ -202,7 +202,7 @@ export interface Sku {
 /**
  * The status of an Azure resource at the time the operation was called.
 */
-export interface Status {
+export interface Status1 {
   /**
    * The short label for the status.
   */
@@ -276,6 +276,69 @@ export interface NetworkRuleSet {
 }
 
 /**
+ * The quarantine policy for a container registry.
+*/
+export interface QuarantinePolicy {
+  /**
+   * The value that indicates whether the policy is enabled or not. Possible values include:
+   * 'enabled', 'disabled'
+  */
+  status?: string;
+}
+
+/**
+ * The content trust policy for a container registry.
+*/
+export interface TrustPolicy {
+  /**
+   * The type of trust policy. Possible values include: 'Notary'
+  */
+  type?: string;
+  /**
+   * The value that indicates whether the policy is enabled or not. Possible values include:
+   * 'enabled', 'disabled'
+  */
+  status?: string;
+}
+
+/**
+ * The retention policy for a container registry.
+*/
+export interface RetentionPolicy {
+  /**
+   * The number of days to retain manifest before it expires.
+  */
+  days?: number;
+  /**
+   * The timestamp when the policy was last updated.
+  */
+  readonly lastUpdatedTime?: Date;
+  /**
+   * The value that indicates whether the policy is enabled or not. Possible values include:
+   * 'enabled', 'disabled'
+  */
+  status?: string;
+}
+
+/**
+ * The policies for a container registry.
+*/
+export interface Policies {
+  /**
+   * The quarantine policy for a container registry.
+  */
+  quarantinePolicy?: QuarantinePolicy;
+  /**
+   * The content trust policy for a container registry.
+  */
+  trustPolicy?: TrustPolicy;
+  /**
+   * The retention policy for a container registry.
+  */
+  retentionPolicy?: RetentionPolicy;
+}
+
+/**
  * An Azure resource.
 */
 export interface Resource extends BaseResource {
@@ -325,7 +388,7 @@ export interface Registry extends Resource {
   /**
    * The status of the container registry at the time the operation was called.
   */
-  readonly status?: Status;
+  readonly status?: Status1;
   /**
    * The value that indicates whether the admin user is enabled.
   */
@@ -339,6 +402,10 @@ export interface Registry extends Resource {
    * The network rule set for a container registry.
   */
   networkRuleSet?: NetworkRuleSet;
+  /**
+   * The policies for a container registry.
+  */
+  policies?: Policies;
 }
 
 /**
@@ -358,15 +425,13 @@ export interface RegistryUpdateParameters {
   */
   adminUserEnabled?: boolean;
   /**
-   * The parameters of a storage account for the container registry. Only applicable to Classic
-   * SKU. If specified, the storage account must be in the same physical location as the container
-   * registry.
-  */
-  storageAccount?: StorageAccountProperties;
-  /**
    * The network rule set for a container registry.
   */
   networkRuleSet?: NetworkRuleSet;
+  /**
+   * The policies for a container registry.
+  */
+  policies?: Policies;
 }
 
 /**
@@ -441,46 +506,6 @@ export interface RegistryUsageListResult {
 }
 
 /**
- * An object that represents quarantine policy for a container registry.
-*/
-export interface QuarantinePolicy {
-  /**
-   * The value that indicates whether the policy is enabled or not. Possible values include:
-   * 'enabled', 'disabled'
-  */
-  status?: string;
-}
-
-/**
- * An object that represents content trust policy for a container registry.
-*/
-export interface TrustPolicy {
-  /**
-   * The type of trust policy. Possible values include: 'Notary'
-  */
-  type?: string;
-  /**
-   * The value that indicates whether the policy is enabled or not. Possible values include:
-   * 'enabled', 'disabled'
-  */
-  status?: string;
-}
-
-/**
- * An object that represents policies for a container registry.
-*/
-export interface RegistryPolicies {
-  /**
-   * An object that represents quarantine policy for a container registry.
-  */
-  quarantinePolicy?: QuarantinePolicy;
-  /**
-   * An object that represents content trust policy for a container registry.
-  */
-  trustPolicy?: TrustPolicy;
-}
-
-/**
  * An object that represents a replication for a container registry.
 */
 export interface Replication extends Resource {
@@ -492,7 +517,7 @@ export interface Replication extends Resource {
   /**
    * The status of the replication at the time the operation was called.
   */
-  readonly status?: Status;
+  readonly status?: Status1;
 }
 
 /**
@@ -1975,6 +2000,189 @@ export interface EncodedTaskStepUpdateParameters extends TaskStepUpdateParameter
 }
 
 /**
+ * An object that represents a scope map for a container registry.
+*/
+export interface ScopeMap extends ProxyResource {
+  /**
+   * The user friendly description of the scope map.
+  */
+  description?: string;
+  /**
+   * The type of the scope map. E.g. BuildIn scope map.
+  */
+  readonly scopeMapType?: string;
+  /**
+   * The creation date of scope map.
+  */
+  readonly creationDate?: Date;
+  /**
+   * Provisioning state of the resource. Possible values include: 'Creating', 'Updating',
+   * 'Deleting', 'Succeeded', 'Failed', 'Canceled'
+  */
+  readonly provisioningState?: string;
+  /**
+   * The list of scoped permissions for registry artifacts.
+   * E.g. repositories/repository-name/pull,
+   * repositories/repository-name/delete
+  */
+  actions: string[];
+}
+
+/**
+ * The properties for updating the scope map.
+*/
+export interface ScopeMapUpdateParameters {
+  /**
+   * The user friendly description of the scope map.
+  */
+  description?: string;
+  /**
+   * The list of scope permissions for registry artifacts.
+   * E.g. repositories/repository-name/pull,
+   * repositories/repository-name/delete
+  */
+  actions?: string[];
+}
+
+/**
+ * The properties of a certificate used for authenticating a token.
+*/
+export interface TokenCertificate {
+  /**
+   * Possible values include: 'certificate1', 'certificate2'
+  */
+  name?: string;
+  /**
+   * The expiry datetime of the certificate.
+  */
+  expiry?: Date;
+  /**
+   * The thumbprint of the certificate.
+  */
+  thumbprint?: string;
+  /**
+   * Base 64 encoded string of the public certificate1 in PEM format that will be used for
+   * authenticating the token.
+  */
+  encodedPemCertificate?: string;
+}
+
+/**
+ * The password that will be used for authenticating the token of a container registry.
+*/
+export interface TokenPassword {
+  /**
+   * The password created datetime of the password.
+  */
+  creationTime?: Date;
+  /**
+   * The expiry datetime of the password.
+  */
+  expiry?: Date;
+  /**
+   * The password name "password" or "password2". Possible values include: 'password1', 'password2'
+  */
+  name?: string;
+  /**
+   * The password value.
+  */
+  readonly value?: string;
+}
+
+/**
+ * The properties of the credentials that can be used for authenticating the token.
+*/
+export interface TokenCredentialsProperties {
+  certificates?: TokenCertificate[];
+  passwords?: TokenPassword[];
+}
+
+/**
+ * An object that represents a token for a container registry.
+*/
+export interface Token extends ProxyResource {
+  /**
+   * The creation date of scope map.
+  */
+  readonly creationDate?: Date;
+  /**
+   * Provisioning state of the resource. Possible values include: 'Creating', 'Updating',
+   * 'Deleting', 'Succeeded', 'Failed', 'Canceled'
+  */
+  readonly provisioningState?: string;
+  /**
+   * The resource ID of the scope map to which the token will be associated with.
+  */
+  scopeMapId?: string;
+  /**
+   * The user/group/application object ID for which the token has to be created.
+  */
+  objectId?: string;
+  /**
+   * The credentials that can be used for authenticating the token.
+  */
+  credentials?: TokenCredentialsProperties;
+  /**
+   * The status of the token example enabled or disabled. Possible values include: 'enabled',
+   * 'disabled'
+  */
+  status?: string;
+}
+
+/**
+ * The parameters for updating a token.
+*/
+export interface TokenUpdateParameters {
+  /**
+   * The resource ID of the scope map to which the token will be associated with.
+  */
+  scopeMapId?: string;
+  /**
+   * The status of the token example enabled or disabled. Possible values include: 'enabled',
+   * 'disabled'
+  */
+  status?: string;
+  /**
+   * The credentials that can be used for authenticating the token.
+  */
+  credentials?: TokenCredentialsProperties;
+}
+
+/**
+ * The parameters used to generate credentials for a specified token or user of a container
+ * registry.
+*/
+export interface GenerateCredentialsParameters {
+  /**
+   * The resource ID of the token for which credentials have to be generated.
+  */
+  tokenId?: string;
+  /**
+   * The expiry date of the generated credentials after which the credentials become invalid.
+  */
+  expiry?: Date;
+  /**
+   * Specifies name of the password which should be regenerated if any -- password or password2.
+   * Possible values include: 'password1', 'password2'
+  */
+  name?: string;
+}
+
+/**
+ * The response from the GenerateCredentials operation.
+*/
+export interface GenerateCredentialsResult {
+  /**
+   * The username for a container registry.
+  */
+  username?: string;
+  /**
+   * The list of passwords for a container registry.
+  */
+  passwords?: TokenPassword[];
+}
+
+/**
  * The result of a request to list container registries.
 */
 export interface RegistryListResult extends Array<Registry> {
@@ -2040,6 +2248,26 @@ export interface RunListResult extends Array<Run> {
 export interface TaskListResult extends Array<Task> {
   /**
    * The URI that can be used to request the next set of paged results.
+  */
+  nextLink?: string;
+}
+
+/**
+ * The result of a request to list scope maps for a container registry.
+*/
+export interface ScopeMapListResult extends Array<ScopeMap> {
+  /**
+   * The URI that can be used to request the next list of scope maps.
+  */
+  nextLink?: string;
+}
+
+/**
+ * The result of a request to list tokens for a container registry.
+*/
+export interface TokenListResult extends Array<Token> {
+  /**
+   * The URI that can be used to request the next list of tokens.
   */
   nextLink?: string;
 }

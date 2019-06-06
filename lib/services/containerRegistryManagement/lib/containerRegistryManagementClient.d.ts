@@ -60,6 +60,8 @@ export default class ContainerRegistryManagementClient extends AzureServiceClien
   webhooks: operations.Webhooks;
   runs: operations.Runs;
   tasks: operations.Tasks;
+  scopeMaps: operations.ScopeMaps;
+  tokens: operations.Tokens;
 }
 
 export { ContainerRegistryManagementClient, models as ContainerRegistryManagementModels };

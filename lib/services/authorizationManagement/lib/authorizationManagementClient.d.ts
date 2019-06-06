@@ -55,6 +55,7 @@ export default class AuthorizationManagementClient extends AzureServiceClient {
 
   // Operation groups
   classicAdministrators: operations.ClassicAdministrators;
+  globalAdministrator: operations.GlobalAdministrator;
   providerOperationsMetadataOperations: operations.ProviderOperationsMetadataOperations;
   roleAssignments: operations.RoleAssignments;
   permissions: operations.Permissions;

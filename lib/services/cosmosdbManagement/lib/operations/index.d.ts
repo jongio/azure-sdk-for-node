@@ -219,8 +219,8 @@ export interface DatabaseAccounts {
      * @param {boolean} [createUpdateParameters.enableMultipleWriteLocations]
      * Enables the account to write in multiple locations
      *
-     * @param {string} createUpdateParameters.location The location of the resource
-     * group to which the resource belongs.
+     * @param {string} [createUpdateParameters.location] The location of the
+     * resource group to which the resource belongs.
      *
      * @param {object} [createUpdateParameters.tags]
      *
@@ -301,8 +301,8 @@ export interface DatabaseAccounts {
      * @param {boolean} [createUpdateParameters.enableMultipleWriteLocations]
      * Enables the account to write in multiple locations
      *
-     * @param {string} createUpdateParameters.location The location of the resource
-     * group to which the resource belongs.
+     * @param {string} [createUpdateParameters.location] The location of the
+     * resource group to which the resource belongs.
      *
      * @param {object} [createUpdateParameters.tags]
      *
@@ -1243,7 +1243,7 @@ export interface DatabaseAccounts {
 
 
     /**
-     * Retrieves metric defintions for the given database account.
+     * Retrieves metric definitions for the given database account.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *
@@ -1263,7 +1263,7 @@ export interface DatabaseAccounts {
     listMetricDefinitionsWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MetricDefinitionsListResult>>;
 
     /**
-     * Retrieves metric defintions for the given database account.
+     * Retrieves metric definitions for the given database account.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *
@@ -1300,6 +1300,2860 @@ export interface DatabaseAccounts {
     listMetricDefinitions(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MetricDefinitionsListResult>;
     listMetricDefinitions(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.MetricDefinitionsListResult>): void;
     listMetricDefinitions(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MetricDefinitionsListResult>): void;
+
+
+    /**
+     * Lists the SQL databases under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlDatabaseListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listSqlDatabasesWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlDatabaseListResult>>;
+
+    /**
+     * Lists the SQL databases under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlDatabaseListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlDatabaseListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlDatabaseListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listSqlDatabases(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlDatabaseListResult>;
+    listSqlDatabases(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.SqlDatabaseListResult>): void;
+    listSqlDatabases(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlDatabaseListResult>): void;
+
+
+    /**
+     * Gets the SQL databases under an existing Azure Cosmos DB database account
+     * with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getSqlDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlDatabase>>;
+
+    /**
+     * Gets the SQL databases under an existing Azure Cosmos DB database account
+     * with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlDatabase>;
+    getSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.SqlDatabase>): void;
+    getSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlDatabase>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB SQL database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters The parameters to provide
+     * for the current SQL database.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.resource The standard JSON
+     * format of a SQL database
+     *
+     * @param {string} createUpdateSqlDatabaseParameters.resource.id Name of the
+     * Cosmos DB SQL database
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateSqlDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlDatabase>>;
+
+    /**
+     * Create or update an Azure Cosmos DB SQL database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters The parameters to provide
+     * for the current SQL database.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.resource The standard JSON
+     * format of a SQL database
+     *
+     * @param {string} createUpdateSqlDatabaseParameters.resource.id Name of the
+     * Cosmos DB SQL database
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlDatabase>;
+    createUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, callback: ServiceCallback<models.SqlDatabase>): void;
+    createUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteSqlDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    deleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the SQL container under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlContainerListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listSqlContainersWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlContainerListResult>>;
+
+    /**
+     * Lists the SQL container under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlContainerListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlContainerListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlContainerListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listSqlContainers(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlContainerListResult>;
+    listSqlContainers(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.SqlContainerListResult>): void;
+    listSqlContainers(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlContainerListResult>): void;
+
+
+    /**
+     * Gets the SQL container under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlContainer>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getSqlContainerWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlContainer>>;
+
+    /**
+     * Gets the SQL container under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlContainer} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlContainer} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlContainer} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlContainer>;
+    getSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, callback: ServiceCallback<models.SqlContainer>): void;
+    getSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlContainer>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB SQL container
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} createUpdateSqlContainerParameters The parameters to provide
+     * for the current SQL container.
+     *
+     * @param {object} createUpdateSqlContainerParameters.resource The standard
+     * JSON format of a container
+     *
+     * @param {string} createUpdateSqlContainerParameters.resource.id Name of the
+     * Cosmos DB SQL container
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the container
+     *
+     * @param {boolean}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateSqlContainerParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the container.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateSqlContainerParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlContainer>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateSqlContainerWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlContainer>>;
+
+    /**
+     * Create or update an Azure Cosmos DB SQL container
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} createUpdateSqlContainerParameters The parameters to provide
+     * for the current SQL container.
+     *
+     * @param {object} createUpdateSqlContainerParameters.resource The standard
+     * JSON format of a container
+     *
+     * @param {string} createUpdateSqlContainerParameters.resource.id Name of the
+     * Cosmos DB SQL container
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the container
+     *
+     * @param {boolean}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateSqlContainerParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the container.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateSqlContainerParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlContainer} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlContainer} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlContainer} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlContainer>;
+    createUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, callback: ServiceCallback<models.SqlContainer>): void;
+    createUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlContainer>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL container.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteSqlContainerWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL container.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, callback: ServiceCallback<void>): void;
+    deleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the MongoDB databases under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBDatabaseListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listMongoDBDatabasesWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBDatabaseListResult>>;
+
+    /**
+     * Lists the MongoDB databases under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBDatabaseListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBDatabaseListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBDatabaseListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listMongoDBDatabases(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBDatabaseListResult>;
+    listMongoDBDatabases(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.MongoDBDatabaseListResult>): void;
+    listMongoDBDatabases(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBDatabaseListResult>): void;
+
+
+    /**
+     * Gets the MongoDB databases under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getMongoDBDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBDatabase>>;
+
+    /**
+     * Gets the MongoDB databases under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBDatabase>;
+    getMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.MongoDBDatabase>): void;
+    getMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBDatabase>): void;
+
+
+    /**
+     * Create or updates Azure Cosmos DB MongoDB database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters The parameters to
+     * provide for the current MongoDB database.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.resource The standard
+     * JSON format of a MongoDB database
+     *
+     * @param {string} createUpdateMongoDBDatabaseParameters.resource.id Name of
+     * the Cosmos DB MongoDB database
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateMongoDBDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBDatabase>>;
+
+    /**
+     * Create or updates Azure Cosmos DB MongoDB database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters The parameters to
+     * provide for the current MongoDB database.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.resource The standard
+     * JSON format of a MongoDB database
+     *
+     * @param {string} createUpdateMongoDBDatabaseParameters.resource.id Name of
+     * the Cosmos DB MongoDB database
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBDatabase>;
+    createUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, callback: ServiceCallback<models.MongoDBDatabase>): void;
+    createUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteMongoDBDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    deleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the MongoDB collection under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBCollectionListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listMongoDBCollectionsWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBCollectionListResult>>;
+
+    /**
+     * Lists the MongoDB collection under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBCollectionListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBCollectionListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBCollectionListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listMongoDBCollections(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBCollectionListResult>;
+    listMongoDBCollections(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.MongoDBCollectionListResult>): void;
+    listMongoDBCollections(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBCollectionListResult>): void;
+
+
+    /**
+     * Gets the MongoDB collection under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBCollection>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getMongoDBCollectionWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBCollection>>;
+
+    /**
+     * Gets the MongoDB collection under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBCollection} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBCollection} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBCollection} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBCollection>;
+    getMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, callback: ServiceCallback<models.MongoDBCollection>): void;
+    getMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBCollection>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB MongoDB Collection
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters The parameters to
+     * provide for the current MongoDB Collection.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.resource The
+     * standard JSON format of a MongoDB collection
+     *
+     * @param {string} createUpdateMongoDBCollectionParameters.resource.id Name of
+     * the Cosmos DB MongoDB collection
+     *
+     * @param {object} [createUpdateMongoDBCollectionParameters.resource.shardKey]
+     * A key-value pair of shard keys to be applied for the request.
+     *
+     * @param {array} [createUpdateMongoDBCollectionParameters.resource.indexes]
+     * List of index keys
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBCollection>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateMongoDBCollectionWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBCollection>>;
+
+    /**
+     * Create or update an Azure Cosmos DB MongoDB Collection
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters The parameters to
+     * provide for the current MongoDB Collection.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.resource The
+     * standard JSON format of a MongoDB collection
+     *
+     * @param {string} createUpdateMongoDBCollectionParameters.resource.id Name of
+     * the Cosmos DB MongoDB collection
+     *
+     * @param {object} [createUpdateMongoDBCollectionParameters.resource.shardKey]
+     * A key-value pair of shard keys to be applied for the request.
+     *
+     * @param {array} [createUpdateMongoDBCollectionParameters.resource.indexes]
+     * List of index keys
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBCollection} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBCollection} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBCollection} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBCollection>;
+    createUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, callback: ServiceCallback<models.MongoDBCollection>): void;
+    createUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBCollection>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB Collection.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteMongoDBCollectionWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB Collection.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, callback: ServiceCallback<void>): void;
+    deleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the Tables under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<TableListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listTablesWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TableListResult>>;
+
+    /**
+     * Lists the Tables under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {TableListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {TableListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link TableListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listTables(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.TableListResult>;
+    listTables(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.TableListResult>): void;
+    listTables(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TableListResult>): void;
+
+
+    /**
+     * Gets the Tables under an existing Azure Cosmos DB database account with the
+     * provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Table>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Table>>;
+
+    /**
+     * Gets the Tables under an existing Azure Cosmos DB database account with the
+     * provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Table} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Table} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Table} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getTable(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Table>;
+    getTable(resourceGroupName: string, accountName: string, tableName: string, callback: ServiceCallback<models.Table>): void;
+    getTable(resourceGroupName: string, accountName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Table>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateTableParameters The parameters to provide for
+     * the current Table.
+     *
+     * @param {object} createUpdateTableParameters.resource The standard JSON
+     * format of a Table
+     *
+     * @param {string} createUpdateTableParameters.resource.id Name of the Cosmos
+     * DB table
+     *
+     * @param {object} createUpdateTableParameters.options A key-value pair of
+     * options to be applied for the request. This corresponds to the headers sent
+     * with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Table>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Table>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateTableParameters The parameters to provide for
+     * the current Table.
+     *
+     * @param {object} createUpdateTableParameters.resource The standard JSON
+     * format of a Table
+     *
+     * @param {string} createUpdateTableParameters.resource.id Name of the Cosmos
+     * DB table
+     *
+     * @param {object} createUpdateTableParameters.options A key-value pair of
+     * options to be applied for the request. This corresponds to the headers sent
+     * with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Table} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Table} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Table} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Table>;
+    createUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, callback: ServiceCallback<models.Table>): void;
+    createUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Table>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteTable(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteTable(resourceGroupName: string, accountName: string, tableName: string, callback: ServiceCallback<void>): void;
+    deleteTable(resourceGroupName: string, accountName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the Cassandra keyspaces under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraKeyspaceListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listCassandraKeyspacesWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraKeyspaceListResult>>;
+
+    /**
+     * Lists the Cassandra keyspaces under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraKeyspaceListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraKeyspaceListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraKeyspaceListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listCassandraKeyspaces(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraKeyspaceListResult>;
+    listCassandraKeyspaces(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.CassandraKeyspaceListResult>): void;
+    listCassandraKeyspaces(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraKeyspaceListResult>): void;
+
+
+    /**
+     * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraKeyspace>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getCassandraKeyspaceWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraKeyspace>>;
+
+    /**
+     * Gets the Cassandra keyspaces under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraKeyspace} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraKeyspace} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraKeyspace} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraKeyspace>;
+    getCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, callback: ServiceCallback<models.CassandraKeyspace>): void;
+    getCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraKeyspace>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra keyspace
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters The parameters to
+     * provide for the current Cassandra keyspace.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.resource The
+     * standard JSON format of a Cassandra keyspace
+     *
+     * @param {string} createUpdateCassandraKeyspaceParameters.resource.id Name of
+     * the Cosmos DB Cassandra keyspace
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraKeyspace>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateCassandraKeyspaceWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraKeyspace>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra keyspace
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters The parameters to
+     * provide for the current Cassandra keyspace.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.resource The
+     * standard JSON format of a Cassandra keyspace
+     *
+     * @param {string} createUpdateCassandraKeyspaceParameters.resource.id Name of
+     * the Cosmos DB Cassandra keyspace
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraKeyspace} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraKeyspace} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraKeyspace} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraKeyspace>;
+    createUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, callback: ServiceCallback<models.CassandraKeyspace>): void;
+    createUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraKeyspace>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra keyspace.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteCassandraKeyspaceWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra keyspace.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, callback: ServiceCallback<void>): void;
+    deleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the Cassandra table under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraTableListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listCassandraTablesWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraTableListResult>>;
+
+    /**
+     * Lists the Cassandra table under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraTableListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraTableListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraTableListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listCassandraTables(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraTableListResult>;
+    listCassandraTables(resourceGroupName: string, accountName: string, keyspaceName: string, callback: ServiceCallback<models.CassandraTableListResult>): void;
+    listCassandraTables(resourceGroupName: string, accountName: string, keyspaceName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraTableListResult>): void;
+
+
+    /**
+     * Gets the Cassandra table under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraTable>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getCassandraTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraTable>>;
+
+    /**
+     * Gets the Cassandra table under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraTable} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraTable} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraTable} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraTable>;
+    getCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, callback: ServiceCallback<models.CassandraTable>): void;
+    getCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraTable>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateCassandraTableParameters The parameters to
+     * provide for the current Cassandra Table.
+     *
+     * @param {object} createUpdateCassandraTableParameters.resource The standard
+     * JSON format of a Cassandra table
+     *
+     * @param {string} createUpdateCassandraTableParameters.resource.id Name of the
+     * Cosmos DB Cassandra table
+     *
+     * @param {number} [createUpdateCassandraTableParameters.resource.defaultTtl]
+     * Time to live of the Cosmos DB Cassandra table
+     *
+     * @param {object} [createUpdateCassandraTableParameters.resource.schema]
+     * Schema of the Cosmos DB Cassandra table
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.columns] List of
+     * Cassandra table columns.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.partitionKeys] List of
+     * partition key.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.clusterKeys] List of
+     * cluster key.
+     *
+     * @param {object} createUpdateCassandraTableParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraTable>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateCassandraTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraTable>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateCassandraTableParameters The parameters to
+     * provide for the current Cassandra Table.
+     *
+     * @param {object} createUpdateCassandraTableParameters.resource The standard
+     * JSON format of a Cassandra table
+     *
+     * @param {string} createUpdateCassandraTableParameters.resource.id Name of the
+     * Cosmos DB Cassandra table
+     *
+     * @param {number} [createUpdateCassandraTableParameters.resource.defaultTtl]
+     * Time to live of the Cosmos DB Cassandra table
+     *
+     * @param {object} [createUpdateCassandraTableParameters.resource.schema]
+     * Schema of the Cosmos DB Cassandra table
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.columns] List of
+     * Cassandra table columns.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.partitionKeys] List of
+     * partition key.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.clusterKeys] List of
+     * cluster key.
+     *
+     * @param {object} createUpdateCassandraTableParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraTable} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraTable} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraTable} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraTable>;
+    createUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, callback: ServiceCallback<models.CassandraTable>): void;
+    createUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraTable>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteCassandraTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, callback: ServiceCallback<void>): void;
+    deleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the Gremlin databases under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinDatabaseListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listGremlinDatabasesWithHttpOperationResponse(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinDatabaseListResult>>;
+
+    /**
+     * Lists the Gremlin databases under an existing Azure Cosmos DB database
+     * account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinDatabaseListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinDatabaseListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinDatabaseListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listGremlinDatabases(resourceGroupName: string, accountName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinDatabaseListResult>;
+    listGremlinDatabases(resourceGroupName: string, accountName: string, callback: ServiceCallback<models.GremlinDatabaseListResult>): void;
+    listGremlinDatabases(resourceGroupName: string, accountName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinDatabaseListResult>): void;
+
+
+    /**
+     * Gets the Gremlin databases under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getGremlinDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinDatabase>>;
+
+    /**
+     * Gets the Gremlin databases under an existing Azure Cosmos DB database
+     * account with the provided name.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinDatabase>;
+    getGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.GremlinDatabase>): void;
+    getGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinDatabase>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters The parameters to
+     * provide for the current Gremlin database.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.resource The standard
+     * JSON format of a Gremlin database
+     *
+     * @param {string} createUpdateGremlinDatabaseParameters.resource.id Name of
+     * the Cosmos DB Gremlin database
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateGremlinDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinDatabase>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters The parameters to
+     * provide for the current Gremlin database.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.resource The standard
+     * JSON format of a Gremlin database
+     *
+     * @param {string} createUpdateGremlinDatabaseParameters.resource.id Name of
+     * the Cosmos DB Gremlin database
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinDatabase>;
+    createUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, callback: ServiceCallback<models.GremlinDatabase>): void;
+    createUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteGremlinDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    deleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Lists the Gremlin graph under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinGraphListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listGremlinGraphsWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinGraphListResult>>;
+
+    /**
+     * Lists the Gremlin graph under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinGraphListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinGraphListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinGraphListResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listGremlinGraphs(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinGraphListResult>;
+    listGremlinGraphs(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<models.GremlinGraphListResult>): void;
+    listGremlinGraphs(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinGraphListResult>): void;
+
+
+    /**
+     * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinGraph>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getGremlinGraphWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinGraph>>;
+
+    /**
+     * Gets the Gremlin graph under an existing Azure Cosmos DB database account.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinGraph} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinGraph} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinGraph} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    getGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinGraph>;
+    getGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, callback: ServiceCallback<models.GremlinGraph>): void;
+    getGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinGraph>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin graph
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} createUpdateGremlinGraphParameters The parameters to provide
+     * for the current Gremlin graph.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.resource The standard
+     * JSON format of a Gremlin graph
+     *
+     * @param {string} createUpdateGremlinGraphParameters.resource.id Name of the
+     * Cosmos DB Gremlin graph
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the graph
+     *
+     * @param {boolean}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateGremlinGraphParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the graph.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinGraph>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createUpdateGremlinGraphWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinGraph>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin graph
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} createUpdateGremlinGraphParameters The parameters to provide
+     * for the current Gremlin graph.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.resource The standard
+     * JSON format of a Gremlin graph
+     *
+     * @param {string} createUpdateGremlinGraphParameters.resource.id Name of the
+     * Cosmos DB Gremlin graph
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the graph
+     *
+     * @param {boolean}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateGremlinGraphParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the graph.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinGraph} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinGraph} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinGraph} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    createUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinGraph>;
+    createUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, callback: ServiceCallback<models.GremlinGraph>): void;
+    createUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinGraph>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin graph.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteGremlinGraphWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin graph.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, callback: ServiceCallback<void>): void;
+    deleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
 
 
     /**
@@ -1441,8 +4295,8 @@ export interface DatabaseAccounts {
      * @param {boolean} [createUpdateParameters.enableMultipleWriteLocations]
      * Enables the account to write in multiple locations
      *
-     * @param {string} createUpdateParameters.location The location of the resource
-     * group to which the resource belongs.
+     * @param {string} [createUpdateParameters.location] The location of the
+     * resource group to which the resource belongs.
      *
      * @param {object} [createUpdateParameters.tags]
      *
@@ -1523,8 +4377,8 @@ export interface DatabaseAccounts {
      * @param {boolean} [createUpdateParameters.enableMultipleWriteLocations]
      * Enables the account to write in multiple locations
      *
-     * @param {string} createUpdateParameters.location The location of the resource
-     * group to which the resource belongs.
+     * @param {string} [createUpdateParameters.location] The location of the
+     * resource group to which the resource belongs.
      *
      * @param {object} [createUpdateParameters.tags]
      *
@@ -1908,6 +4762,1701 @@ export interface DatabaseAccounts {
     beginRegenerateKey(resourceGroupName: string, accountName: string, keyToRegenerate: models.DatabaseAccountRegenerateKeyParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
     beginRegenerateKey(resourceGroupName: string, accountName: string, keyToRegenerate: models.DatabaseAccountRegenerateKeyParameters, callback: ServiceCallback<void>): void;
     beginRegenerateKey(resourceGroupName: string, accountName: string, keyToRegenerate: models.DatabaseAccountRegenerateKeyParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB SQL database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters The parameters to provide
+     * for the current SQL database.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.resource The standard JSON
+     * format of a SQL database
+     *
+     * @param {string} createUpdateSqlDatabaseParameters.resource.id Name of the
+     * Cosmos DB SQL database
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateSqlDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlDatabase>>;
+
+    /**
+     * Create or update an Azure Cosmos DB SQL database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters The parameters to provide
+     * for the current SQL database.
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.resource The standard JSON
+     * format of a SQL database
+     *
+     * @param {string} createUpdateSqlDatabaseParameters.resource.id Name of the
+     * Cosmos DB SQL database
+     *
+     * @param {object} createUpdateSqlDatabaseParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlDatabase>;
+    beginCreateUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, callback: ServiceCallback<models.SqlDatabase>): void;
+    beginCreateUpdateSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateSqlDatabaseParameters: models.SqlDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteSqlDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    beginDeleteSqlDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB SQL container
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} createUpdateSqlContainerParameters The parameters to provide
+     * for the current SQL container.
+     *
+     * @param {object} createUpdateSqlContainerParameters.resource The standard
+     * JSON format of a container
+     *
+     * @param {string} createUpdateSqlContainerParameters.resource.id Name of the
+     * Cosmos DB SQL container
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the container
+     *
+     * @param {boolean}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateSqlContainerParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the container.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateSqlContainerParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<SqlContainer>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateSqlContainerWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.SqlContainer>>;
+
+    /**
+     * Create or update an Azure Cosmos DB SQL container
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} createUpdateSqlContainerParameters The parameters to provide
+     * for the current SQL container.
+     *
+     * @param {object} createUpdateSqlContainerParameters.resource The standard
+     * JSON format of a container
+     *
+     * @param {string} createUpdateSqlContainerParameters.resource.id Name of the
+     * Cosmos DB SQL container
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the container
+     *
+     * @param {boolean}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateSqlContainerParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateSqlContainerParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateSqlContainerParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the container.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateSqlContainerParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateSqlContainerParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {SqlContainer} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {SqlContainer} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link SqlContainer} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SqlContainer>;
+    beginCreateUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, callback: ServiceCallback<models.SqlContainer>): void;
+    beginCreateUpdateSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, createUpdateSqlContainerParameters: models.SqlContainerCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SqlContainer>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL container.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteSqlContainerWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB SQL container.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} containerName Cosmos DB container name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, callback: ServiceCallback<void>): void;
+    beginDeleteSqlContainer(resourceGroupName: string, accountName: string, databaseName: string, containerName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or updates Azure Cosmos DB MongoDB database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters The parameters to
+     * provide for the current MongoDB database.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.resource The standard
+     * JSON format of a MongoDB database
+     *
+     * @param {string} createUpdateMongoDBDatabaseParameters.resource.id Name of
+     * the Cosmos DB MongoDB database
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateMongoDBDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBDatabase>>;
+
+    /**
+     * Create or updates Azure Cosmos DB MongoDB database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters The parameters to
+     * provide for the current MongoDB database.
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.resource The standard
+     * JSON format of a MongoDB database
+     *
+     * @param {string} createUpdateMongoDBDatabaseParameters.resource.id Name of
+     * the Cosmos DB MongoDB database
+     *
+     * @param {object} createUpdateMongoDBDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBDatabase>;
+    beginCreateUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, callback: ServiceCallback<models.MongoDBDatabase>): void;
+    beginCreateUpdateMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateMongoDBDatabaseParameters: models.MongoDBDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteMongoDBDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    beginDeleteMongoDBDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB MongoDB Collection
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters The parameters to
+     * provide for the current MongoDB Collection.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.resource The
+     * standard JSON format of a MongoDB collection
+     *
+     * @param {string} createUpdateMongoDBCollectionParameters.resource.id Name of
+     * the Cosmos DB MongoDB collection
+     *
+     * @param {object} [createUpdateMongoDBCollectionParameters.resource.shardKey]
+     * A key-value pair of shard keys to be applied for the request.
+     *
+     * @param {array} [createUpdateMongoDBCollectionParameters.resource.indexes]
+     * List of index keys
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<MongoDBCollection>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateMongoDBCollectionWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MongoDBCollection>>;
+
+    /**
+     * Create or update an Azure Cosmos DB MongoDB Collection
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters The parameters to
+     * provide for the current MongoDB Collection.
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.resource The
+     * standard JSON format of a MongoDB collection
+     *
+     * @param {string} createUpdateMongoDBCollectionParameters.resource.id Name of
+     * the Cosmos DB MongoDB collection
+     *
+     * @param {object} [createUpdateMongoDBCollectionParameters.resource.shardKey]
+     * A key-value pair of shard keys to be applied for the request.
+     *
+     * @param {array} [createUpdateMongoDBCollectionParameters.resource.indexes]
+     * List of index keys
+     *
+     * @param {object} createUpdateMongoDBCollectionParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {MongoDBCollection} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {MongoDBCollection} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link MongoDBCollection} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.MongoDBCollection>;
+    beginCreateUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, callback: ServiceCallback<models.MongoDBCollection>): void;
+    beginCreateUpdateMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, createUpdateMongoDBCollectionParameters: models.MongoDBCollectionCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.MongoDBCollection>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB Collection.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteMongoDBCollectionWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB MongoDB Collection.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} collectionName Cosmos DB collection name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, callback: ServiceCallback<void>): void;
+    beginDeleteMongoDBCollection(resourceGroupName: string, accountName: string, databaseName: string, collectionName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateTableParameters The parameters to provide for
+     * the current Table.
+     *
+     * @param {object} createUpdateTableParameters.resource The standard JSON
+     * format of a Table
+     *
+     * @param {string} createUpdateTableParameters.resource.id Name of the Cosmos
+     * DB table
+     *
+     * @param {object} createUpdateTableParameters.options A key-value pair of
+     * options to be applied for the request. This corresponds to the headers sent
+     * with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Table>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Table>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateTableParameters The parameters to provide for
+     * the current Table.
+     *
+     * @param {object} createUpdateTableParameters.resource The standard JSON
+     * format of a Table
+     *
+     * @param {string} createUpdateTableParameters.resource.id Name of the Cosmos
+     * DB table
+     *
+     * @param {object} createUpdateTableParameters.options A key-value pair of
+     * options to be applied for the request. This corresponds to the headers sent
+     * with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Table} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Table} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Table} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Table>;
+    beginCreateUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, callback: ServiceCallback<models.Table>): void;
+    beginCreateUpdateTable(resourceGroupName: string, accountName: string, tableName: string, createUpdateTableParameters: models.TableCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Table>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteTable(resourceGroupName: string, accountName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteTable(resourceGroupName: string, accountName: string, tableName: string, callback: ServiceCallback<void>): void;
+    beginDeleteTable(resourceGroupName: string, accountName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra keyspace
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters The parameters to
+     * provide for the current Cassandra keyspace.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.resource The
+     * standard JSON format of a Cassandra keyspace
+     *
+     * @param {string} createUpdateCassandraKeyspaceParameters.resource.id Name of
+     * the Cosmos DB Cassandra keyspace
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraKeyspace>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateCassandraKeyspaceWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraKeyspace>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra keyspace
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters The parameters to
+     * provide for the current Cassandra keyspace.
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.resource The
+     * standard JSON format of a Cassandra keyspace
+     *
+     * @param {string} createUpdateCassandraKeyspaceParameters.resource.id Name of
+     * the Cosmos DB Cassandra keyspace
+     *
+     * @param {object} createUpdateCassandraKeyspaceParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraKeyspace} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraKeyspace} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraKeyspace} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraKeyspace>;
+    beginCreateUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, callback: ServiceCallback<models.CassandraKeyspace>): void;
+    beginCreateUpdateCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, createUpdateCassandraKeyspaceParameters: models.CassandraKeyspaceCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraKeyspace>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra keyspace.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteCassandraKeyspaceWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra keyspace.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, callback: ServiceCallback<void>): void;
+    beginDeleteCassandraKeyspace(resourceGroupName: string, accountName: string, keyspaceName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateCassandraTableParameters The parameters to
+     * provide for the current Cassandra Table.
+     *
+     * @param {object} createUpdateCassandraTableParameters.resource The standard
+     * JSON format of a Cassandra table
+     *
+     * @param {string} createUpdateCassandraTableParameters.resource.id Name of the
+     * Cosmos DB Cassandra table
+     *
+     * @param {number} [createUpdateCassandraTableParameters.resource.defaultTtl]
+     * Time to live of the Cosmos DB Cassandra table
+     *
+     * @param {object} [createUpdateCassandraTableParameters.resource.schema]
+     * Schema of the Cosmos DB Cassandra table
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.columns] List of
+     * Cassandra table columns.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.partitionKeys] List of
+     * partition key.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.clusterKeys] List of
+     * cluster key.
+     *
+     * @param {object} createUpdateCassandraTableParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<CassandraTable>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateCassandraTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.CassandraTable>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Cassandra Table
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} createUpdateCassandraTableParameters The parameters to
+     * provide for the current Cassandra Table.
+     *
+     * @param {object} createUpdateCassandraTableParameters.resource The standard
+     * JSON format of a Cassandra table
+     *
+     * @param {string} createUpdateCassandraTableParameters.resource.id Name of the
+     * Cosmos DB Cassandra table
+     *
+     * @param {number} [createUpdateCassandraTableParameters.resource.defaultTtl]
+     * Time to live of the Cosmos DB Cassandra table
+     *
+     * @param {object} [createUpdateCassandraTableParameters.resource.schema]
+     * Schema of the Cosmos DB Cassandra table
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.columns] List of
+     * Cassandra table columns.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.partitionKeys] List of
+     * partition key.
+     *
+     * @param {array}
+     * [createUpdateCassandraTableParameters.resource.schema.clusterKeys] List of
+     * cluster key.
+     *
+     * @param {object} createUpdateCassandraTableParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {CassandraTable} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {CassandraTable} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link CassandraTable} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.CassandraTable>;
+    beginCreateUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, callback: ServiceCallback<models.CassandraTable>): void;
+    beginCreateUpdateCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, createUpdateCassandraTableParameters: models.CassandraTableCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.CassandraTable>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteCassandraTableWithHttpOperationResponse(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Cassandra table.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} keyspaceName Cosmos DB keyspace name.
+     *
+     * @param {string} tableName Cosmos DB table name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, callback: ServiceCallback<void>): void;
+    beginDeleteCassandraTable(resourceGroupName: string, accountName: string, keyspaceName: string, tableName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters The parameters to
+     * provide for the current Gremlin database.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.resource The standard
+     * JSON format of a Gremlin database
+     *
+     * @param {string} createUpdateGremlinDatabaseParameters.resource.id Name of
+     * the Cosmos DB Gremlin database
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinDatabase>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateGremlinDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinDatabase>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin database
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters The parameters to
+     * provide for the current Gremlin database.
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.resource The standard
+     * JSON format of a Gremlin database
+     *
+     * @param {string} createUpdateGremlinDatabaseParameters.resource.id Name of
+     * the Cosmos DB Gremlin database
+     *
+     * @param {object} createUpdateGremlinDatabaseParameters.options A key-value
+     * pair of options to be applied for the request. This corresponds to the
+     * headers sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinDatabase} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinDatabase} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinDatabase} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinDatabase>;
+    beginCreateUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, callback: ServiceCallback<models.GremlinDatabase>): void;
+    beginCreateUpdateGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, createUpdateGremlinDatabaseParameters: models.GremlinDatabaseCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinDatabase>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteGremlinDatabaseWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin database.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, callback: ServiceCallback<void>): void;
+    beginDeleteGremlinDatabase(resourceGroupName: string, accountName: string, databaseName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin graph
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} createUpdateGremlinGraphParameters The parameters to provide
+     * for the current Gremlin graph.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.resource The standard
+     * JSON format of a Gremlin graph
+     *
+     * @param {string} createUpdateGremlinGraphParameters.resource.id Name of the
+     * Cosmos DB Gremlin graph
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the graph
+     *
+     * @param {boolean}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateGremlinGraphParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the graph.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GremlinGraph>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateUpdateGremlinGraphWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GremlinGraph>>;
+
+    /**
+     * Create or update an Azure Cosmos DB Gremlin graph
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} createUpdateGremlinGraphParameters The parameters to provide
+     * for the current Gremlin graph.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.resource The standard
+     * JSON format of a Gremlin graph
+     *
+     * @param {string} createUpdateGremlinGraphParameters.resource.id Name of the
+     * Cosmos DB Gremlin graph
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.indexingPolicy]
+     * The configuration of the indexing policy. By default, the indexing is
+     * automatic for all document paths within the graph
+     *
+     * @param {boolean}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.automatic]
+     * Indicates if the indexing policy is automatic
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.indexingMode]
+     * Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy',
+     * 'None'
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.includedPaths]
+     * List of paths to include in the indexing
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.indexingPolicy.excludedPaths]
+     * List of paths to exclude from indexing
+     *
+     * @param {object} [createUpdateGremlinGraphParameters.resource.partitionKey]
+     * The configuration of the partition key to be used for partitioning data into
+     * multiple partitions
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.paths] List of
+     * paths using which data within the container can be partitioned
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.partitionKey.kind] Indicates
+     * the kind of algorithm used for partitioning. Possible values include:
+     * 'Hash', 'Range'
+     *
+     * @param {number} [createUpdateGremlinGraphParameters.resource.defaultTtl]
+     * Default time to live
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy] The unique key
+     * policy configuration for specifying uniqueness constraints on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {array}
+     * [createUpdateGremlinGraphParameters.resource.uniqueKeyPolicy.uniqueKeys]
+     * List of unique keys on that enforces uniqueness constraint on documents in
+     * the collection in the Azure Cosmos DB service.
+     *
+     * @param {object}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy] The
+     * conflict resolution policy for the graph.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.mode]
+     * Indicates the conflict resolution mode. Possible values include:
+     * 'LastWriterWins', 'Custom'
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionPath]
+     * The conflict resolution path in the case of LastWriterWins mode.
+     *
+     * @param {string}
+     * [createUpdateGremlinGraphParameters.resource.conflictResolutionPolicy.conflictResolutionProcedure]
+     * The procedure to resolve conflicts in the case of custom mode.
+     *
+     * @param {object} createUpdateGremlinGraphParameters.options A key-value pair
+     * of options to be applied for the request. This corresponds to the headers
+     * sent with the request.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GremlinGraph} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GremlinGraph} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GremlinGraph} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreateUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GremlinGraph>;
+    beginCreateUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, callback: ServiceCallback<models.GremlinGraph>): void;
+    beginCreateUpdateGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, createUpdateGremlinGraphParameters: models.GremlinGraphCreateUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GremlinGraph>): void;
+
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin graph.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteGremlinGraphWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes an existing Azure Cosmos DB Gremlin graph.
+     *
+     * @param {string} resourceGroupName Name of an Azure resource group.
+     *
+     * @param {string} accountName Cosmos DB database account name.
+     *
+     * @param {string} databaseName Cosmos DB database name.
+     *
+     * @param {string} graphName Cosmos DB graph name.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, callback: ServiceCallback<void>): void;
+    beginDeleteGremlinGraph(resourceGroupName: string, accountName: string, databaseName: string, graphName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
 }
 
 /**
@@ -2183,7 +6732,7 @@ export interface Database {
 
 
     /**
-     * Retrieves metric defintions for the given database.
+     * Retrieves metric definitions for the given database.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *
@@ -2205,7 +6754,7 @@ export interface Database {
     listMetricDefinitionsWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseRid: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MetricDefinitionsListResult>>;
 
     /**
-     * Retrieves metric defintions for the given database.
+     * Retrieves metric definitions for the given database.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *
@@ -2410,7 +6959,7 @@ export interface Collection {
 
 
     /**
-     * Retrieves metric defintions for the given collection.
+     * Retrieves metric definitions for the given collection.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *
@@ -2434,7 +6983,7 @@ export interface Collection {
     listMetricDefinitionsWithHttpOperationResponse(resourceGroupName: string, accountName: string, databaseRid: string, collectionRid: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.MetricDefinitionsListResult>>;
 
     /**
-     * Retrieves metric defintions for the given collection.
+     * Retrieves metric definitions for the given collection.
      *
      * @param {string} resourceGroupName Name of an Azure resource group.
      *

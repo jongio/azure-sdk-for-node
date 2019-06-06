@@ -137,6 +137,65 @@ export interface ClassicAdministrators {
 
 /**
  * @class
+ * GlobalAdministrator
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the AuthorizationManagementClient.
+ */
+export interface GlobalAdministrator {
+
+
+    /**
+     * Elevates access for a Global Administrator.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    elevateAccessWithHttpOperationResponse(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Elevates access for a Global Administrator.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    elevateAccess(options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    elevateAccess(callback: ServiceCallback<void>): void;
+    elevateAccess(options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+}
+
+/**
+ * @class
  * ProviderOperationsMetadataOperations
  * __NOTE__: An instance of this class is automatically created for an
  * instance of the AuthorizationManagementClient.
@@ -570,7 +629,7 @@ export interface RoleAssignments {
      * 'ServicePrincipal', 'Unknown', 'DirectoryRoleTemplate', 'ForeignGroup',
      * 'Application', 'MSI', 'DirectoryObjectOrGroup', 'Everyone'
      *
-     * @param {boolean} [parameters.canDelegate] The delgation flag used for
+     * @param {boolean} [parameters.canDelegate] The delegation flag used for
      * creating a role assignment
      *
      * @param {object} [options] Optional Parameters.
@@ -614,7 +673,7 @@ export interface RoleAssignments {
      * 'ServicePrincipal', 'Unknown', 'DirectoryRoleTemplate', 'ForeignGroup',
      * 'Application', 'MSI', 'DirectoryObjectOrGroup', 'Everyone'
      *
-     * @param {boolean} [parameters.canDelegate] The delgation flag used for
+     * @param {boolean} [parameters.canDelegate] The delegation flag used for
      * creating a role assignment
      *
      * @param {object} [options] Optional Parameters.
@@ -782,7 +841,7 @@ export interface RoleAssignments {
      * 'ServicePrincipal', 'Unknown', 'DirectoryRoleTemplate', 'ForeignGroup',
      * 'Application', 'MSI', 'DirectoryObjectOrGroup', 'Everyone'
      *
-     * @param {boolean} [parameters.canDelegate] The delgation flag used for
+     * @param {boolean} [parameters.canDelegate] The delegation flag used for
      * creating a role assignment
      *
      * @param {object} [options] Optional Parameters.
@@ -817,7 +876,7 @@ export interface RoleAssignments {
      * 'ServicePrincipal', 'Unknown', 'DirectoryRoleTemplate', 'ForeignGroup',
      * 'Application', 'MSI', 'DirectoryObjectOrGroup', 'Everyone'
      *
-     * @param {boolean} [parameters.canDelegate] The delgation flag used for
+     * @param {boolean} [parameters.canDelegate] The delegation flag used for
      * creating a role assignment
      *
      * @param {object} [options] Optional Parameters.

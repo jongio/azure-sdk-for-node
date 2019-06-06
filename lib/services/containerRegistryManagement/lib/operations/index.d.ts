@@ -328,6 +328,35 @@ export interface Registries {
      *
      * @param {array} [registry.networkRuleSet.ipRules] The IP ACL rules.
      *
+     * @param {object} [registry.policies] The policies for a container registry.
+     *
+     * @param {object} [registry.policies.quarantinePolicy] The quarantine policy
+     * for a container registry.
+     *
+     * @param {string} [registry.policies.quarantinePolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.trustPolicy] The content trust policy for
+     * a container registry.
+     *
+     * @param {string} [registry.policies.trustPolicy.type] The type of trust
+     * policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registry.policies.trustPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.retentionPolicy] The retention policy for
+     * a container registry.
+     *
+     * @param {number} [registry.policies.retentionPolicy.days] The number of days
+     * to retain manifest before it expires.
+     *
+     * @param {string} [registry.policies.retentionPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
      * @param {string} registry.location The location of the resource. This cannot
      * be changed after the resource is created.
      *
@@ -382,6 +411,35 @@ export interface Registries {
      * network rules.
      *
      * @param {array} [registry.networkRuleSet.ipRules] The IP ACL rules.
+     *
+     * @param {object} [registry.policies] The policies for a container registry.
+     *
+     * @param {object} [registry.policies.quarantinePolicy] The quarantine policy
+     * for a container registry.
+     *
+     * @param {string} [registry.policies.quarantinePolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.trustPolicy] The content trust policy for
+     * a container registry.
+     *
+     * @param {string} [registry.policies.trustPolicy.type] The type of trust
+     * policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registry.policies.trustPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.retentionPolicy] The retention policy for
+     * a container registry.
+     *
+     * @param {number} [registry.policies.retentionPolicy.days] The number of days
+     * to retain manifest before it expires.
+     *
+     * @param {string} [registry.policies.retentionPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
      *
      * @param {string} registry.location The location of the resource. This cannot
      * be changed after the resource is created.
@@ -504,14 +562,6 @@ export interface Registries {
      * @param {boolean} [registryUpdateParameters.adminUserEnabled] The value that
      * indicates whether the admin user is enabled.
      *
-     * @param {object} [registryUpdateParameters.storageAccount] The parameters of
-     * a storage account for the container registry. Only applicable to Classic
-     * SKU. If specified, the storage account must be in the same physical location
-     * as the container registry.
-     *
-     * @param {string} registryUpdateParameters.storageAccount.id The resource ID
-     * of the storage account.
-     *
      * @param {object} [registryUpdateParameters.networkRuleSet] The network rule
      * set for a container registry.
      *
@@ -524,6 +574,36 @@ export interface Registries {
      *
      * @param {array} [registryUpdateParameters.networkRuleSet.ipRules] The IP ACL
      * rules.
+     *
+     * @param {object} [registryUpdateParameters.policies] The policies for a
+     * container registry.
+     *
+     * @param {object} [registryUpdateParameters.policies.quarantinePolicy] The
+     * quarantine policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.quarantinePolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.trustPolicy] The content
+     * trust policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.type] The
+     * type of trust policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.status] The
+     * value that indicates whether the policy is enabled or not. Possible values
+     * include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.retentionPolicy] The
+     * retention policy for a container registry.
+     *
+     * @param {number} [registryUpdateParameters.policies.retentionPolicy.days] The
+     * number of days to retain manifest before it expires.
+     *
+     * @param {string} [registryUpdateParameters.policies.retentionPolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -562,14 +642,6 @@ export interface Registries {
      * @param {boolean} [registryUpdateParameters.adminUserEnabled] The value that
      * indicates whether the admin user is enabled.
      *
-     * @param {object} [registryUpdateParameters.storageAccount] The parameters of
-     * a storage account for the container registry. Only applicable to Classic
-     * SKU. If specified, the storage account must be in the same physical location
-     * as the container registry.
-     *
-     * @param {string} registryUpdateParameters.storageAccount.id The resource ID
-     * of the storage account.
-     *
      * @param {object} [registryUpdateParameters.networkRuleSet] The network rule
      * set for a container registry.
      *
@@ -582,6 +654,36 @@ export interface Registries {
      *
      * @param {array} [registryUpdateParameters.networkRuleSet.ipRules] The IP ACL
      * rules.
+     *
+     * @param {object} [registryUpdateParameters.policies] The policies for a
+     * container registry.
+     *
+     * @param {object} [registryUpdateParameters.policies.quarantinePolicy] The
+     * quarantine policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.quarantinePolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.trustPolicy] The content
+     * trust policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.type] The
+     * type of trust policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.status] The
+     * value that indicates whether the policy is enabled or not. Possible values
+     * include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.retentionPolicy] The
+     * retention policy for a container registry.
+     *
+     * @param {number} [registryUpdateParameters.policies.retentionPolicy.days] The
+     * number of days to retain manifest before it expires.
+     *
+     * @param {string} [registryUpdateParameters.policies.retentionPolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -926,168 +1028,6 @@ export interface Registries {
 
 
     /**
-     * Lists the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @returns {Promise} A promise is returned
-     *
-     * @resolve {HttpOperationResponse<RegistryPolicies>} - The deserialized result object.
-     *
-     * @reject {Error|ServiceError} - The error object.
-     */
-    listPoliciesWithHttpOperationResponse(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.RegistryPolicies>>;
-
-    /**
-     * Lists the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @param {ServiceCallback} [optionalCallback] - The optional callback.
-     *
-     * @returns {ServiceCallback|Promise} If a callback was passed as the last
-     * parameter then it returns the callback else returns a Promise.
-     *
-     * {Promise} A promise is returned.
-     *
-     *                      @resolve {RegistryPolicies} - The deserialized result object.
-     *
-     *                      @reject {Error|ServiceError} - The error object.
-     *
-     * {ServiceCallback} optionalCallback(err, result, request, response)
-     *
-     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-     *
-     *                      {RegistryPolicies} [result]   - The deserialized result object if an error did not occur.
-     *                      See {@link RegistryPolicies} for more information.
-     *
-     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-     *
-     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-     */
-    listPolicies(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.RegistryPolicies>;
-    listPolicies(resourceGroupName: string, registryName: string, callback: ServiceCallback<models.RegistryPolicies>): void;
-    listPolicies(resourceGroupName: string, registryName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.RegistryPolicies>): void;
-
-
-    /**
-     * Updates the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} registryPoliciesUpdateParameters The parameters for updating
-     * policies of a container registry.
-     *
-     * @param {object} [registryPoliciesUpdateParameters.quarantinePolicy] An
-     * object that represents quarantine policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.quarantinePolicy.status]
-     * The value that indicates whether the policy is enabled or not. Possible
-     * values include: 'enabled', 'disabled'
-     *
-     * @param {object} [registryPoliciesUpdateParameters.trustPolicy] An object
-     * that represents content trust policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.type] The type
-     * of trust policy. Possible values include: 'Notary'
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.status] The
-     * value that indicates whether the policy is enabled or not. Possible values
-     * include: 'enabled', 'disabled'
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @returns {Promise} A promise is returned
-     *
-     * @resolve {HttpOperationResponse<RegistryPolicies>} - The deserialized result object.
-     *
-     * @reject {Error|ServiceError} - The error object.
-     */
-    updatePoliciesWithHttpOperationResponse(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.RegistryPolicies>>;
-
-    /**
-     * Updates the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} registryPoliciesUpdateParameters The parameters for updating
-     * policies of a container registry.
-     *
-     * @param {object} [registryPoliciesUpdateParameters.quarantinePolicy] An
-     * object that represents quarantine policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.quarantinePolicy.status]
-     * The value that indicates whether the policy is enabled or not. Possible
-     * values include: 'enabled', 'disabled'
-     *
-     * @param {object} [registryPoliciesUpdateParameters.trustPolicy] An object
-     * that represents content trust policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.type] The type
-     * of trust policy. Possible values include: 'Notary'
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.status] The
-     * value that indicates whether the policy is enabled or not. Possible values
-     * include: 'enabled', 'disabled'
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @param {ServiceCallback} [optionalCallback] - The optional callback.
-     *
-     * @returns {ServiceCallback|Promise} If a callback was passed as the last
-     * parameter then it returns the callback else returns a Promise.
-     *
-     * {Promise} A promise is returned.
-     *
-     *                      @resolve {RegistryPolicies} - The deserialized result object.
-     *
-     *                      @reject {Error|ServiceError} - The error object.
-     *
-     * {ServiceCallback} optionalCallback(err, result, request, response)
-     *
-     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-     *
-     *                      {RegistryPolicies} [result]   - The deserialized result object if an error did not occur.
-     *                      See {@link RegistryPolicies} for more information.
-     *
-     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-     *
-     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-     */
-    updatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.RegistryPolicies>;
-    updatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, callback: ServiceCallback<models.RegistryPolicies>): void;
-    updatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.RegistryPolicies>): void;
-
-
-    /**
      * Schedules a new run based on the request parameters and add it to the run
      * queue.
      *
@@ -1224,6 +1164,94 @@ export interface Registries {
     getBuildSourceUploadUrl(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.SourceUploadDefinition>;
     getBuildSourceUploadUrl(resourceGroupName: string, registryName: string, callback: ServiceCallback<models.SourceUploadDefinition>): void;
     getBuildSourceUploadUrl(resourceGroupName: string, registryName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.SourceUploadDefinition>): void;
+
+
+    /**
+     * Generate keys for a token of a specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} generateCredentialsParameters The parameters for generating
+     * credentials.
+     *
+     * @param {string} [generateCredentialsParameters.tokenId] The resource ID of
+     * the token for which credentials have to be generated.
+     *
+     * @param {date} [generateCredentialsParameters.expiry] The expiry date of the
+     * generated credentials after which the credentials become invalid.
+     *
+     * @param {string} [generateCredentialsParameters.name] Specifies name of the
+     * password which should be regenerated if any -- password or password2.
+     * Possible values include: 'password1', 'password2'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GenerateCredentialsResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    generateCredentialsWithHttpOperationResponse(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GenerateCredentialsResult>>;
+
+    /**
+     * Generate keys for a token of a specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} generateCredentialsParameters The parameters for generating
+     * credentials.
+     *
+     * @param {string} [generateCredentialsParameters.tokenId] The resource ID of
+     * the token for which credentials have to be generated.
+     *
+     * @param {date} [generateCredentialsParameters.expiry] The expiry date of the
+     * generated credentials after which the credentials become invalid.
+     *
+     * @param {string} [generateCredentialsParameters.name] Specifies name of the
+     * password which should be regenerated if any -- password or password2.
+     * Possible values include: 'password1', 'password2'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GenerateCredentialsResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GenerateCredentialsResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GenerateCredentialsResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    generateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GenerateCredentialsResult>;
+    generateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, callback: ServiceCallback<models.GenerateCredentialsResult>): void;
+    generateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GenerateCredentialsResult>): void;
 
 
     /**
@@ -1405,6 +1433,35 @@ export interface Registries {
      *
      * @param {array} [registry.networkRuleSet.ipRules] The IP ACL rules.
      *
+     * @param {object} [registry.policies] The policies for a container registry.
+     *
+     * @param {object} [registry.policies.quarantinePolicy] The quarantine policy
+     * for a container registry.
+     *
+     * @param {string} [registry.policies.quarantinePolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.trustPolicy] The content trust policy for
+     * a container registry.
+     *
+     * @param {string} [registry.policies.trustPolicy.type] The type of trust
+     * policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registry.policies.trustPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.retentionPolicy] The retention policy for
+     * a container registry.
+     *
+     * @param {number} [registry.policies.retentionPolicy.days] The number of days
+     * to retain manifest before it expires.
+     *
+     * @param {string} [registry.policies.retentionPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
      * @param {string} registry.location The location of the resource. This cannot
      * be changed after the resource is created.
      *
@@ -1459,6 +1516,35 @@ export interface Registries {
      * network rules.
      *
      * @param {array} [registry.networkRuleSet.ipRules] The IP ACL rules.
+     *
+     * @param {object} [registry.policies] The policies for a container registry.
+     *
+     * @param {object} [registry.policies.quarantinePolicy] The quarantine policy
+     * for a container registry.
+     *
+     * @param {string} [registry.policies.quarantinePolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.trustPolicy] The content trust policy for
+     * a container registry.
+     *
+     * @param {string} [registry.policies.trustPolicy.type] The type of trust
+     * policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registry.policies.trustPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
+     *
+     * @param {object} [registry.policies.retentionPolicy] The retention policy for
+     * a container registry.
+     *
+     * @param {number} [registry.policies.retentionPolicy.days] The number of days
+     * to retain manifest before it expires.
+     *
+     * @param {string} [registry.policies.retentionPolicy.status] The value that
+     * indicates whether the policy is enabled or not. Possible values include:
+     * 'enabled', 'disabled'
      *
      * @param {string} registry.location The location of the resource. This cannot
      * be changed after the resource is created.
@@ -1581,14 +1667,6 @@ export interface Registries {
      * @param {boolean} [registryUpdateParameters.adminUserEnabled] The value that
      * indicates whether the admin user is enabled.
      *
-     * @param {object} [registryUpdateParameters.storageAccount] The parameters of
-     * a storage account for the container registry. Only applicable to Classic
-     * SKU. If specified, the storage account must be in the same physical location
-     * as the container registry.
-     *
-     * @param {string} registryUpdateParameters.storageAccount.id The resource ID
-     * of the storage account.
-     *
      * @param {object} [registryUpdateParameters.networkRuleSet] The network rule
      * set for a container registry.
      *
@@ -1601,6 +1679,36 @@ export interface Registries {
      *
      * @param {array} [registryUpdateParameters.networkRuleSet.ipRules] The IP ACL
      * rules.
+     *
+     * @param {object} [registryUpdateParameters.policies] The policies for a
+     * container registry.
+     *
+     * @param {object} [registryUpdateParameters.policies.quarantinePolicy] The
+     * quarantine policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.quarantinePolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.trustPolicy] The content
+     * trust policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.type] The
+     * type of trust policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.status] The
+     * value that indicates whether the policy is enabled or not. Possible values
+     * include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.retentionPolicy] The
+     * retention policy for a container registry.
+     *
+     * @param {number} [registryUpdateParameters.policies.retentionPolicy.days] The
+     * number of days to retain manifest before it expires.
+     *
+     * @param {string} [registryUpdateParameters.policies.retentionPolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1639,14 +1747,6 @@ export interface Registries {
      * @param {boolean} [registryUpdateParameters.adminUserEnabled] The value that
      * indicates whether the admin user is enabled.
      *
-     * @param {object} [registryUpdateParameters.storageAccount] The parameters of
-     * a storage account for the container registry. Only applicable to Classic
-     * SKU. If specified, the storage account must be in the same physical location
-     * as the container registry.
-     *
-     * @param {string} registryUpdateParameters.storageAccount.id The resource ID
-     * of the storage account.
-     *
      * @param {object} [registryUpdateParameters.networkRuleSet] The network rule
      * set for a container registry.
      *
@@ -1659,6 +1759,36 @@ export interface Registries {
      *
      * @param {array} [registryUpdateParameters.networkRuleSet.ipRules] The IP ACL
      * rules.
+     *
+     * @param {object} [registryUpdateParameters.policies] The policies for a
+     * container registry.
+     *
+     * @param {object} [registryUpdateParameters.policies.quarantinePolicy] The
+     * quarantine policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.quarantinePolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.trustPolicy] The content
+     * trust policy for a container registry.
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.type] The
+     * type of trust policy. Possible values include: 'Notary'
+     *
+     * @param {string} [registryUpdateParameters.policies.trustPolicy.status] The
+     * value that indicates whether the policy is enabled or not. Possible values
+     * include: 'enabled', 'disabled'
+     *
+     * @param {object} [registryUpdateParameters.policies.retentionPolicy] The
+     * retention policy for a container registry.
+     *
+     * @param {number} [registryUpdateParameters.policies.retentionPolicy.days] The
+     * number of days to retain manifest before it expires.
+     *
+     * @param {string} [registryUpdateParameters.policies.retentionPolicy.status]
+     * The value that indicates whether the policy is enabled or not. Possible
+     * values include: 'enabled', 'disabled'
      *
      * @param {object} [options] Optional Parameters.
      *
@@ -1690,107 +1820,6 @@ export interface Registries {
     beginUpdate(resourceGroupName: string, registryName: string, registryUpdateParameters: models.RegistryUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Registry>;
     beginUpdate(resourceGroupName: string, registryName: string, registryUpdateParameters: models.RegistryUpdateParameters, callback: ServiceCallback<models.Registry>): void;
     beginUpdate(resourceGroupName: string, registryName: string, registryUpdateParameters: models.RegistryUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Registry>): void;
-
-
-    /**
-     * Updates the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} registryPoliciesUpdateParameters The parameters for updating
-     * policies of a container registry.
-     *
-     * @param {object} [registryPoliciesUpdateParameters.quarantinePolicy] An
-     * object that represents quarantine policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.quarantinePolicy.status]
-     * The value that indicates whether the policy is enabled or not. Possible
-     * values include: 'enabled', 'disabled'
-     *
-     * @param {object} [registryPoliciesUpdateParameters.trustPolicy] An object
-     * that represents content trust policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.type] The type
-     * of trust policy. Possible values include: 'Notary'
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.status] The
-     * value that indicates whether the policy is enabled or not. Possible values
-     * include: 'enabled', 'disabled'
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @returns {Promise} A promise is returned
-     *
-     * @resolve {HttpOperationResponse<RegistryPolicies>} - The deserialized result object.
-     *
-     * @reject {Error|ServiceError} - The error object.
-     */
-    beginUpdatePoliciesWithHttpOperationResponse(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.RegistryPolicies>>;
-
-    /**
-     * Updates the policies for the specified container registry.
-     *
-     * @param {string} resourceGroupName The name of the resource group to which
-     * the container registry belongs.
-     *
-     * @param {string} registryName The name of the container registry.
-     *
-     * @param {object} registryPoliciesUpdateParameters The parameters for updating
-     * policies of a container registry.
-     *
-     * @param {object} [registryPoliciesUpdateParameters.quarantinePolicy] An
-     * object that represents quarantine policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.quarantinePolicy.status]
-     * The value that indicates whether the policy is enabled or not. Possible
-     * values include: 'enabled', 'disabled'
-     *
-     * @param {object} [registryPoliciesUpdateParameters.trustPolicy] An object
-     * that represents content trust policy for a container registry.
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.type] The type
-     * of trust policy. Possible values include: 'Notary'
-     *
-     * @param {string} [registryPoliciesUpdateParameters.trustPolicy.status] The
-     * value that indicates whether the policy is enabled or not. Possible values
-     * include: 'enabled', 'disabled'
-     *
-     * @param {object} [options] Optional Parameters.
-     *
-     * @param {object} [options.customHeaders] Headers that will be added to the
-     * request
-     *
-     * @param {ServiceCallback} [optionalCallback] - The optional callback.
-     *
-     * @returns {ServiceCallback|Promise} If a callback was passed as the last
-     * parameter then it returns the callback else returns a Promise.
-     *
-     * {Promise} A promise is returned.
-     *
-     *                      @resolve {RegistryPolicies} - The deserialized result object.
-     *
-     *                      @reject {Error|ServiceError} - The error object.
-     *
-     * {ServiceCallback} optionalCallback(err, result, request, response)
-     *
-     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
-     *
-     *                      {RegistryPolicies} [result]   - The deserialized result object if an error did not occur.
-     *                      See {@link RegistryPolicies} for more information.
-     *
-     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
-     *
-     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
-     */
-    beginUpdatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.RegistryPolicies>;
-    beginUpdatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, callback: ServiceCallback<models.RegistryPolicies>): void;
-    beginUpdatePolicies(resourceGroupName: string, registryName: string, registryPoliciesUpdateParameters: models.RegistryPolicies, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.RegistryPolicies>): void;
 
 
     /**
@@ -1868,6 +1897,94 @@ export interface Registries {
     beginScheduleRun(resourceGroupName: string, registryName: string, runRequest: models.RunRequest, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Run>;
     beginScheduleRun(resourceGroupName: string, registryName: string, runRequest: models.RunRequest, callback: ServiceCallback<models.Run>): void;
     beginScheduleRun(resourceGroupName: string, registryName: string, runRequest: models.RunRequest, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Run>): void;
+
+
+    /**
+     * Generate keys for a token of a specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} generateCredentialsParameters The parameters for generating
+     * credentials.
+     *
+     * @param {string} [generateCredentialsParameters.tokenId] The resource ID of
+     * the token for which credentials have to be generated.
+     *
+     * @param {date} [generateCredentialsParameters.expiry] The expiry date of the
+     * generated credentials after which the credentials become invalid.
+     *
+     * @param {string} [generateCredentialsParameters.name] Specifies name of the
+     * password which should be regenerated if any -- password or password2.
+     * Possible values include: 'password1', 'password2'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<GenerateCredentialsResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginGenerateCredentialsWithHttpOperationResponse(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.GenerateCredentialsResult>>;
+
+    /**
+     * Generate keys for a token of a specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} generateCredentialsParameters The parameters for generating
+     * credentials.
+     *
+     * @param {string} [generateCredentialsParameters.tokenId] The resource ID of
+     * the token for which credentials have to be generated.
+     *
+     * @param {date} [generateCredentialsParameters.expiry] The expiry date of the
+     * generated credentials after which the credentials become invalid.
+     *
+     * @param {string} [generateCredentialsParameters.name] Specifies name of the
+     * password which should be regenerated if any -- password or password2.
+     * Possible values include: 'password1', 'password2'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {GenerateCredentialsResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {GenerateCredentialsResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link GenerateCredentialsResult} for more
+     *                      information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginGenerateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.GenerateCredentialsResult>;
+    beginGenerateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, callback: ServiceCallback<models.GenerateCredentialsResult>): void;
+    beginGenerateCredentials(resourceGroupName: string, registryName: string, generateCredentialsParameters: models.GenerateCredentialsParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.GenerateCredentialsResult>): void;
 
 
     /**
@@ -5785,4 +5902,1384 @@ export interface Tasks {
     listNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.TaskListResult>;
     listNext(nextPageLink: string, callback: ServiceCallback<models.TaskListResult>): void;
     listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TaskListResult>): void;
+}
+
+/**
+ * @class
+ * ScopeMaps
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the ContainerRegistryManagementClient.
+ */
+export interface ScopeMaps {
+
+
+    /**
+     * Gets the properties of the specified scope map.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMap>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMap>>;
+
+    /**
+     * Gets the properties of the specified scope map.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMap} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMap} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMap} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    get(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMap>;
+    get(resourceGroupName: string, registryName: string, scopeMapName: string, callback: ServiceCallback<models.ScopeMap>): void;
+    get(resourceGroupName: string, registryName: string, scopeMapName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMap>): void;
+
+
+    /**
+     * Creates a scope map for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapCreateParameters The parameters for creating a scope
+     * map.
+     *
+     * @param {string} [scopeMapCreateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} scopeMapCreateParameters.actions The list of scoped
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMap>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMap>>;
+
+    /**
+     * Creates a scope map for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapCreateParameters The parameters for creating a scope
+     * map.
+     *
+     * @param {string} [scopeMapCreateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} scopeMapCreateParameters.actions The list of scoped
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMap} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMap} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMap} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    create(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMap>;
+    create(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, callback: ServiceCallback<models.ScopeMap>): void;
+    create(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMap>): void;
+
+
+    /**
+     * Deletes a scope map from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteMethodWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes a scope map from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, callback: ServiceCallback<void>): void;
+    deleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Updates a scope map with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapUpdateParameters The parameters for updating a scope
+     * map.
+     *
+     * @param {string} [scopeMapUpdateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} [scopeMapUpdateParameters.actions] The list of scope
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMap>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    updateWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMap>>;
+
+    /**
+     * Updates a scope map with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapUpdateParameters The parameters for updating a scope
+     * map.
+     *
+     * @param {string} [scopeMapUpdateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} [scopeMapUpdateParameters.actions] The list of scope
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMap} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMap} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMap} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    update(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMap>;
+    update(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, callback: ServiceCallback<models.ScopeMap>): void;
+    update(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMap>): void;
+
+
+    /**
+     * Lists all the scope maps for the specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMapListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listWithHttpOperationResponse(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMapListResult>>;
+
+    /**
+     * Lists all the scope maps for the specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMapListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMapListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMapListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    list(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMapListResult>;
+    list(resourceGroupName: string, registryName: string, callback: ServiceCallback<models.ScopeMapListResult>): void;
+    list(resourceGroupName: string, registryName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMapListResult>): void;
+
+
+    /**
+     * Creates a scope map for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapCreateParameters The parameters for creating a scope
+     * map.
+     *
+     * @param {string} [scopeMapCreateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} scopeMapCreateParameters.actions The list of scoped
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMap>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMap>>;
+
+    /**
+     * Creates a scope map for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapCreateParameters The parameters for creating a scope
+     * map.
+     *
+     * @param {string} [scopeMapCreateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} scopeMapCreateParameters.actions The list of scoped
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMap} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMap} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMap} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMap>;
+    beginCreate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, callback: ServiceCallback<models.ScopeMap>): void;
+    beginCreate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapCreateParameters: models.ScopeMap, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMap>): void;
+
+
+    /**
+     * Deletes a scope map from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes a scope map from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, callback: ServiceCallback<void>): void;
+    beginDeleteMethod(resourceGroupName: string, registryName: string, scopeMapName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Updates a scope map with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapUpdateParameters The parameters for updating a scope
+     * map.
+     *
+     * @param {string} [scopeMapUpdateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} [scopeMapUpdateParameters.actions] The list of scope
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMap>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginUpdateWithHttpOperationResponse(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMap>>;
+
+    /**
+     * Updates a scope map with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} scopeMapName The name of the scope map.
+     *
+     * @param {object} scopeMapUpdateParameters The parameters for updating a scope
+     * map.
+     *
+     * @param {string} [scopeMapUpdateParameters.description] The user friendly
+     * description of the scope map.
+     *
+     * @param {array} [scopeMapUpdateParameters.actions] The list of scope
+     * permissions for registry artifacts.
+     * E.g. repositories/repository-name/pull,
+     * repositories/repository-name/delete
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMap} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMap} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMap} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginUpdate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMap>;
+    beginUpdate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, callback: ServiceCallback<models.ScopeMap>): void;
+    beginUpdate(resourceGroupName: string, registryName: string, scopeMapName: string, scopeMapUpdateParameters: models.ScopeMapUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMap>): void;
+
+
+    /**
+     * Lists all the scope maps for the specified container registry.
+     *
+     * @param {string} nextPageLink The NextLink from the previous successful call
+     * to List operation.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<ScopeMapListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.ScopeMapListResult>>;
+
+    /**
+     * Lists all the scope maps for the specified container registry.
+     *
+     * @param {string} nextPageLink The NextLink from the previous successful call
+     * to List operation.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {ScopeMapListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {ScopeMapListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link ScopeMapListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.ScopeMapListResult>;
+    listNext(nextPageLink: string, callback: ServiceCallback<models.ScopeMapListResult>): void;
+    listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.ScopeMapListResult>): void;
+}
+
+/**
+ * @class
+ * Tokens
+ * __NOTE__: An instance of this class is automatically created for an
+ * instance of the ContainerRegistryManagementClient.
+ */
+export interface Tokens {
+
+
+    /**
+     * Gets the properties of the specified token.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Token>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    getWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Token>>;
+
+    /**
+     * Gets the properties of the specified token.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Token} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Token} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Token} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    get(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Token>;
+    get(resourceGroupName: string, registryName: string, tokenName: string, callback: ServiceCallback<models.Token>): void;
+    get(resourceGroupName: string, registryName: string, tokenName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Token>): void;
+
+
+    /**
+     * Creates a token for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenCreateParameters The parameters for creating a token.
+     *
+     * @param {string} [tokenCreateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenCreateParameters.objectId] The user/group/application
+     * object ID for which the token has to be created.
+     *
+     * @param {object} [tokenCreateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenCreateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenCreateParameters.credentials.passwords]
+     *
+     * @param {string} [tokenCreateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Token>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    createWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Token>>;
+
+    /**
+     * Creates a token for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenCreateParameters The parameters for creating a token.
+     *
+     * @param {string} [tokenCreateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenCreateParameters.objectId] The user/group/application
+     * object ID for which the token has to be created.
+     *
+     * @param {object} [tokenCreateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenCreateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenCreateParameters.credentials.passwords]
+     *
+     * @param {string} [tokenCreateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Token} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Token} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Token} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    create(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Token>;
+    create(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, callback: ServiceCallback<models.Token>): void;
+    create(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Token>): void;
+
+
+    /**
+     * Deletes a token from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    deleteMethodWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes a token from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    deleteMethod(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    deleteMethod(resourceGroupName: string, registryName: string, tokenName: string, callback: ServiceCallback<void>): void;
+    deleteMethod(resourceGroupName: string, registryName: string, tokenName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Updates a token with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenUpdateParameters The parameters for updating a token.
+     *
+     * @param {string} [tokenUpdateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenUpdateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [tokenUpdateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenUpdateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenUpdateParameters.credentials.passwords]
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Token>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    updateWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Token>>;
+
+    /**
+     * Updates a token with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenUpdateParameters The parameters for updating a token.
+     *
+     * @param {string} [tokenUpdateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenUpdateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [tokenUpdateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenUpdateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenUpdateParameters.credentials.passwords]
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Token} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Token} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Token} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    update(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Token>;
+    update(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, callback: ServiceCallback<models.Token>): void;
+    update(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Token>): void;
+
+
+    /**
+     * Lists all the tokens for the specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<TokenListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listWithHttpOperationResponse(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TokenListResult>>;
+
+    /**
+     * Lists all the tokens for the specified container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {TokenListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {TokenListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link TokenListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    list(resourceGroupName: string, registryName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.TokenListResult>;
+    list(resourceGroupName: string, registryName: string, callback: ServiceCallback<models.TokenListResult>): void;
+    list(resourceGroupName: string, registryName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TokenListResult>): void;
+
+
+    /**
+     * Creates a token for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenCreateParameters The parameters for creating a token.
+     *
+     * @param {string} [tokenCreateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenCreateParameters.objectId] The user/group/application
+     * object ID for which the token has to be created.
+     *
+     * @param {object} [tokenCreateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenCreateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenCreateParameters.credentials.passwords]
+     *
+     * @param {string} [tokenCreateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Token>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginCreateWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Token>>;
+
+    /**
+     * Creates a token for a container registry with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenCreateParameters The parameters for creating a token.
+     *
+     * @param {string} [tokenCreateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenCreateParameters.objectId] The user/group/application
+     * object ID for which the token has to be created.
+     *
+     * @param {object} [tokenCreateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenCreateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenCreateParameters.credentials.passwords]
+     *
+     * @param {string} [tokenCreateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Token} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Token} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Token} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginCreate(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Token>;
+    beginCreate(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, callback: ServiceCallback<models.Token>): void;
+    beginCreate(resourceGroupName: string, registryName: string, tokenName: string, tokenCreateParameters: models.Token, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Token>): void;
+
+
+    /**
+     * Deletes a token from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<null>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginDeleteMethodWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<void>>;
+
+    /**
+     * Deletes a token from a container registry.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {null} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {null} [result]   - The deserialized result object if an error did not occur.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginDeleteMethod(resourceGroupName: string, registryName: string, tokenName: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<void>;
+    beginDeleteMethod(resourceGroupName: string, registryName: string, tokenName: string, callback: ServiceCallback<void>): void;
+    beginDeleteMethod(resourceGroupName: string, registryName: string, tokenName: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<void>): void;
+
+
+    /**
+     * Updates a token with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenUpdateParameters The parameters for updating a token.
+     *
+     * @param {string} [tokenUpdateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenUpdateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [tokenUpdateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenUpdateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenUpdateParameters.credentials.passwords]
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<Token>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    beginUpdateWithHttpOperationResponse(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.Token>>;
+
+    /**
+     * Updates a token with the specified parameters.
+     *
+     * @param {string} resourceGroupName The name of the resource group to which
+     * the container registry belongs.
+     *
+     * @param {string} registryName The name of the container registry.
+     *
+     * @param {string} tokenName The name of the token.
+     *
+     * @param {object} tokenUpdateParameters The parameters for updating a token.
+     *
+     * @param {string} [tokenUpdateParameters.scopeMapId] The resource ID of the
+     * scope map to which the token will be associated with.
+     *
+     * @param {string} [tokenUpdateParameters.status] The status of the token
+     * example enabled or disabled. Possible values include: 'enabled', 'disabled'
+     *
+     * @param {object} [tokenUpdateParameters.credentials] The credentials that can
+     * be used for authenticating the token.
+     *
+     * @param {array} [tokenUpdateParameters.credentials.certificates]
+     *
+     * @param {array} [tokenUpdateParameters.credentials.passwords]
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {Token} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {Token} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link Token} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    beginUpdate(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.Token>;
+    beginUpdate(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, callback: ServiceCallback<models.Token>): void;
+    beginUpdate(resourceGroupName: string, registryName: string, tokenName: string, tokenUpdateParameters: models.TokenUpdateParameters, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.Token>): void;
+
+
+    /**
+     * Lists all the tokens for the specified container registry.
+     *
+     * @param {string} nextPageLink The NextLink from the previous successful call
+     * to List operation.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @returns {Promise} A promise is returned
+     *
+     * @resolve {HttpOperationResponse<TokenListResult>} - The deserialized result object.
+     *
+     * @reject {Error|ServiceError} - The error object.
+     */
+    listNextWithHttpOperationResponse(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<HttpOperationResponse<models.TokenListResult>>;
+
+    /**
+     * Lists all the tokens for the specified container registry.
+     *
+     * @param {string} nextPageLink The NextLink from the previous successful call
+     * to List operation.
+     *
+     * @param {object} [options] Optional Parameters.
+     *
+     * @param {object} [options.customHeaders] Headers that will be added to the
+     * request
+     *
+     * @param {ServiceCallback} [optionalCallback] - The optional callback.
+     *
+     * @returns {ServiceCallback|Promise} If a callback was passed as the last
+     * parameter then it returns the callback else returns a Promise.
+     *
+     * {Promise} A promise is returned.
+     *
+     *                      @resolve {TokenListResult} - The deserialized result object.
+     *
+     *                      @reject {Error|ServiceError} - The error object.
+     *
+     * {ServiceCallback} optionalCallback(err, result, request, response)
+     *
+     *                      {Error|ServiceError}  err        - The Error object if an error occurred, null otherwise.
+     *
+     *                      {TokenListResult} [result]   - The deserialized result object if an error did not occur.
+     *                      See {@link TokenListResult} for more information.
+     *
+     *                      {WebResource} [request]  - The HTTP Request object if an error did not occur.
+     *
+     *                      {http.IncomingMessage} [response] - The HTTP Response stream if an error did not occur.
+     */
+    listNext(nextPageLink: string, options?: { customHeaders? : { [headerName: string]: string; } }): Promise<models.TokenListResult>;
+    listNext(nextPageLink: string, callback: ServiceCallback<models.TokenListResult>): void;
+    listNext(nextPageLink: string, options: { customHeaders? : { [headerName: string]: string; } }, callback: ServiceCallback<models.TokenListResult>): void;
 }
