@@ -3,8 +3,7 @@ uid: azure-arm-containerservice
 summary: *content
 
 ---
-**This SDK will be deprecated next year and will be replaced by a new TypeScript-based isomorphic SDK (found at https://www.npmjs.com/package/@azure/arm-containerservice) which works on Node.js and browsers.**
-**See https://aka.ms/azure-sdk-for-js-migration to learn more.**
+**This SDK will be deprecated next year and will be replaced by a new TypeScript-based isomorphic SDK (found at https://github.com/Azure/azure-sdk-for-js) which works on Node.js and browsers.**
 ## Microsoft Azure SDK for Node.js - ContainerServiceClient
 
 This project provides a Node.js package for accessing Azure. Right now it supports:
@@ -21,7 +20,7 @@ npm install azure-arm-containerservice
 
 ### How to use
 
-#### Authentication, client creation, and list openShiftManagedClusters as an example.
+#### Authentication, client creation, and listOrchestrators containerServices as an example.
 
 ```javascript
 const msRestAzure = require("ms-rest-azure");
@@ -29,8 +28,10 @@ const ContainerServiceClient = require("azure-arm-containerservice");
 msRestAzure.interactiveLogin().then((creds) => {
   const subscriptionId = "<Subscription_Id>";
   const client = new ContainerServiceClient(creds, subscriptionId);
+  const location = "westus";
+  const resourceType = "testresourceType";
 
-  return client.openShiftManagedClusters.list().then((result) => {
+  return client.containerServices.listOrchestrators(location, resourceType).then((result) => {
     console.log("The result is:");
     console.log(result);
   });
